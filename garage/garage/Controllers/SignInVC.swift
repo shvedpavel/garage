@@ -6,18 +6,25 @@
 //
 
 import UIKit
-
+//import Firebase
+//import FirebaseAuth
 
 class SignInVC: UIViewController {
     
     // MARK: - Properties
+//    var ref: DatabaseReference
+    
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
     @IBOutlet weak var noAccountLbL: UILabel!
-    @IBOutlet weak var forgetPassword: UILabel!
-    @IBOutlet weak var registerLbl: UILabel!
+    
+    @IBOutlet weak var forgetPassword: UIButton!
+    
+    @IBOutlet weak var register: UIButton!
     @IBOutlet weak var button: UIButton!
     
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     
     // MARK: - Life cycle
 
@@ -25,10 +32,15 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
+//        ref = Database.database().reference(withPath: "users")
     }
     
     
+    @IBAction func forgetPasswordBtn(_ sender: UIButton) {
+    }
     
+    @IBAction func registerBtn(_ sender: UIButton) {
+    }
     
 
     /*
@@ -48,8 +60,8 @@ class SignInVC: UIViewController {
         emailLbl.textColor = Theme.currentTheme.textColor
         passwordLbl.textColor = Theme.currentTheme.textColor
         noAccountLbL.textColor = Theme.currentTheme.textColor
-        forgetPassword.textColor = Theme.currentTheme.textColorForReference
-        registerLbl.textColor = Theme.currentTheme.textColorForReference
+        register.tintColor = Theme.currentTheme.textColorForReference
+        forgetPassword.tintColor = Theme.currentTheme.textColorForReference
         button.tintColor = Theme.currentTheme.buttonColor
         
     }
