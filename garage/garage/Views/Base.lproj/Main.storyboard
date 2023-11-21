@@ -250,6 +250,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="nameTF:" destination="EFp-Yo-dzi" eventType="editingDidEnd" id="Bnm-dG-KlU"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -269,6 +272,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="emailTF:" destination="EFp-Yo-dzi" eventType="editingDidEnd" id="Fvz-dH-aPX"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -288,6 +294,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="passwordTF:" destination="EFp-Yo-dzi" eventType="editingDidEnd" id="VhQ-BA-B3H"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -307,6 +316,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="cinfirnPasswordTF:" destination="EFp-Yo-dzi" eventType="editingDidEnd" id="5D2-Ru-hTJ"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -316,7 +328,10 @@
                                             <constraint firstAttribute="height" constant="56" id="ClI-e7-rTS"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Зарегистрироваться"/>
+                                        <connections>
+                                            <action selector="registrationBtb:" destination="EFp-Yo-dzi" eventType="touchUpInside" id="6a6-lz-MfZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -330,6 +345,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Регистрация" id="0cu-gW-fzJ"/>
+                    <connections>
+                        <outlet property="confirmPasswordLbl" destination="r0d-tK-aoZ" id="DyA-H2-bkt"/>
+                        <outlet property="confirnPasswordTF" destination="NVM-cn-dsq" id="Ljd-EN-gyt"/>
+                        <outlet property="emailLbl" destination="cql-v8-Ned" id="D3f-AU-D5V"/>
+                        <outlet property="emailTF" destination="c1i-Bz-zDe" id="Lmu-Ep-QsE"/>
+                        <outlet property="nameLbl" destination="TbA-1X-6He" id="vfQ-KI-Qg3"/>
+                        <outlet property="nameTF" destination="1yn-gX-LsF" id="FMN-G0-4eS"/>
+                        <outlet property="passwordLbl" destination="grA-jc-Q3a" id="Ldy-vN-jBw"/>
+                        <outlet property="passwordTF" destination="Efk-Q6-wwB" id="WBO-m5-ZZo"/>
+                        <outlet property="registration" destination="IFM-3V-qmF" id="X0Y-ry-164"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMh-TD-1xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

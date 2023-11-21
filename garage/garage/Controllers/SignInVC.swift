@@ -12,7 +12,7 @@ import UIKit
 class SignInVC: UIViewController {
     
     // MARK: - Properties
-//    var ref: DatabaseReference
+
     
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
