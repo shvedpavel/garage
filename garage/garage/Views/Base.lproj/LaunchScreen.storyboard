@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="garageLbl" translatesAutoresizingMaskIntoConstraints="NO" id="dPe-Hc-6fR">
+                                <rect key="frame" x="94" y="338.5" width="226" height="229"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="229" id="JlI-Wa-OLv"/>
+                                    <constraint firstAttribute="width" constant="226" id="QDx-F2-mPI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="buttonColor"/>
+                        <constraints>
+                            <constraint firstItem="dPe-Hc-6fR" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Yjb-WU-4AC"/>
+                            <constraint firstItem="dPe-Hc-6fR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sus-q1-8yJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Bv-2N-ogy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962.31884057971024" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="garageLbl" width="229" height="226"/>
+        <namedColor name="buttonColor">
+            <color red="0.75686274509803919" green="0.23137254901960785" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
