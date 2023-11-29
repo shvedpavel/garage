@@ -6,8 +6,8 @@
 //
 
 import UIKit
-//import Firebase
-//import FirebaseAuth
+import Firebase
+import FirebaseAuth
 
 class SignInVC: UIViewController {
     
@@ -33,14 +33,39 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
         applyTheme()
 //        ref = Database.database().reference(withPath: "users")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: UIWindow.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIWindow.keyboardWillHideNotification, object: nil)
+        
+        emailTF.delegate = self
+        passwordTF.delegate = self
+    }
+    
+    // MARK: - Actions
+//    @IBAction func forgetPasswordBtn(_ sender: UIButton) {
+//    }
+    
+//    @IBAction func registerBtn(_ sender: UIButton) {
+//    }
+    @IBAction func signIn(_ sender: UIButton) {
+        guard let email = emailTF.text,
+              let password = passwordTF.text,
+              !email.isEmpty, !password.isEmpty
+        else  {
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
+            if let error = error {
+                print(error.localizedDescription)
+                //добавить изменение цвета при ошибке
+                
+            } else if let user = user {
+                self?.performSegue(withIdentifier: "goToHomePage", sender: nil)
+            }
+        }
     }
     
     
-    @IBAction func forgetPasswordBtn(_ sender: UIButton) {
-    }
-    
-    @IBAction func registerBtn(_ sender: UIButton) {
-    }
     
 
     /*
@@ -63,7 +88,25 @@ class SignInVC: UIViewController {
         register.tintColor = Theme.currentTheme.textColorForReference
         forgetPassword.tintColor = Theme.currentTheme.textColorForReference
         button.tintColor = Theme.currentTheme.buttonColor
-        
+    }
+    
+    @objc
+    private func kbWillShow(notification: Notification) {
+        view.frame.origin.y = 0
+        if let keyboardsize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            view.frame.origin.y -= keyboardsize.height / 2
+        }
+    }
+    @objc
+    private func kbWillHide(notification: Notification) {
+        view.frame.origin.y = 0
     }
 
+}
+
+extension SignInVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }

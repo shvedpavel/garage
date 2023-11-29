@@ -12,6 +12,7 @@ import FirebaseAuth
 class RegistrationVC: UIViewController {
     // MARK: - Properties
     var ref: DatabaseReference!
+    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
     
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
@@ -27,8 +28,10 @@ class RegistrationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
-        
         ref = Database.database().reference(withPath: "users")
+        stateDidChangeListenerHandle()
+        
+        
     }
     
     
@@ -39,18 +42,26 @@ class RegistrationVC: UIViewController {
               let password = passwordTF.text,
               let confirnPassword = confirnPasswordTF.text,
               !name.isEmpty, !email.isEmpty, !password.isEmpty, !confirnPassword.isEmpty
-                //добавить проверkу на совпадение пароля и чтобы TF подввечивался красным при неверном ввводе
-        else { return }
+        else  {
+            //добавить проверkу на совпадение пароля и чтобы TF подввечивался красным при отсутствии жанных
+            return
+            
+        }
         
+                
         Auth.auth().createUser(withEmail: email, password: password) { [ weak self ] user, error in
             if let error = error {
                 print(error)
-                //обратобрть более понятно ошибки
+                self?.errorNotification(object: self?.emailTF)
+                self?.errorNotification(object: self?.passwordTF)
+                
             } else if let user = user {
                 let userRef = self?.ref.child(user.user.uid)
                 userRef?.setValue(["email": user.user.email])
+                self?.navigationController?.popToRootViewController(animated: true)
             }
         }
+       
     }
     
     
@@ -63,15 +74,7 @@ class RegistrationVC: UIViewController {
     }
     @IBAction func cinfirnPasswordTF(_ sender: UITextField) {
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
     
     // MARK: - Private functions
     
@@ -82,8 +85,29 @@ class RegistrationVC: UIViewController {
         passwordLbl.textColor = Theme.currentTheme.textColor
         confirmPasswordLbl.textColor = Theme.currentTheme.textColor
         registration.tintColor = Theme.currentTheme.buttonColor
-        
+    }
+    
+    private func errorNotification (object: UITextField!) {
+        guard let object = object else { return }
+         object.backgroundColor = .red.withAlphaComponent(0.05)
+    }
+    
+    private func errorNotification2 (object: UITextField!) {
+        guard let object = object else { return }
+         object.backgroundColor = .red.withAlphaComponent(0.05)
+        //убирать заливку посмле очищения TF
+    }
+    
+    private func stateDidChangeListenerHandle() {
+        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
+            guard let _ = user else { return }
+        })
     }
     
 
+   
+    
+    deinit {
+        print("deinited registrationVC")
+    }
 }
