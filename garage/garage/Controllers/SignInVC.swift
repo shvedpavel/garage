@@ -13,6 +13,7 @@ class SignInVC: UIViewController {
     
     // MARK: - Properties
 
+    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
     
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
@@ -27,13 +28,10 @@ class SignInVC: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     
     // MARK: - Life cycle
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
-//        ref = Database.database().reference(withPath: "users")
-        
+        stateDidChangeListenerHandle()
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: UIWindow.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIWindow.keyboardWillHideNotification, object: nil)
         
@@ -41,12 +39,21 @@ class SignInVC: UIViewController {
         passwordTF.delegate = self
     }
     
-    // MARK: - Actions
-//    @IBAction func forgetPasswordBtn(_ sender: UIButton) {
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailTF.text = nil
+        passwordTF.text = nil
+        emailTF.backgroundColor = nil
+        passwordTF.backgroundColor = nil
+        
+    }
     
-//    @IBAction func registerBtn(_ sender: UIButton) {
-//    }
+    // MARK: - Actions
+    @IBAction func forgetPasswordBtn(_ sender: UIButton) {
+    }
+    
+    @IBAction func registerBtn(_ sender: UIButton) {
+    }
     @IBAction func signIn(_ sender: UIButton) {
         guard let email = emailTF.text,
               let password = passwordTF.text,
@@ -57,29 +64,16 @@ class SignInVC: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
             if let error = error {
                 print(error.localizedDescription)
-                //добавить изменение цвета при ошибке
-                
+                //обработать в зависимости от конкретного поля
+                self?.errorNotification(object: self?.emailTF)
+                self?.errorNotification(object: self?.passwordTF)
             } else if let user = user {
                 self?.performSegue(withIdentifier: "goToHomePage", sender: nil)
             }
         }
     }
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+ 
     // MARK: - Private functions
-    
     private func applyTheme() {
         self.view.backgroundColor = Theme.currentTheme.backgroundColor
         emailLbl.textColor = Theme.currentTheme.textColor
@@ -90,6 +84,17 @@ class SignInVC: UIViewController {
         button.tintColor = Theme.currentTheme.buttonColor
     }
     
+    private func stateDidChangeListenerHandle() {
+        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
+            guard let _ = user else { return }
+        })
+    }
+    
+    private func errorNotification (object: UITextField!) {
+        guard let object = object else { return }
+         object.backgroundColor = .red.withAlphaComponent(0.05)
+    }
+    
     @objc
     private func kbWillShow(notification: Notification) {
         view.frame.origin.y = 0
@@ -97,13 +102,20 @@ class SignInVC: UIViewController {
             view.frame.origin.y -= keyboardsize.height / 2
         }
     }
+    
     @objc
     private func kbWillHide(notification: Notification) {
         view.frame.origin.y = 0
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+        Auth.auth().removeStateDidChangeListener(authStateDidChangeListenerHandle)
+    }
 }
 
+// MARK: - Extension
 extension SignInVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

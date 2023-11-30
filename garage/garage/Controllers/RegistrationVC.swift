@@ -12,7 +12,6 @@ import FirebaseAuth
 class RegistrationVC: UIViewController {
     // MARK: - Properties
     var ref: DatabaseReference!
-    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
     
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
@@ -29,12 +28,10 @@ class RegistrationVC: UIViewController {
         super.viewDidLoad()
         applyTheme()
         ref = Database.database().reference(withPath: "users")
-        stateDidChangeListenerHandle()
-        
-        
     }
     
     
+
     // MARK: - Actions
     @IBAction func registrationBtb(_ sender: UIButton) {
         guard let name = nameTF.text,
@@ -45,36 +42,21 @@ class RegistrationVC: UIViewController {
         else  {
             //добавить проверkу на совпадение пароля и чтобы TF подввечивался красным при отсутствии жанных
             return
-            
         }
         
-                
         Auth.auth().createUser(withEmail: email, password: password) { [ weak self ] user, error in
             if let error = error {
                 print(error)
+                //обработать в зависимости от конкретного поля
                 self?.errorNotification(object: self?.emailTF)
                 self?.errorNotification(object: self?.passwordTF)
-                
             } else if let user = user {
                 let userRef = self?.ref.child(user.user.uid)
                 userRef?.setValue(["email": user.user.email])
                 self?.navigationController?.popToRootViewController(animated: true)
             }
         }
-       
     }
-    
-    
-    @IBAction func nameTF(_ sender: UITextField) {
-    }
-    
-    @IBAction func emailTF(_ sender: UITextField) {
-    }
-    @IBAction func passwordTF(_ sender: UITextField) {
-    }
-    @IBAction func cinfirnPasswordTF(_ sender: UITextField) {
-    }
-   
     
     // MARK: - Private functions
     
@@ -91,21 +73,8 @@ class RegistrationVC: UIViewController {
         guard let object = object else { return }
          object.backgroundColor = .red.withAlphaComponent(0.05)
     }
+    //убирать заливку посмле очищения TF
     
-    private func errorNotification2 (object: UITextField!) {
-        guard let object = object else { return }
-         object.backgroundColor = .red.withAlphaComponent(0.05)
-        //убирать заливку посмле очищения TF
-    }
-    
-    private func stateDidChangeListenerHandle() {
-        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
-            guard let _ = user else { return }
-        })
-    }
-    
-
-   
     
     deinit {
         print("deinited registrationVC")

@@ -255,9 +255,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="nameTF:" destination="EFp-Yo-dzi" eventType="editingDidEnd" id="Bnm-dG-KlU"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -277,9 +274,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <action selector="emailTF:" destination="EFp-Yo-dzi" eventType="editingDidEnd" id="Fvz-dH-aPX"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -299,9 +293,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                                <connections>
-                                                    <action selector="passwordTF:" destination="EFp-Yo-dzi" eventType="editingDidEnd" id="VhQ-BA-B3H"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -321,9 +312,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                                <connections>
-                                                    <action selector="cinfirnPasswordTF:" destination="EFp-Yo-dzi" eventType="editingDidEnd" id="5D2-Ru-hTJ"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
