@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02565A2B17D3B2007B18B7 /* SettingsVC.swift */; };
+		FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1AE12B1D32C40079202A /* EyeButton.swift */; };
 		FA7A02F32B0C1C55003BE2D6 /* ForgetPasswodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F22B0C1C55003BE2D6 /* ForgetPasswodVC.swift */; };
 		FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */; };
 		FA7A02FB2B0C2BA9003BE2D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FA2B0C2BA9003BE2D6 /* FirebaseAnalytics */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		FA02565A2B17D3B2007B18B7 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		FA4E1AE12B1D32C40079202A /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
 		FA7A02F22B0C1C55003BE2D6 /* ForgetPasswodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswodVC.swift; sourceTree = "<group>"; };
 		FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FA9DEA242B0B8E4100F65796 /* garage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = garage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				FA9DEA3F2B0BB7FD00F65796 /* SignInVC.swift */,
+				FA4E1AE12B1D32C40079202A /* EyeButton.swift */,
 				FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */,
 				FA7A02F22B0C1C55003BE2D6 /* ForgetPasswodVC.swift */,
 				FAA4AA462B16056600A75E01 /* HomePageVC.swift */,
@@ -218,6 +221,7 @@
 				FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */,
 				FA9DEA2A2B0B8E4100F65796 /* SceneDelegate.swift in Sources */,
 				FA9DEA442B0BBF3C00F65796 /* ColorModel.swift in Sources */,
+				FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

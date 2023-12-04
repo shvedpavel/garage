@@ -15,6 +15,10 @@ class SignInVC: UIViewController {
 
     var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
     
+    private let eyeButton = EyeButton()
+    
+    private var isPrivate = true
+    
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
     @IBOutlet weak var noAccountLbL: UILabel!
@@ -25,7 +29,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var button: UIButton!
     
     @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet  var passwordTF: UITextField!
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -37,6 +41,9 @@ class SignInVC: UIViewController {
         
         emailTF.delegate = self
         passwordTF.delegate = self
+        
+        setupPasswordTF()
+        addActions()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +54,8 @@ class SignInVC: UIViewController {
         passwordTF.backgroundColor = nil
         
     }
+    
+    
     
     // MARK: - Actions
     @IBAction func forgetPasswordBtn(_ sender: UIButton) {
@@ -107,6 +116,16 @@ class SignInVC: UIViewController {
     private func kbWillHide(notification: Notification) {
         view.frame.origin.y = 0
     }
+    ///метод для  отображения картинки на кнопке
+    @objc
+    private func displayBookMarks() {
+        let imageName = isPrivate ? "eye" : "eye.slash"
+        
+        passwordTF.isSecureTextEntry.toggle()
+        eyeButton.setImage(UIImage(systemName: imageName), for: .normal)
+        isPrivate.toggle()
+        
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -120,5 +139,27 @@ extension SignInVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text  = textField.text else { return }
+        eyeButton.isEnabled = !text.isEmpty
+    }
+    
+}
+private extension SignInVC {
+    ///метод добавления кнопки на TF
+    func setupPasswordTF() {
+        ///отслеживаем пустое поле или нет
+        passwordTF.delegate = self
+        
+        ///добавляем элемент с нужной стороны
+        passwordTF.rightView = eyeButton
+        ///устанавливаем, когда  отображать
+        passwordTF.rightViewMode = .always
+    }
+    /// метод для реализации action
+    func addActions() {
+        eyeButton.addTarget(self, action: #selector(displayBookMarks), for: .touchUpInside)
     }
 }

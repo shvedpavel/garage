@@ -13,6 +13,13 @@ class RegistrationVC: UIViewController {
     // MARK: - Properties
     var ref: DatabaseReference!
     
+    private let eyeButtonPassword = EyeButton()
+    private let eyeButtonconfirnPassword = EyeButton()
+    
+    private var isPrivate = true
+//    private var isPrivateConfirnPassword = true
+    
+    
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
@@ -28,6 +35,10 @@ class RegistrationVC: UIViewController {
         super.viewDidLoad()
         applyTheme()
         ref = Database.database().reference(withPath: "users")
+        
+        setupPasswordTF(textField: passwordTF, button: eyeButtonPassword)
+        setupPasswordTF(textField: confirnPasswordTF, button: eyeButtonconfirnPassword)
+        addActions()
     }
     
     
@@ -76,7 +87,58 @@ class RegistrationVC: UIViewController {
     //убирать заливку посмле очищения TF
     
     
+    ///метод для  отображения картинки на кнопке
+    
+    @objc
+    private func displayBookMarks1() {
+        let imageName = isPrivate ? "eye" : "eye.slash"
+        
+        passwordTF.isSecureTextEntry.toggle()
+        eyeButtonPassword.setImage(UIImage(systemName: imageName), for: .normal)
+        isPrivate.toggle()
+    }
+    
+    @objc
+    private func displayBookMarks2() {
+        let imageName = isPrivate ? "eye" : "eye.slash"
+        
+        confirnPasswordTF.isSecureTextEntry.toggle()
+        eyeButtonconfirnPassword.setImage(UIImage(systemName: imageName), for: .normal)
+        isPrivate.toggle()
+    }
+    
+    
     deinit {
         print("deinited registrationVC")
+    }
+}
+
+extension RegistrationVC: UITextFieldDelegate {
+   
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text  = passwordTF.text else { return }
+        eyeButtonPassword.isEnabled = !text.isEmpty
+        
+        guard let text  = confirnPasswordTF.text else { return }
+        eyeButtonconfirnPassword.isEnabled = !text.isEmpty
+        
+    }
+}
+
+private extension RegistrationVC {
+    ///метод добавления кнопки на TF
+    func setupPasswordTF(textField: UITextField, button: UIButton) {
+        ///отслеживаем пустое поле или нет
+        textField.delegate = self
+        
+        ///добавляем элемент с нужной стороны
+        textField.rightView = button
+        ///устанавливаем, когда  отображать
+        textField.rightViewMode = .always
+    }
+    /// метод для реализации action
+    func addActions() {
+        eyeButtonPassword.addTarget(self, action: #selector(displayBookMarks1), for: .touchUpInside)
+        eyeButtonconfirnPassword.addTarget(self, action: #selector(displayBookMarks2), for: .touchUpInside)
     }
 }
