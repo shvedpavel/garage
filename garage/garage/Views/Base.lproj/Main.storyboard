@@ -147,10 +147,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="97.767857142857139"/>
         </scene>
-        <!--Forget PasswodVC-->
+        <!--Forgot PasswodVC-->
         <scene sceneID="cDK-VB-UNE">
             <objects>
-                <viewController id="AOG-qa-uxw" customClass="ForgetPasswodVC" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgetPasswodVC" id="AOG-qa-uxw" customClass="ForgotPasswodVC" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="laS-Xi-Etb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,6 +204,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Отправить пароль"/>
+                                                        <connections>
+                                                            <action selector="sendPasswordBtn:" destination="AOG-qa-uxw" eventType="touchUpInside" id="CsF-rT-3HX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -223,10 +226,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="beN-Kw-HRB"/>
+                    <connections>
+                        <outlet property="emailTF" destination="brt-Zc-JgT" id="2Ay-6U-I12"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0c-hE-hl2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="-634"/>
+            <point key="canvasLocation" x="1717" y="-575"/>
         </scene>
         <!--Регистрация-->
         <scene sceneID="Cbj-fg-8TS">
