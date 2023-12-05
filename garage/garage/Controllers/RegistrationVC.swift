@@ -16,8 +16,8 @@ class RegistrationVC: UIViewController {
     private let eyeButtonPassword = EyeButton()
     private let eyeButtonconfirnPassword = EyeButton()
     
-    private var isPrivate = true
-//    private var isPrivateConfirnPassword = true
+    private var isPrivatePass = true
+    private var isPrivateConfirnPass = true
     
     
     @IBOutlet weak var nameLbl: UILabel!
@@ -100,20 +100,20 @@ class RegistrationVC: UIViewController {
     
     @objc
     private func displayBookMarks1() {
-        let imageName = isPrivate ? "eye" : "eye.slash"
+        let imageName = isPrivatePass ? "eye" : "eye.slash"
         
         passwordTF.isSecureTextEntry.toggle()
         eyeButtonPassword.setImage(UIImage(systemName: imageName), for: .normal)
-        isPrivate.toggle()
+        isPrivatePass.toggle()
     }
     
     @objc
     private func displayBookMarks2() {
-        let imageName = isPrivate ? "eye" : "eye.slash"
+        let imageName = isPrivateConfirnPass ? "eye" : "eye.slash"
         
         confirnPasswordTF.isSecureTextEntry.toggle()
         eyeButtonconfirnPassword.setImage(UIImage(systemName: imageName), for: .normal)
-        isPrivate.toggle()
+        isPrivateConfirnPass.toggle()
     }
     
     

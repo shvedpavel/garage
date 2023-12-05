@@ -28,14 +28,14 @@ class ForgotPasswodVC: UIViewController {
         
         Auth.auth().sendPasswordReset(withEmail: email) { [weak self ] error in
             if let error = error {
-                print("попробуйте еще раз")
-                print(error)
+                let cancelAction = UIAlertAction(title: "OK", style: .cancel)
+                let alertController = UIAlertController(title: "", message: "Попробуйте еще раз", preferredStyle: .alert)
+                alertController.addAction(cancelAction)
+                self?.navigationController?.present(alertController, animated: true)
             } else {
-//                self?.dismiss(animated: true, completion: nil)
                 self?.navigationController?.popToRootViewController(animated: true)
             }
         }
-        
     }
  
     // MARK: - Private functions
