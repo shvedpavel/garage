@@ -41,8 +41,6 @@ class RegistrationVC: UIViewController {
         addActions()
     }
     
-    
-
     // MARK: - Actions
     @IBAction func registrationBtb(_ sender: UIButton) {
         guard let name = nameTF.text,
@@ -56,11 +54,22 @@ class RegistrationVC: UIViewController {
         }
         
         Auth.auth().createUser(withEmail: email, password: password) { [ weak self ] user, error in
-            if let error = error {
+            if let error = error as? NSError {
                 print(error)
-                //обработать в зависимости от конкретного поля
-                self?.errorNotification(object: self?.emailTF)
-                self?.errorNotification(object: self?.passwordTF)
+                switch AuthErrorCode.Code(rawValue: error.code) {
+                
+                case .invalidEmail:
+                    print("invalid email")
+                    self?.errorNotification(object: self?.emailTF)
+                case .weakPassword:
+                    print("weak password")
+                    self?.errorNotification(object: self?.passwordTF)
+                case .missingEmail:
+                    print("missing email")
+                    self?.errorNotification(object: self?.emailTF)
+                default:
+                    print(error.description)
+                }
             } else if let user = user {
                 let userRef = self?.ref.child(user.user.uid)
                 userRef?.setValue(["email": user.user.email])

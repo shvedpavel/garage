@@ -9,11 +9,25 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+enum TextFieldState {
+    case normal
+    case incorrectEmail
+    case incorrectPassword
+    case unrecognizedError(String)
+}
+
+protocol SignInVCProtocol: AnyObject {
+    func goToHomePage()
+    func updateUI(type: TextFieldState)
+}
+
 class SignInVC: UIViewController {
     
     // MARK: - Properties
-
-    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
+    /// для связи с SignInPresenter создаем переменную
+    var presenter: SignInPresenterProtocol!
+    
+//    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
     
     private let eyeButton = EyeButton()
     
@@ -34,8 +48,12 @@ class SignInVC: UIViewController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let authService = AuthServiceImpl()
+        presenter = SignInPresenter(authService: authService)
+        presenter.controller = self
+        
         applyTheme()
-        stateDidChangeListenerHandle()
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillShow), name: UIWindow.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(kbWillHide), name: UIWindow.keyboardWillHideNotification, object: nil)
         
@@ -44,6 +62,7 @@ class SignInVC: UIViewController {
         
         setupPasswordTF()
         addActions()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,10 +71,13 @@ class SignInVC: UIViewController {
         passwordTF.text = nil
         emailTF.backgroundColor = nil
         passwordTF.backgroundColor = nil
+    }
+   
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
         
     }
-    
-    
     
     // MARK: - Actions
     @IBAction func forgetPasswordBtn(_ sender: UIButton) {
@@ -63,23 +85,9 @@ class SignInVC: UIViewController {
     
     @IBAction func registerBtn(_ sender: UIButton) {
     }
+    
     @IBAction func signIn(_ sender: UIButton) {
-        guard let email = emailTF.text,
-              let password = passwordTF.text,
-              !email.isEmpty, !password.isEmpty
-        else  {
-            return
-        }
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] user, error in
-            if let error = error {
-                print(error.localizedDescription)
-                //обработать в зависимости от конкретного поля
-                self?.errorNotification(object: self?.emailTF)
-                self?.errorNotification(object: self?.passwordTF)
-            } else if let user = user {
-                self?.performSegue(withIdentifier: "goToHomePage", sender: nil)
-            }
-        }
+        presenter.tapSignInBtn(email: emailTF.text, password: passwordTF.text)
     }
  
     // MARK: - Private functions
@@ -93,13 +101,9 @@ class SignInVC: UIViewController {
         button.tintColor = Theme.currentTheme.buttonColor
     }
     
-    private func stateDidChangeListenerHandle() {
-        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
-            guard let _ = user else { return }
-        })
-    }
+//   
     
-    private func errorNotification (object: UITextField!) {
+    private func errorNotification(object: UITextField!) {
         guard let object = object else { return }
          object.backgroundColor = .red.withAlphaComponent(0.05)
     }
@@ -126,12 +130,6 @@ class SignInVC: UIViewController {
         isPrivate.toggle()
         
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-        Auth.auth().removeStateDidChangeListener(authStateDidChangeListenerHandle)
-    }
 }
 
 // MARK: - Extension
@@ -141,6 +139,16 @@ extension SignInVC: UITextFieldDelegate {
         return false
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.restorationIdentifier == "email" {
+            print("email first responder")
+            checgebackroundColorForTF(object: emailTF)
+        } else {
+            print("password first responder")
+            checgebackroundColorForTF(object: passwordTF)
+        }
+    }
+
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let text  = textField.text else { return }
         eyeButton.isEnabled = !text.isEmpty
@@ -161,5 +169,33 @@ private extension SignInVC {
     /// метод для реализации action
     func addActions() {
         eyeButton.addTarget(self, action: #selector(displayBookMarks), for: .touchUpInside)
+    }
+    
+    func checgebackroundColorForTF(object: UITextField!) {
+        guard let object = object else { return }
+         object.backgroundColor = .white
+    }
+}
+
+extension SignInVC: SignInVCProtocol {
+    
+    func goToHomePage() {
+        performSegue(withIdentifier: "goToHomePage", sender: nil)
+    }
+    
+    func updateUI(type: TextFieldState) {
+        switch type {
+        case .normal:
+            break
+        case .incorrectEmail:
+            errorNotification(object: emailTF)
+        case .incorrectPassword:
+            errorNotification(object: passwordTF)
+        case .unrecognizedError(let message):
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel)
+            let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
+            alertController.addAction(cancelAction)
+            self.navigationController?.present(alertController, animated: true)
+        }
     }
 }

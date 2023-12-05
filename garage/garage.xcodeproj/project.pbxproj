@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02565A2B17D3B2007B18B7 /* SettingsVC.swift */; };
+		FA4A179C2B1E7DEA005C5D2F /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179B2B1E7DEA005C5D2F /* SignInModel.swift */; };
+		FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */; };
+		FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A17A02B1E82EE005C5D2F /* AuthService.swift */; };
 		FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1AE12B1D32C40079202A /* EyeButton.swift */; };
 		FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */; };
 		FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */; };
@@ -29,6 +32,9 @@
 
 /* Begin PBXFileReference section */
 		FA02565A2B17D3B2007B18B7 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		FA4A179B2B1E7DEA005C5D2F /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		FA4A17A02B1E82EE005C5D2F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FA4E1AE12B1D32C40079202A /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
 		FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswodVC.swift; sourceTree = "<group>"; };
 		FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
@@ -61,6 +67,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA4A17992B1E6C95005C5D2F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FA4E1AE12B1D32C40079202A /* EyeButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		FA4A179A2B1E7B57005C5D2F /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				FA9DEA3F2B0BB7FD00F65796 /* SignInVC.swift */,
+				FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */,
+				FA4A179B2B1E7DEA005C5D2F /* SignInModel.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		FA4A179F2B1E7E9D005C5D2F /* Seervices */ = {
+			isa = PBXGroup;
+			children = (
+				FA4A17A02B1E82EE005C5D2F /* AuthService.swift */,
+			);
+			path = Seervices;
+			sourceTree = "<group>";
+		};
 		FA9DEA1B2B0B8E4100F65796 = {
 			isa = PBXGroup;
 			children = (
@@ -80,8 +112,10 @@
 		FA9DEA262B0B8E4100F65796 /* garage */ = {
 			isa = PBXGroup;
 			children = (
+				FA4A179F2B1E7E9D005C5D2F /* Seervices */,
 				FA9DEA3E2B0B900500F65796 /* Models */,
 				FA9DEA3C2B0B8EC800F65796 /* Views */,
+				FA4A179A2B1E7B57005C5D2F /* SignIn */,
 				FA9DEA3D2B0B8ED200F65796 /* Controllers */,
 				FA9DEA302B0B8E4400F65796 /* Assets.xcassets */,
 				FA9DEA352B0B8E4400F65796 /* Info.plist */,
@@ -104,6 +138,7 @@
 		FA9DEA3C2B0B8EC800F65796 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA4A17992B1E6C95005C5D2F /* Components */,
 				FA9DEA322B0B8E4400F65796 /* LaunchScreen.storyboard */,
 				FA9DEA2D2B0B8E4100F65796 /* Main.storyboard */,
 			);
@@ -113,8 +148,6 @@
 		FA9DEA3D2B0B8ED200F65796 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA9DEA3F2B0BB7FD00F65796 /* SignInVC.swift */,
-				FA4E1AE12B1D32C40079202A /* EyeButton.swift */,
 				FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */,
 				FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */,
 				FAA4AA462B16056600A75E01 /* HomePageVC.swift */,
@@ -216,12 +249,15 @@
 				FA9DEA282B0B8E4100F65796 /* AppDelegate.swift in Sources */,
 				FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */,
 				FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */,
+				FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */,
+				FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */,
 				FA9DEA402B0BB7FD00F65796 /* SignInVC.swift in Sources */,
 				FAA4AA472B16056600A75E01 /* HomePageVC.swift in Sources */,
 				FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */,
 				FA9DEA2A2B0B8E4100F65796 /* SceneDelegate.swift in Sources */,
 				FA9DEA442B0BBF3C00F65796 /* ColorModel.swift in Sources */,
 				FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */,
+				FA4A179C2B1E7DEA005C5D2F /* SignInModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
