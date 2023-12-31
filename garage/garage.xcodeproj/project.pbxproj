@@ -12,6 +12,8 @@
 		FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */; };
 		FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A17A02B1E82EE005C5D2F /* AuthService.swift */; };
 		FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1AE12B1D32C40079202A /* EyeButton.swift */; };
+		FA57D9CD2B21B02400240D2F /* ButtonCellAuto.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA57D9CC2B21B02400240D2F /* ButtonCellAuto.xib */; };
+		FA57D9CF2B21B3F600240D2F /* ButtonCellAuto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57D9CE2B21B3F600240D2F /* ButtonCellAuto.swift */; };
 		FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */; };
 		FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */; };
 		FA7A02FB2B0C2BA9003BE2D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FA2B0C2BA9003BE2D6 /* FirebaseAnalytics */; };
@@ -36,6 +38,8 @@
 		FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		FA4A17A02B1E82EE005C5D2F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FA4E1AE12B1D32C40079202A /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
+		FA57D9CC2B21B02400240D2F /* ButtonCellAuto.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCellAuto.xib; sourceTree = "<group>"; };
+		FA57D9CE2B21B3F600240D2F /* ButtonCellAuto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellAuto.swift; sourceTree = "<group>"; };
 		FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswodVC.swift; sourceTree = "<group>"; };
 		FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FA9DEA242B0B8E4100F65796 /* garage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = garage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +97,31 @@
 			path = Seervices;
 			sourceTree = "<group>";
 		};
+		FA57D9C92B21AFB600240D2F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA57D9CB2B21AFDF00240D2F /* AutosInfoCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA57D9CA2B21AFC400240D2F /* ButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA57D9CC2B21B02400240D2F /* ButtonCellAuto.xib */,
+				FA57D9CE2B21B3F600240D2F /* ButtonCellAuto.swift */,
+			);
+			path = ButtonCell;
+			sourceTree = "<group>";
+		};
+		FA57D9CB2B21AFDF00240D2F /* AutosInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA57D9CA2B21AFC400240D2F /* ButtonCell */,
+			);
+			path = AutosInfoCell;
+			sourceTree = "<group>";
+		};
 		FA9DEA1B2B0B8E4100F65796 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +167,7 @@
 		FA9DEA3C2B0B8EC800F65796 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA57D9C92B21AFB600240D2F /* Cells */,
 				FA4A17992B1E6C95005C5D2F /* Components */,
 				FA9DEA322B0B8E4400F65796 /* LaunchScreen.storyboard */,
 				FA9DEA2D2B0B8E4100F65796 /* Main.storyboard */,
@@ -233,6 +263,7 @@
 			files = (
 				FA9DEA342B0B8E4400F65796 /* LaunchScreen.storyboard in Resources */,
 				FA9DEA422B0BBCC400F65796 /* Theme.xcassets in Resources */,
+				FA57D9CD2B21B02400240D2F /* ButtonCellAuto.xib in Resources */,
 				FA9DEA312B0B8E4400F65796 /* Assets.xcassets in Resources */,
 				FA9DEA462B0BD61200F65796 /* GoogleService-Info.plist in Resources */,
 				FA9DEA2F2B0B8E4100F65796 /* Main.storyboard in Resources */,
@@ -251,6 +282,7 @@
 				FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */,
 				FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */,
 				FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */,
+				FA57D9CF2B21B3F600240D2F /* ButtonCellAuto.swift in Sources */,
 				FA9DEA402B0BB7FD00F65796 /* SignInVC.swift in Sources */,
 				FAA4AA472B16056600A75E01 /* HomePageVC.swift in Sources */,
 				FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */,

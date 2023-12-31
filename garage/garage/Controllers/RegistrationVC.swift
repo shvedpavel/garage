@@ -93,9 +93,7 @@ class RegistrationVC: UIViewController {
         guard let object = object else { return }
          object.backgroundColor = .red.withAlphaComponent(0.05)
     }
-    //убирать заливку посмле очищения TF
-    
-    
+
     ///метод для  отображения картинки на кнопке
     
     @objc
@@ -115,8 +113,6 @@ class RegistrationVC: UIViewController {
         eyeButtonconfirnPassword.setImage(UIImage(systemName: imageName), for: .normal)
         isPrivateConfirnPass.toggle()
     }
-    
-    
     deinit {
         print("deinited registrationVC")
     }
