@@ -430,7 +430,7 @@
                         </barButtonItem>
                         <barButtonItem title="Виджеты" style="plain" id="uDf-Qz-2Ml">
                             <imageReference key="image" image="table.fill" catalog="system" symbolScale="default"/>
-                            <color key="tintColor" name="buttonColor"/>
+                            <color key="tintColor" name="AccentColor"/>
                             <connections>
                                 <segue destination="UAK-Ch-xjm" kind="show" id="Ep3-Oh-Idw"/>
                             </connections>
@@ -566,7 +566,7 @@
         <image name="table.fill" catalog="system" width="128" height="93"/>
         <image name="wrench.and.screwdriver.fill" catalog="system" width="128" height="120"/>
         <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="buttonColor">
             <color red="0.75686274509803919" green="0.23137254901960785" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
