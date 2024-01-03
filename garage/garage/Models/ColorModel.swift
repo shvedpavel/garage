@@ -12,6 +12,7 @@ protocol ThemeProtokol {
     var buttonColor: UIColor { get }
     var textColor: UIColor { get }
     var textColorForReference: UIColor { get }
+    var textColorSecondary: UIColor { get }
 }
 
 class Theme {
@@ -23,6 +24,7 @@ class LichtTheme: ThemeProtokol {
     var buttonColor: UIColor = UIColor(named: "buttonColor")!
     var textColor: UIColor = UIColor(named: "textColor")!
     var textColorForReference: UIColor = UIColor(named: "textColorForReference")!
+    var textColorSecondary: UIColor = UIColor(named: "textColorSecondary")!
 
 }
 

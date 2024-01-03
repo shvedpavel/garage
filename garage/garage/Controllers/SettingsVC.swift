@@ -1,22 +1,32 @@
 //
-//  ForgetPasswodVC.swift
+//  SettingsVC.swift
 //  garage
 //
-//  Created by Apple on 21.11.23.
+//  Created by Apple on 29.11.23.
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
-class ForgetPasswodVC: UIViewController {
+class SettingsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func signOutBtn(_ sender: UIBarButtonItem) {
+       
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print(error.localizedDescription)
+        }
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

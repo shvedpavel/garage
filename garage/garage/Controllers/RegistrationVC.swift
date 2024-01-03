@@ -13,6 +13,13 @@ class RegistrationVC: UIViewController {
     // MARK: - Properties
     var ref: DatabaseReference!
     
+    private let eyeButtonPassword = EyeButton()
+    private let eyeButtonconfirnPassword = EyeButton()
+    
+    private var isPrivatePass = true
+    private var isPrivateConfirnPass = true
+    
+    
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
@@ -27,10 +34,12 @@ class RegistrationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
-        
         ref = Database.database().reference(withPath: "users")
+        
+        setupPasswordTF(textField: passwordTF, button: eyeButtonPassword)
+        setupPasswordTF(textField: confirnPasswordTF, button: eyeButtonconfirnPassword)
+        addActions()
     }
-    
     
     // MARK: - Actions
     @IBAction func registrationBtb(_ sender: UIButton) {
@@ -39,39 +48,35 @@ class RegistrationVC: UIViewController {
               let password = passwordTF.text,
               let confirnPassword = confirnPasswordTF.text,
               !name.isEmpty, !email.isEmpty, !password.isEmpty, !confirnPassword.isEmpty
-                //добавить проверkу на совпадение пароля и чтобы TF подввечивался красным при неверном ввводе
-        else { return }
+        else  {
+            //добавить проверkу на совпадение пароля и чтобы TF подввечивался красным при отсутствии жанных
+            return
+        }
         
         Auth.auth().createUser(withEmail: email, password: password) { [ weak self ] user, error in
-            if let error = error {
+            if let error = error as? NSError {
                 print(error)
-                //обратобрть более понятно ошибки
+                switch AuthErrorCode.Code(rawValue: error.code) {
+                
+                case .invalidEmail:
+                    print("invalid email")
+                    self?.errorNotification(object: self?.emailTF)
+                case .weakPassword:
+                    print("weak password")
+                    self?.errorNotification(object: self?.passwordTF)
+                case .missingEmail:
+                    print("missing email")
+                    self?.errorNotification(object: self?.emailTF)
+                default:
+                    print(error.description)
+                }
             } else if let user = user {
                 let userRef = self?.ref.child(user.user.uid)
                 userRef?.setValue(["email": user.user.email])
+                self?.navigationController?.popToRootViewController(animated: true)
             }
         }
     }
-    
-    
-    @IBAction func nameTF(_ sender: UITextField) {
-    }
-    
-    @IBAction func emailTF(_ sender: UITextField) {
-    }
-    @IBAction func passwordTF(_ sender: UITextField) {
-    }
-    @IBAction func cinfirnPasswordTF(_ sender: UITextField) {
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - Private functions
     
@@ -82,8 +87,63 @@ class RegistrationVC: UIViewController {
         passwordLbl.textColor = Theme.currentTheme.textColor
         confirmPasswordLbl.textColor = Theme.currentTheme.textColor
         registration.tintColor = Theme.currentTheme.buttonColor
-        
     }
     
+    private func errorNotification (object: UITextField!) {
+        guard let object = object else { return }
+         object.backgroundColor = .red.withAlphaComponent(0.05)
+    }
 
+    ///метод для  отображения картинки на кнопке
+    
+    @objc
+    private func displayBookMarks1() {
+        let imageName = isPrivatePass ? "eye" : "eye.slash"
+        
+        passwordTF.isSecureTextEntry.toggle()
+        eyeButtonPassword.setImage(UIImage(systemName: imageName), for: .normal)
+        isPrivatePass.toggle()
+    }
+    
+    @objc
+    private func displayBookMarks2() {
+        let imageName = isPrivateConfirnPass ? "eye" : "eye.slash"
+        
+        confirnPasswordTF.isSecureTextEntry.toggle()
+        eyeButtonconfirnPassword.setImage(UIImage(systemName: imageName), for: .normal)
+        isPrivateConfirnPass.toggle()
+    }
+    deinit {
+        print("deinited registrationVC")
+    }
+}
+
+extension RegistrationVC: UITextFieldDelegate {
+   
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let text  = passwordTF.text else { return }
+        eyeButtonPassword.isEnabled = !text.isEmpty
+        
+        guard let text  = confirnPasswordTF.text else { return }
+        eyeButtonconfirnPassword.isEnabled = !text.isEmpty
+        
+    }
+}
+
+private extension RegistrationVC {
+    ///метод добавления кнопки на TF
+    func setupPasswordTF(textField: UITextField, button: UIButton) {
+        ///отслеживаем пустое поле или нет
+        textField.delegate = self
+        
+        ///добавляем элемент с нужной стороны
+        textField.rightView = button
+        ///устанавливаем, когда  отображать
+        textField.rightViewMode = .always
+    }
+    /// метод для реализации action
+    func addActions() {
+        eyeButtonPassword.addTarget(self, action: #selector(displayBookMarks1), for: .touchUpInside)
+        eyeButtonconfirnPassword.addTarget(self, action: #selector(displayBookMarks2), for: .touchUpInside)
+    }
 }
