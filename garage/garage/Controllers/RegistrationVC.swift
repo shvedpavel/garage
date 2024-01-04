@@ -32,6 +32,7 @@ class RegistrationVC: UIViewController {
     
     // MARK: - Life cycle
     override func viewDidLoad() {
+//        
         super.viewDidLoad()
         applyTheme()
         ref = Database.database().reference(withPath: "users")

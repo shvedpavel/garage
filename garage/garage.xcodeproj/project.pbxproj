@@ -12,14 +12,15 @@
 		FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */; };
 		FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A17A02B1E82EE005C5D2F /* AuthService.swift */; };
 		FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1AE12B1D32C40079202A /* EyeButton.swift */; };
-		FA57D9CD2B21B02400240D2F /* ButtonCellAuto.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA57D9CC2B21B02400240D2F /* ButtonCellAuto.xib */; };
-		FA57D9CF2B21B3F600240D2F /* ButtonCellAuto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57D9CE2B21B3F600240D2F /* ButtonCellAuto.swift */; };
 		FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */; };
 		FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */; };
 		FA7A02FB2B0C2BA9003BE2D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FA2B0C2BA9003BE2D6 /* FirebaseAnalytics */; };
 		FA7A02FD2B0C2BA9003BE2D6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FC2B0C2BA9003BE2D6 /* FirebaseAuth */; };
 		FA7A02FF2B0C2BA9003BE2D6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FE2B0C2BA9003BE2D6 /* FirebaseDatabase */; };
 		FA7A03012B0C2BA9003BE2D6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A03002B0C2BA9003BE2D6 /* FirebaseStorage */; };
+		FA85A60A2B458B9C000CBAC4 /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */; };
+		FA85A60C2B458D2E000CBAC4 /* AutoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85A60B2B458D2E000CBAC4 /* AutoModel.swift */; };
+		FA85A60E2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85A60D2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift */; };
 		FA9DEA282B0B8E4100F65796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9DEA272B0B8E4100F65796 /* AppDelegate.swift */; };
 		FA9DEA2A2B0B8E4100F65796 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9DEA292B0B8E4100F65796 /* SceneDelegate.swift */; };
 		FA9DEA2F2B0B8E4100F65796 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9DEA2D2B0B8E4100F65796 /* Main.storyboard */; };
@@ -38,10 +39,11 @@
 		FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		FA4A17A02B1E82EE005C5D2F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FA4E1AE12B1D32C40079202A /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
-		FA57D9CC2B21B02400240D2F /* ButtonCellAuto.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCellAuto.xib; sourceTree = "<group>"; };
-		FA57D9CE2B21B3F600240D2F /* ButtonCellAuto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCellAuto.swift; sourceTree = "<group>"; };
 		FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswodVC.swift; sourceTree = "<group>"; };
 		FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
+		FA85A60B2B458D2E000CBAC4 /* AutoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoModel.swift; sourceTree = "<group>"; };
+		FA85A60D2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA9DEA242B0B8E4100F65796 /* garage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = garage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9DEA272B0B8E4100F65796 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9DEA292B0B8E4100F65796 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,29 +99,13 @@
 			path = Seervices;
 			sourceTree = "<group>";
 		};
-		FA57D9C92B21AFB600240D2F /* Cells */ = {
+		FA57D9C92B21AFB600240D2F /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				FA57D9CB2B21AFDF00240D2F /* AutosInfoCell */,
+				FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */,
+				FA85A60D2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift */,
 			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		FA57D9CA2B21AFC400240D2F /* ButtonCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA57D9CC2B21B02400240D2F /* ButtonCellAuto.xib */,
-				FA57D9CE2B21B3F600240D2F /* ButtonCellAuto.swift */,
-			);
-			path = ButtonCell;
-			sourceTree = "<group>";
-		};
-		FA57D9CB2B21AFDF00240D2F /* AutosInfoCell */ = {
-			isa = PBXGroup;
-			children = (
-				FA57D9CA2B21AFC400240D2F /* ButtonCell */,
-			);
-			path = AutosInfoCell;
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		FA9DEA1B2B0B8E4100F65796 = {
@@ -167,7 +153,7 @@
 		FA9DEA3C2B0B8EC800F65796 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA57D9C92B21AFB600240D2F /* Cells */,
+				FA57D9C92B21AFB600240D2F /* CollectionView */,
 				FA4A17992B1E6C95005C5D2F /* Components */,
 				FA9DEA322B0B8E4400F65796 /* LaunchScreen.storyboard */,
 				FA9DEA2D2B0B8E4100F65796 /* Main.storyboard */,
@@ -190,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				FA9DEA432B0BBF3C00F65796 /* ColorModel.swift */,
+				FA85A60B2B458D2E000CBAC4 /* AutoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,7 +250,6 @@
 			files = (
 				FA9DEA342B0B8E4400F65796 /* LaunchScreen.storyboard in Resources */,
 				FA9DEA422B0BBCC400F65796 /* Theme.xcassets in Resources */,
-				FA57D9CD2B21B02400240D2F /* ButtonCellAuto.xib in Resources */,
 				FA9DEA312B0B8E4400F65796 /* Assets.xcassets in Resources */,
 				FA9DEA462B0BD61200F65796 /* GoogleService-Info.plist in Resources */,
 				FA9DEA2F2B0B8E4100F65796 /* Main.storyboard in Resources */,
@@ -277,15 +263,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA85A60A2B458B9C000CBAC4 /* GalleryCollectionView.swift in Sources */,
+				FA85A60E2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift in Sources */,
 				FA9DEA282B0B8E4100F65796 /* AppDelegate.swift in Sources */,
 				FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */,
 				FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */,
 				FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */,
 				FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */,
-				FA57D9CF2B21B3F600240D2F /* ButtonCellAuto.swift in Sources */,
 				FA9DEA402B0BB7FD00F65796 /* SignInVC.swift in Sources */,
 				FAA4AA472B16056600A75E01 /* HomePageVC.swift in Sources */,
 				FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */,
+				FA85A60C2B458D2E000CBAC4 /* AutoModel.swift in Sources */,
 				FA9DEA2A2B0B8E4100F65796 /* SceneDelegate.swift in Sources */,
 				FA9DEA442B0BBF3C00F65796 /* ColorModel.swift in Sources */,
 				FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */,

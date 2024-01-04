@@ -9,15 +9,34 @@ import UIKit
 
 class HomePageVC: UIViewController {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var deliveryLabel: UILabel!
+    
+    
+    private var galleryCollectionView = GalleryCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.dataSource = self
-        let buttonCellAutoNib = UINib(nibName: "ButtonCellAuto", bundle: nil)
-        collectionView.register(buttonCellAutoNib, forCellWithReuseIdentifier: "ButtonCellAuto")
+        applyTheme()
         
+        //добавляем galleryCollectionView на экран
+        view.addSubview(galleryCollectionView)
+        
+        galleryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        galleryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        galleryCollectionView.topAnchor.constraint(equalTo: deliveryLabel.bottomAnchor, constant: 10).isActive = true
+        
+        galleryCollectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//        galleryCollectionView.widthAnchor.constraint(equalToConstant: 220).isActive = true
 
+        
+        
+        
+        
+        // MARK: - Private functions
+        func applyTheme() {
+            self.view.backgroundColor = Theme.currentTheme.backgroundColor
+            
+        }
         
     }
     
@@ -33,14 +52,4 @@ class HomePageVC: UIViewController {
     */
 
 }
-extension HomePageVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        2
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ButtonCellAuto", for: indexPath) as! ButtonCellAuto
-    return cell
-    }
-    
-    
-}
+
