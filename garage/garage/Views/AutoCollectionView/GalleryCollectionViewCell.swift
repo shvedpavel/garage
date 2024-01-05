@@ -64,13 +64,16 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    
     let menuButon: UIButton = {
         let menuButon = UIButton(frame: CGRect(x: 154, y: 14, width: 28, height: 28))
 //        let menuButon = UIButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: 34, height: 34)))
         
         menuButon.backgroundColor = Theme.currentTheme.buttonColor
-        menuButon.setImage(UIImage(named: "ellipsis"), for: .normal)
+        menuButon.setImage(UIImage(systemName: "ellipsis")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        menuButon.tintColor = .white
         menuButon.layer.cornerRadius = 14
+        menuButon.layer.masksToBounds = true
         
         return menuButon
     }()

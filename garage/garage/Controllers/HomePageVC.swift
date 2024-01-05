@@ -13,14 +13,18 @@ class HomePageVC: UIViewController {
     
     
     private var galleryCollectionView = GalleryCollectionView()
+    private var serviceCollectionView = ServiceCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
         
-        //добавляем galleryCollectionView на экран
+        //добавляем collectionViews на экран
         view.addSubview(galleryCollectionView)
+        view.addSubview(serviceCollectionView)
         
+        
+        //устанавливаем констрейнты для collectionViews
         galleryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         galleryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         galleryCollectionView.topAnchor.constraint(equalTo: deliveryLabel.bottomAnchor, constant: 10).isActive = true
@@ -28,7 +32,25 @@ class HomePageVC: UIViewController {
         galleryCollectionView.heightAnchor.constraint(equalToConstant: 120).isActive = true
 //        galleryCollectionView.widthAnchor.constraint(equalToConstant: 220).isActive = true
         
-        galleryCollectionView.set(cells: AutoModel.fechAuto())
+        
+        // скорретировать констрейнты!!!!!!!!
+        
+        serviceCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        serviceCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        serviceCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 10).isActive = true
+        
+        
+        // тут меняет высоту всей коллекции
+        serviceCollectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        
+        
+        
+        
+        
+        //заполняем collectionViews данными
+        galleryCollectionView.set(cells: AutoModel.fetchAuto())
+        serviceCollectionView.set(cells: ServiceModel.fetchService())
 
         
         

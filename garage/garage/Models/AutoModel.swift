@@ -14,7 +14,7 @@ struct AutoModel {
     var number: String
     var vin: String
     
-   static func fechAuto() -> [AutoModel] {
+   static func fetchAuto() -> [AutoModel] {
        let firstItem = AutoModel(name: "Audi", model: "A5", modification: Modification(engine: "DISEL", volume: 3.0, transmission: "АКПП", driveUnit: "полный", mileage: 23400, yearOfManufacture: 2020), number: "44444As", vin: "12345HDB12I373")
        let secondItem = AutoModel(name: "Audi", model: "A5", modification: Modification(engine: "DISEL", volume: 3.0, transmission: "АКПП", driveUnit: "полный", mileage: 23400, yearOfManufacture: 2020), number: "44444As", vin: "12345HDB12I373")
        return [firstItem, secondItem]

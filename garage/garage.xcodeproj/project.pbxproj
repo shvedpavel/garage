@@ -16,6 +16,7 @@
 		FA71C56F2B486AFC009E7007 /* PlusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C56E2B486AFC009E7007 /* PlusCollectionViewCell.swift */; };
 		FA71C5712B48794E009E7007 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */; };
 		FA71C5742B487992009E7007 /* ServiceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5732B487992009E7007 /* ServiceCollectionView.swift */; };
+		FA71C5762B487AB8009E7007 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5752B487AB8009E7007 /* ServiceModel.swift */; };
 		FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */; };
 		FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */; };
 		FA7A02FB2B0C2BA9003BE2D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FA2B0C2BA9003BE2D6 /* FirebaseAnalytics */; };
@@ -47,6 +48,7 @@
 		FA71C56E2B486AFC009E7007 /* PlusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA71C5732B487992009E7007 /* ServiceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionView.swift; sourceTree = "<group>"; };
+		FA71C5752B487AB8009E7007 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswodVC.swift; sourceTree = "<group>"; };
 		FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				FA9DEA432B0BBF3C00F65796 /* ColorModel.swift */,
 				FA85A60B2B458D2E000CBAC4 /* AutoModel.swift */,
+				FA71C5752B487AB8009E7007 /* ServiceModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				FA71C56F2B486AFC009E7007 /* PlusCollectionViewCell.swift in Sources */,
 				FA71C5742B487992009E7007 /* ServiceCollectionView.swift in Sources */,
 				FA85A60C2B458D2E000CBAC4 /* AutoModel.swift in Sources */,
+				FA71C5762B487AB8009E7007 /* ServiceModel.swift in Sources */,
 				FA9DEA2A2B0B8E4100F65796 /* SceneDelegate.swift in Sources */,
 				FA9DEA442B0BBF3C00F65796 /* ColorModel.swift in Sources */,
 				FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */,
