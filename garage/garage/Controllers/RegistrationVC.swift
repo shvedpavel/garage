@@ -10,6 +10,10 @@ import Firebase
 import FirebaseAuth
 
 class RegistrationVC: UIViewController {
+    
+    
+    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
+    
     // MARK: - Properties
     var ref: DatabaseReference!
     
@@ -34,6 +38,7 @@ class RegistrationVC: UIViewController {
     override func viewDidLoad() {
 //        
         super.viewDidLoad()
+        stateDidChangeListenerHandle()
         applyTheme()
         ref = Database.database().reference(withPath: "users")
         
@@ -94,6 +99,13 @@ class RegistrationVC: UIViewController {
         guard let object = object else { return }
          object.backgroundColor = .red.withAlphaComponent(0.05)
     }
+    
+    func stateDidChangeListenerHandle() {
+       authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
+           guard let _ = user else { return }
+       })
+      
+          }
 
     ///метод для  отображения картинки на кнопке
     

@@ -67,8 +67,8 @@ class SignInVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        emailTF.text = nil
-        passwordTF.text = nil
+        emailTF.text = "pav159208@gmail.com" // will change nil
+        passwordTF.text = "1722104Pion" 
         emailTF.backgroundColor = nil
         passwordTF.backgroundColor = nil
     }

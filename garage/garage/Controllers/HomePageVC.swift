@@ -24,9 +24,11 @@ class HomePageVC: UIViewController {
         galleryCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         galleryCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         galleryCollectionView.topAnchor.constraint(equalTo: deliveryLabel.bottomAnchor, constant: 10).isActive = true
-        
-        galleryCollectionView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        // тут меняет высоту всей коллекции
+        galleryCollectionView.heightAnchor.constraint(equalToConstant: 120).isActive = true
 //        galleryCollectionView.widthAnchor.constraint(equalToConstant: 220).isActive = true
+        
+        galleryCollectionView.set(cells: AutoModel.fechAuto())
 
         
         
@@ -37,6 +39,9 @@ class HomePageVC: UIViewController {
             self.view.backgroundColor = Theme.currentTheme.backgroundColor
             
         }
+        
+         
+        
         
     }
     

@@ -9,6 +9,8 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
+
+
 protocol AuthService: AnyObject {
     func signIn(with email: String, password: String, completion: @escaping (Result<User, Error>) -> ())
 }
@@ -27,11 +29,12 @@ class AuthServiceImpl: AuthService {
     }
 //    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
     
-//    Auth.auth().removeStateDidChangeListener(authStateDidChangeListenerHandle)
     
-    //private func stateDidChangeListenerHandle() {
-   //        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
-   //            guard let _ = user else { return }
-   //        })
-   //    }
+//    Auth.auth().removeStateDidChangeListener(authStateDidChangeListenerHandle)
+//    
+//    private func stateDidChangeListenerHandle() {
+//           authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
+//               guard let _ = user else { return }
+//           })
+//       }
 }

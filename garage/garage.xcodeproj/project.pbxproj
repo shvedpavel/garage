@@ -12,6 +12,10 @@
 		FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */; };
 		FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A17A02B1E82EE005C5D2F /* AuthService.swift */; };
 		FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1AE12B1D32C40079202A /* EyeButton.swift */; };
+		FA71C56D2B485B2F009E7007 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C56C2B485B2F009E7007 /* Button.swift */; };
+		FA71C56F2B486AFC009E7007 /* PlusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C56E2B486AFC009E7007 /* PlusCollectionViewCell.swift */; };
+		FA71C5712B48794E009E7007 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */; };
+		FA71C5742B487992009E7007 /* ServiceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5732B487992009E7007 /* ServiceCollectionView.swift */; };
 		FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */; };
 		FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */; };
 		FA7A02FB2B0C2BA9003BE2D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FA2B0C2BA9003BE2D6 /* FirebaseAnalytics */; };
@@ -39,6 +43,10 @@
 		FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		FA4A17A02B1E82EE005C5D2F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FA4E1AE12B1D32C40079202A /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
+		FA71C56C2B485B2F009E7007 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		FA71C56E2B486AFC009E7007 /* PlusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA71C5732B487992009E7007 /* ServiceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionView.swift; sourceTree = "<group>"; };
 		FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswodVC.swift; sourceTree = "<group>"; };
 		FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
@@ -99,13 +107,22 @@
 			path = Seervices;
 			sourceTree = "<group>";
 		};
-		FA57D9C92B21AFB600240D2F /* CollectionView */ = {
+		FA57D9C92B21AFB600240D2F /* AutoCollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */,
 				FA85A60D2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift */,
 			);
-			path = CollectionView;
+			path = AutoCollectionView;
+			sourceTree = "<group>";
+		};
+		FA71C5722B487957009E7007 /* ServiceCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				FA71C5732B487992009E7007 /* ServiceCollectionView.swift */,
+				FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */,
+			);
+			path = ServiceCollectionView;
 			sourceTree = "<group>";
 		};
 		FA9DEA1B2B0B8E4100F65796 = {
@@ -153,7 +170,10 @@
 		FA9DEA3C2B0B8EC800F65796 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA57D9C92B21AFB600240D2F /* CollectionView */,
+				FA71C56E2B486AFC009E7007 /* PlusCollectionViewCell.swift */,
+				FA71C56C2B485B2F009E7007 /* Button.swift */,
+				FA57D9C92B21AFB600240D2F /* AutoCollectionView */,
+				FA71C5722B487957009E7007 /* ServiceCollectionView */,
 				FA4A17992B1E6C95005C5D2F /* Components */,
 				FA9DEA322B0B8E4400F65796 /* LaunchScreen.storyboard */,
 				FA9DEA2D2B0B8E4100F65796 /* Main.storyboard */,
@@ -266,6 +286,8 @@
 				FA85A60A2B458B9C000CBAC4 /* GalleryCollectionView.swift in Sources */,
 				FA85A60E2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift in Sources */,
 				FA9DEA282B0B8E4100F65796 /* AppDelegate.swift in Sources */,
+				FA71C56D2B485B2F009E7007 /* Button.swift in Sources */,
+				FA71C5712B48794E009E7007 /* ServiceCollectionViewCell.swift in Sources */,
 				FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */,
 				FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */,
 				FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */,
@@ -273,6 +295,8 @@
 				FA9DEA402B0BB7FD00F65796 /* SignInVC.swift in Sources */,
 				FAA4AA472B16056600A75E01 /* HomePageVC.swift in Sources */,
 				FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */,
+				FA71C56F2B486AFC009E7007 /* PlusCollectionViewCell.swift in Sources */,
+				FA71C5742B487992009E7007 /* ServiceCollectionView.swift in Sources */,
 				FA85A60C2B458D2E000CBAC4 /* AutoModel.swift in Sources */,
 				FA9DEA2A2B0B8E4100F65796 /* SceneDelegate.swift in Sources */,
 				FA9DEA442B0BBF3C00F65796 /* ColorModel.swift in Sources */,
