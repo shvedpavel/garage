@@ -26,7 +26,7 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         
 //        register(GalleryCollectionViewCell.self, forSupplementaryViewOfKind: GalleryCollectionViewCell.reuseID, withReuseIdentifier: PlusCollectionViewCell.reuseID)
 
-        register(PlusCollectionViewCell.self, forCellWithReuseIdentifier: PlusCollectionViewCell.reuseID)
+//        register(PlusCollectionViewCell.self, forCellWithReuseIdentifier: PlusCollectionViewCell.reuseID)
         
         translatesAutoresizingMaskIntoConstraints = false
         

@@ -33,7 +33,6 @@ class ServiceCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         contentInset = UIEdgeInsets(top: 0, left: Constans.leftDistanceToView, bottom: 0, right: Constans.rightDistanceToView)
         
         ///убираем  ползунок  в скроле (аналогично можно сделать для вертикального)
-        
         showsVerticalScrollIndicator = false
     }
     

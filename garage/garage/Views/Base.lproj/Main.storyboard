@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -147,7 +146,7 @@
                         <outlet property="passwordLbl" destination="tik-Bi-kgq" id="u9q-qB-ZO5"/>
                         <outlet property="passwordTF" destination="oBE-ob-GIm" id="ySX-3d-DgY"/>
                         <outlet property="register" destination="mc7-uV-qZG" id="StR-rN-Mqt"/>
-                        <segue destination="9er-jh-3Gs" kind="show" identifier="goToHomePage" id="KRM-hA-g3Q"/>
+                        <segue destination="wjS-jI-3Cy" kind="show" identifier="goToNewHomePage" id="KRM-hA-g3Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -371,6 +370,23 @@
             </objects>
             <point key="canvasLocation" x="1706" y="828"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="y8w-8a-DbY">
+            <objects>
+                <viewController id="jx3-0k-Hyj" customClass="NewHomePage" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aeW-nF-EZr" customClass="newHomePage" customModule="garage" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="359-uk-kuF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="h8r-Hx-lCi"/>
+                    <navigationItem key="navigationItem" id="DPr-Tu-x46"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Of-Qm-w0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2651" y="850"/>
+        </scene>
         <!--GARAGE-->
         <scene sceneID="fUA-b6-g7M">
             <objects>
@@ -380,7 +396,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мой автопарк:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FW-ZH-Yhz">
-                                <rect key="frame" x="16" y="93" width="120" height="22"/>
+                                <rect key="frame" x="16" y="49" width="120" height="22"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -393,21 +409,8 @@
                             <constraint firstItem="1FW-ZH-Yhz" firstAttribute="leading" secondItem="hvf-dr-53q" secondAttribute="leading" constant="16" id="zRw-R9-Bmo"/>
                         </constraints>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Учет ТО" image="wrench.and.screwdriver.fill" catalog="system" id="Vay-dV-fS5">
-                            <color key="tintColor" name="buttonColor"/>
-                        </barButtonItem>
-                        <barButtonItem title="Настройки" image="person" catalog="system" id="Krm-5e-O9t">
-                            <color key="tintColor" name="buttonColor"/>
-                        </barButtonItem>
-                        <barButtonItem title="Виджеты" style="plain" id="uDf-Qz-2Ml">
-                            <imageReference key="image" image="table.fill" catalog="system" symbolScale="default"/>
-                            <color key="tintColor" name="AccentColor"/>
-                            <connections>
-                                <segue destination="UAK-Ch-xjm" kind="show" id="Ep3-Oh-Idw"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <tabBarItem key="tabBarItem" title="Item" id="hnm-4h-gWW"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="GARAGE" id="V7q-4b-pGw"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -416,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kG6-2Z-ZfI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1740.5797101449277" y="151.33928571428569"/>
+            <point key="canvasLocation" x="2868" y="98"/>
         </scene>
         <!--SettingsVC-->
         <scene sceneID="PEE-NG-3mP">
@@ -439,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SB-zG-4rX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2470" y="151"/>
+            <point key="canvasLocation" x="3758" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Wh-uh-TAz">
@@ -531,12 +534,28 @@
             </objects>
             <point key="canvasLocation" x="2521.739130434783" y="-575.22321428571422"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="YOm-7d-vE8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SiZ-WQ-rmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wjS-jI-3Cy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Kqn-wM-9k1"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xx9-2Y-Dpb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jx3-0k-Hyj" kind="relationship" relationship="viewControllers" id="0ar-fi-EiK"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="1983" y="98"/>
+        </scene>
     </scenes>
     <resources>
         <image name="garageLbl" width="229" height="226"/>
-        <image name="person" catalog="system" width="128" height="121"/>
-        <image name="table.fill" catalog="system" width="128" height="93"/>
-        <image name="wrench.and.screwdriver.fill" catalog="system" width="128" height="119"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

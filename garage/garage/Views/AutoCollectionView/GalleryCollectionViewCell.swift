@@ -17,12 +17,10 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         let bgView = UIView()
         bgView.backgroundColor = .white
         bgView.translatesAutoresizingMaskIntoConstraints = false
-        
         bgView.layer.cornerRadius = 5
         bgView.layer.shadowRadius = 5
         bgView.layer.shadowOpacity = 0.3
         bgView.layer.shadowOffset = CGSize(width: 5, height: 5)
-        
         bgView.clipsToBounds = false
         return bgView
     }()
@@ -33,7 +31,6 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         label.textColor = UIColor(named: "textColor")!
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
-
         return label
     }()
     
@@ -64,7 +61,6 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    
     let menuButon: UIButton = {
         let menuButon = UIButton(frame: CGRect(x: 154, y: 14, width: 28, height: 28))
 //        let menuButon = UIButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: 34, height: 34)))
@@ -74,13 +70,8 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         menuButon.tintColor = .white
         menuButon.layer.cornerRadius = 14
         menuButon.layer.masksToBounds = true
-        
         return menuButon
     }()
-    
-    
-    
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -105,7 +96,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         nameLable.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         nameLable.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 5).isActive = true
         
-        //констрейнты для модель авто
+        //констрейнты для модели авто
         modelLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         modelLable.topAnchor.constraint(equalTo: nameLable.bottomAnchor, constant: 2).isActive = true
         

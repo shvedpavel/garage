@@ -18,8 +18,11 @@ struct ServiceModel {
         let secondItem = ServiceModel(taskName: "Замена масла")
         let thirdItem = ServiceModel(taskName: "Замена колес")
         let fourthItem = ServiceModel(taskName: "Плановое ТО")
+        let fiftItem = ServiceModel(taskName: "Плановое ТО")
+        let sixItem = ServiceModel(taskName: "Плановое ТО")
+        let sevenItem = ServiceModel(taskName: "Плановое ТО")
         
-        return [firstItem, secondItem, thirdItem, fourthItem]
+        return [firstItem, secondItem, thirdItem, fourthItem, fiftItem, sixItem, sevenItem]
      }
 }
 

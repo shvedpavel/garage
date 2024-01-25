@@ -180,7 +180,7 @@ private extension SignInVC {
 extension SignInVC: SignInVCProtocol {
     
     func goToHomePage() {
-        performSegue(withIdentifier: "goToHomePage", sender: nil)
+        performSegue(withIdentifier: "goToNewHomePage", sender: nil)
     }
     
     func updateUI(type: TextFieldState) {

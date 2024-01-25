@@ -11,6 +11,37 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     static let reuseID = "ServiceCollectionViewCell"
     
+    let verticalStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.alignment = .leading
+        stack.spacing = 5
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    let horizontalStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.alignment = .fill
+        stack.spacing = 5
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        return stack
+    }()
+    
+    let bgView: UIView = {
+        let bgView = UIView()
+        bgView.backgroundColor = .white
+        bgView.translatesAutoresizingMaskIntoConstraints = false
+        bgView.layer.cornerRadius = 5
+        bgView.layer.shadowRadius = 2
+        bgView.layer.shadowOpacity = 0.3
+        bgView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        bgView.clipsToBounds = false
+        return bgView
+    }()
     
     let taskNameLable: UILabel = {
         let taskNameLable = UILabel()
@@ -23,25 +54,31 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     
     let deadlineLable: UILabel = {
         let deadlineLable = UILabel()
+        deadlineLable.text = "Осталось 7 дней"
         deadlineLable.font = UIFont(name: "Apple SD Gothic Neo", size: 15)
         deadlineLable.textColor = Theme.currentTheme.textColor
         deadlineLable.numberOfLines = 0
         deadlineLable.translatesAutoresizingMaskIntoConstraints = false
         return deadlineLable
     }()
-    let deadlineSlider: UISlider = {
-        let deadlineSlider = UISlider(frame: CGRect(x: 16, y: 16, width: 180, height: 5))
-        deadlineSlider.tintColor = .darkGray
-        return deadlineSlider
+    
+    let deadlineProgressView: UIProgressView = {
+        let deadlineProgressView = UIProgressView()
+        deadlineProgressView.tintColor = .darkGray
+        deadlineProgressView.progressTintColor = Theme.currentTheme.buttonColor
+        deadlineProgressView.progress = 0.5
+        deadlineProgressView.translatesAutoresizingMaskIntoConstraints = false
+        return deadlineProgressView
     }()
     
     let menuButon: UIButton = {
-        let menuButon = UIButton(frame: CGRect(x: 154, y: 14, width: 28, height: 28))
+        let menuButon = UIButton()
         menuButon.backgroundColor = Theme.currentTheme.buttonColor
         menuButon.setImage(UIImage(systemName: "ellipsis")?.withRenderingMode(.alwaysTemplate), for: .normal)
         menuButon.tintColor = .white
         menuButon.layer.cornerRadius = 14
         menuButon.layer.masksToBounds = true
+        menuButon.translatesAutoresizingMaskIntoConstraints = false
         return menuButon
     }()
 
@@ -49,27 +86,43 @@ class ServiceCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         
-        addSubview(taskNameLable)
-        addSubview(deadlineLable)
-        addSubview(deadlineSlider)
-        addSubview(menuButon)
+//     
         
+        
+        
+        horizontalStack.addArrangedSubview(taskNameLable)
+        horizontalStack.addArrangedSubview(menuButon)
+        
+        verticalStack.addArrangedSubview(horizontalStack)
+        verticalStack.addArrangedSubview(deadlineLable)
+        verticalStack.addArrangedSubview(deadlineProgressView)
+        
+        bgView.addSubview(verticalStack)
+       
+        addSubview(bgView)
+     
         // КОНСТРЕЙНТЫ
-        taskNameLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        taskNameLable.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         
+//        констрейнты для bgView
+        bgView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
+        bgView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
+        bgView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        bgView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -13).isActive = true
         
-        deadlineSlider.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        deadlineSlider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        deadlineSlider.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
+        verticalStack.topAnchor.constraint(equalTo: bgView.topAnchor, constant: 8).isActive = true
+        verticalStack.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 8).isActive = true
+        verticalStack.trailingAnchor.constraint(equalTo: bgView.trailingAnchor, constant: -8).isActive = true
+        verticalStack.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: -8).isActive = true
         
-        deadlineLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        deadlineLable.bottomAnchor.constraint(equalTo: deadlineSlider.topAnchor, constant: 5).isActive = true
+        menuButon.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        menuButon.widthAnchor.constraint(equalToConstant: 28).isActive = true
         
-        menuButon.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        menuButon.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        menuButon.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-            
+        horizontalStack.widthAnchor.constraint(equalTo: verticalStack.widthAnchor, multiplier: 1).isActive = true
+        
+        deadlineProgressView.widthAnchor.constraint(equalTo: verticalStack.widthAnchor, multiplier: 1).isActive = true
+        deadlineProgressView.heightAnchor.constraint(equalToConstant: 6).isActive = true
+
+
     }
     
     required init?(coder: NSCoder) {

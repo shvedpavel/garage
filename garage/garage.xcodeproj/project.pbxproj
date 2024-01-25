@@ -12,8 +12,7 @@
 		FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */; };
 		FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A17A02B1E82EE005C5D2F /* AuthService.swift */; };
 		FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1AE12B1D32C40079202A /* EyeButton.swift */; };
-		FA71C56D2B485B2F009E7007 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C56C2B485B2F009E7007 /* Button.swift */; };
-		FA71C56F2B486AFC009E7007 /* PlusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C56E2B486AFC009E7007 /* PlusCollectionViewCell.swift */; };
+		FA50BD922B60280C00BF8D0A /* NewHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BD912B60280C00BF8D0A /* NewHomePage.swift */; };
 		FA71C5712B48794E009E7007 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */; };
 		FA71C5742B487992009E7007 /* ServiceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5732B487992009E7007 /* ServiceCollectionView.swift */; };
 		FA71C5762B487AB8009E7007 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5752B487AB8009E7007 /* ServiceModel.swift */; };
@@ -36,6 +35,12 @@
 		FA9DEA442B0BBF3C00F65796 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9DEA432B0BBF3C00F65796 /* ColorModel.swift */; };
 		FA9DEA462B0BD61200F65796 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9DEA452B0BD61200F65796 /* GoogleService-Info.plist */; };
 		FAA4AA472B16056600A75E01 /* HomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4AA462B16056600A75E01 /* HomePageVC.swift */; };
+		FAEC52E82B61518400404169 /* CellForAuto.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC52E62B61518400404169 /* CellForAuto.swift */; };
+		FAEC52E92B61518400404169 /* CellForAoto.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEC52E72B61518400404169 /* CellForAoto.xib */; };
+		FAEC52ED2B6151A700404169 /* CellForAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEC52EB2B6151A700404169 /* CellForAdd.swift */; };
+		FAEC52EE2B6151A700404169 /* CellForAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEC52EC2B6151A700404169 /* CellForAdd.xib */; };
+		FAF61F8D2B60385500953381 /* CellForCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF61F8B2B60385500953381 /* CellForCollectionView.swift */; };
+		FAF61F8E2B60385500953381 /* CellForCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF61F8C2B60385500953381 /* CellForCollectionView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +49,7 @@
 		FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		FA4A17A02B1E82EE005C5D2F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FA4E1AE12B1D32C40079202A /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
-		FA71C56C2B485B2F009E7007 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		FA71C56E2B486AFC009E7007 /* PlusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA50BD912B60280C00BF8D0A /* NewHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomePage.swift; sourceTree = "<group>"; };
 		FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA71C5732B487992009E7007 /* ServiceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionView.swift; sourceTree = "<group>"; };
 		FA71C5752B487AB8009E7007 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
@@ -66,6 +70,12 @@
 		FA9DEA432B0BBF3C00F65796 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
 		FA9DEA452B0BD61200F65796 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA4AA462B16056600A75E01 /* HomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageVC.swift; sourceTree = "<group>"; };
+		FAEC52E62B61518400404169 /* CellForAuto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForAuto.swift; sourceTree = "<group>"; };
+		FAEC52E72B61518400404169 /* CellForAoto.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellForAoto.xib; sourceTree = "<group>"; };
+		FAEC52EB2B6151A700404169 /* CellForAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForAdd.swift; sourceTree = "<group>"; };
+		FAEC52EC2B6151A700404169 /* CellForAdd.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellForAdd.xib; sourceTree = "<group>"; };
+		FAF61F8B2B60385500953381 /* CellForCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForCollectionView.swift; sourceTree = "<group>"; };
+		FAF61F8C2B60385500953381 /* CellForCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellForCollectionView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,8 +182,7 @@
 		FA9DEA3C2B0B8EC800F65796 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FA71C56E2B486AFC009E7007 /* PlusCollectionViewCell.swift */,
-				FA71C56C2B485B2F009E7007 /* Button.swift */,
+				FAF61F8F2B60385A00953381 /* Cells */,
 				FA57D9C92B21AFB600240D2F /* AutoCollectionView */,
 				FA71C5722B487957009E7007 /* ServiceCollectionView */,
 				FA4A17992B1E6C95005C5D2F /* Components */,
@@ -190,6 +199,7 @@
 				FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */,
 				FAA4AA462B16056600A75E01 /* HomePageVC.swift */,
 				FA02565A2B17D3B2007B18B7 /* SettingsVC.swift */,
+				FA50BD912B60280C00BF8D0A /* NewHomePage.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +212,43 @@
 				FA71C5752B487AB8009E7007 /* ServiceModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FAEC52E02B60D24E00404169 /* CellForCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				FAF61F8B2B60385500953381 /* CellForCollectionView.swift */,
+				FAF61F8C2B60385500953381 /* CellForCollectionView.xib */,
+			);
+			path = CellForCollectionView;
+			sourceTree = "<group>";
+		};
+		FAEC52EA2B61518900404169 /* CellForAuto */ = {
+			isa = PBXGroup;
+			children = (
+				FAEC52E62B61518400404169 /* CellForAuto.swift */,
+				FAEC52E72B61518400404169 /* CellForAoto.xib */,
+			);
+			path = CellForAuto;
+			sourceTree = "<group>";
+		};
+		FAEC52EF2B6151AB00404169 /* CellForAdd */ = {
+			isa = PBXGroup;
+			children = (
+				FAEC52EB2B6151A700404169 /* CellForAdd.swift */,
+				FAEC52EC2B6151A700404169 /* CellForAdd.xib */,
+			);
+			path = CellForAdd;
+			sourceTree = "<group>";
+		};
+		FAF61F8F2B60385A00953381 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FAEC52E02B60D24E00404169 /* CellForCollectionView */,
+				FAEC52EA2B61518900404169 /* CellForAuto */,
+				FAEC52EF2B6151AB00404169 /* CellForAdd */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +320,12 @@
 			files = (
 				FA9DEA342B0B8E4400F65796 /* LaunchScreen.storyboard in Resources */,
 				FA9DEA422B0BBCC400F65796 /* Theme.xcassets in Resources */,
+				FAF61F8E2B60385500953381 /* CellForCollectionView.xib in Resources */,
 				FA9DEA312B0B8E4400F65796 /* Assets.xcassets in Resources */,
+				FAEC52E92B61518400404169 /* CellForAoto.xib in Resources */,
 				FA9DEA462B0BD61200F65796 /* GoogleService-Info.plist in Resources */,
 				FA9DEA2F2B0B8E4100F65796 /* Main.storyboard in Resources */,
+				FAEC52EE2B6151A700404169 /* CellForAdd.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +339,8 @@
 				FA85A60A2B458B9C000CBAC4 /* GalleryCollectionView.swift in Sources */,
 				FA85A60E2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift in Sources */,
 				FA9DEA282B0B8E4100F65796 /* AppDelegate.swift in Sources */,
-				FA71C56D2B485B2F009E7007 /* Button.swift in Sources */,
+				FAEC52E82B61518400404169 /* CellForAuto.swift in Sources */,
+				FAF61F8D2B60385500953381 /* CellForCollectionView.swift in Sources */,
 				FA71C5712B48794E009E7007 /* ServiceCollectionViewCell.swift in Sources */,
 				FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */,
 				FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */,
@@ -298,10 +349,11 @@
 				FA9DEA402B0BB7FD00F65796 /* SignInVC.swift in Sources */,
 				FAA4AA472B16056600A75E01 /* HomePageVC.swift in Sources */,
 				FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */,
-				FA71C56F2B486AFC009E7007 /* PlusCollectionViewCell.swift in Sources */,
 				FA71C5742B487992009E7007 /* ServiceCollectionView.swift in Sources */,
 				FA85A60C2B458D2E000CBAC4 /* AutoModel.swift in Sources */,
 				FA71C5762B487AB8009E7007 /* ServiceModel.swift in Sources */,
+				FA50BD922B60280C00BF8D0A /* NewHomePage.swift in Sources */,
+				FAEC52ED2B6151A700404169 /* CellForAdd.swift in Sources */,
 				FA9DEA2A2B0B8E4100F65796 /* SceneDelegate.swift in Sources */,
 				FA9DEA442B0BBF3C00F65796 /* ColorModel.swift in Sources */,
 				FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */,
