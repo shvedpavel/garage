@@ -15,11 +15,10 @@ class CellForAdd: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        settingButton()
+    }
+    
+    @IBAction func addBtn(_ sender: UIButton) {
+
     }
 
-    private func settingButton() {
-        button.layer.cornerRadius = button.frame.width/2
-        button.layer.masksToBounds = false
-    }
 }

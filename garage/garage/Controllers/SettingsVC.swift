@@ -11,30 +11,28 @@ import FirebaseAuth
 
 class SettingsVC: UIViewController {
 
+    
+    @IBOutlet weak var measuringSystemLbl: UILabel!
+   
+    @IBOutlet weak var segmentController: UISegmentedControl!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyTheme()
+    }
 
-        // Do any additional setup after loading the view.
+    @IBAction func segmentedController(_ sender: UISegmentedControl) {
     }
     
-    @IBAction func signOutBtn(_ sender: UIBarButtonItem) {
-       
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print(error.localizedDescription)
-        }
-        navigationController?.popToRootViewController(animated: true)
+    // MARK: - Private functions
+    private func applyTheme() {
+        self.view.backgroundColor = Theme.currentTheme.backgroundColor
+        measuringSystemLbl.textColor = Theme.currentTheme.textColor
+        segmentController.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "Apple SD Gothic Neo Regular", size: 12)!,
+                                                  NSAttributedString.Key.foregroundColor: Theme.currentTheme.textColorSecondary], for: .normal)
+        segmentController.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "Apple SD Gothic Neo Regular", size: 15)!,
+                                                  NSAttributedString.Key.foregroundColor: Theme.currentTheme.backgroundColor], for: .selected)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

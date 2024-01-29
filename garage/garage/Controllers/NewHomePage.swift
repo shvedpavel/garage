@@ -35,8 +35,19 @@ class NewHomePage: UIViewController {
         sutupConstraintForCollection()
         autos = AutoModel.fetchAuto()
         collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
+        title = "GARAGE"
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
+        
+    }
+    
+    
 }
+
+
 
 
 //MARK: - UICollectionViewDataSource, UICollectionViewDelegate
@@ -54,7 +65,7 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
             return autos[selectedIndex.row].services.count + 1
         }
     }
-        
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch indexPath.section {
@@ -65,6 +76,7 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellForAdd.reusableIdentifire, for: indexPath) as! CellForAdd
                 cell.backgroundColor = Theme.currentTheme.backgroundColor
                 cell.roundedWithShadow()
+                
                 
                 return cell
             } else  {
@@ -107,10 +119,35 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            selectedIndex = indexPath
-            collectionView.reloadSections(IndexSet(integer: 1))
+            if indexPath.row == autos.count {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let vc = storyboard.instantiateViewController(withIdentifier: "AddAutoVC") as? AddAutoVC else { return }
+                
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                selectedIndex = indexPath
+                collectionView.reloadSections(IndexSet(integer: 1))
+            }
+        } else {
+            ///заменить сонтрроллер
+            if indexPath.row == 0 {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let vc = storyboard.instantiateViewController(withIdentifier: "AddService") as? AddService else { return }
+                
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                
+            }
         }
+        
+        
+        
     }
+    
+    
+    
+    
 }
 
 extension NewHomePage {
@@ -182,6 +219,9 @@ extension NewHomePage {
         
         let addNib = UINib(nibName: CellForAdd.reusableIdentifire, bundle: nil)
         collectionView.register(addNib, forCellWithReuseIdentifier: CellForAdd.reusableIdentifire)
+        
+       ///Зарегистрироваи заголовок для секции
+        collectionView.register(SectionsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionsHeader.reuserID)
     
         
         return collectionView

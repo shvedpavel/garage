@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -242,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0c-hE-hl2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717" y="-575"/>
+            <point key="canvasLocation" x="1696" y="-552"/>
         </scene>
         <!--Регистрация-->
         <scene sceneID="Cbj-fg-8TS">
@@ -368,9 +369,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMh-TD-1xP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1706" y="828"/>
+            <point key="canvasLocation" x="929" y="816"/>
         </scene>
-        <!--Item-->
+        <!--GARAGE-->
         <scene sceneID="y8w-8a-DbY">
             <objects>
                 <viewController id="jx3-0k-Hyj" customClass="NewHomePage" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
@@ -380,69 +381,71 @@
                         <viewLayoutGuide key="safeArea" id="359-uk-kuF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="h8r-Hx-lCi"/>
-                    <navigationItem key="navigationItem" id="DPr-Tu-x46"/>
+                    <tabBarItem key="tabBarItem" title="Виджеты" id="jE6-s4-FfP">
+                        <imageReference key="image" image="circle.grid.2x2" catalog="system" variableValue="0.0"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="GARAGE" id="DPr-Tu-x46"/>
+                    <connections>
+                        <segue destination="g0z-A9-yct" kind="showDetail" identifier="goToAddAuto" id="X05-qp-oWh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Of-Qm-w0m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2651" y="850"/>
+            <point key="canvasLocation" x="1619" y="827"/>
         </scene>
-        <!--GARAGE-->
-        <scene sceneID="fUA-b6-g7M">
-            <objects>
-                <viewController id="9er-jh-3Gs" customClass="HomePageVC" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="b4C-Hi-I5u">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мой автопарк:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FW-ZH-Yhz">
-                                <rect key="frame" x="16" y="49" width="120" height="22"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="hvf-dr-53q"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="1FW-ZH-Yhz" firstAttribute="top" secondItem="hvf-dr-53q" secondAttribute="top" constant="1" id="ZBE-JY-dbq"/>
-                            <constraint firstItem="1FW-ZH-Yhz" firstAttribute="leading" secondItem="hvf-dr-53q" secondAttribute="leading" constant="16" id="zRw-R9-Bmo"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hnm-4h-gWW"/>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="GARAGE" id="V7q-4b-pGw"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="deliveryLabel" destination="1FW-ZH-Yhz" id="zNY-a3-cmb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kG6-2Z-ZfI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2868" y="98"/>
-        </scene>
-        <!--SettingsVC-->
+        <!--Настройки-->
         <scene sceneID="PEE-NG-3mP">
             <objects>
                 <viewController id="UAK-Ch-xjm" customClass="SettingsVC" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wdj-pf-hd1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1P4-tU-eur">
+                                <rect key="frame" x="25" y="117" width="364" height="82"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Система измерения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3m-9u-ccq">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="18"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HQC-9N-rsy">
+                                        <rect key="frame" x="0.0" y="26" width="364" height="57"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="8ph-uy-cep"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="Километры"/>
+                                            <segment title="Мили"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="buttonColor"/>
+                                        <connections>
+                                            <action selector="segmentedController:" destination="UAK-Ch-xjm" eventType="valueChanged" id="q0H-op-owF"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2qL-9a-aHl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1P4-tU-eur" firstAttribute="leading" secondItem="2qL-9a-aHl" secondAttribute="leading" constant="25" id="TSa-ag-VYj"/>
+                            <constraint firstItem="1P4-tU-eur" firstAttribute="top" secondItem="2qL-9a-aHl" secondAttribute="top" constant="25" id="eIS-Qr-UgV"/>
+                            <constraint firstItem="2qL-9a-aHl" firstAttribute="trailing" secondItem="1P4-tU-eur" secondAttribute="trailing" constant="25" id="y0G-ol-IYD"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TBF-Sv-7jg">
-                        <barButtonItem key="rightBarButtonItem" title="Exit" id="WIX-YD-brv">
-                            <color key="tintColor" name="buttonColor"/>
-                            <connections>
-                                <action selector="signOutBtn:" destination="UAK-Ch-xjm" id="mkC-C0-5m6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <tabBarItem key="tabBarItem" tag="1" title="Настройки" image="gearshape" catalog="system" id="ahz-lD-EZs"/>
+                    <navigationItem key="navigationItem" id="TBF-Sv-7jg"/>
+                    <connections>
+                        <outlet property="measuringSystemLbl" destination="I3m-9u-ccq" id="8Le-Oc-q4B"/>
+                        <outlet property="segmentController" destination="HQC-9N-rsy" id="Cc7-nt-1Xe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SB-zG-4rX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3758" y="133"/>
+            <point key="canvasLocation" x="2467" y="827"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Wh-uh-TAz">
@@ -534,28 +537,343 @@
             </objects>
             <point key="canvasLocation" x="2521.739130434783" y="-575.22321428571422"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller For Hame Page-->
         <scene sceneID="YOm-7d-vE8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SiZ-WQ-rmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wjS-jI-3Cy" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wjS-jI-3Cy" customClass="TabBarControllerForHamePage" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Kqn-wM-9k1"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xx9-2Y-Dpb">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="buttonColor"/>
+                        <color key="selectedImageTintColor" name="buttonColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="jx3-0k-Hyj" kind="relationship" relationship="viewControllers" id="0ar-fi-EiK"/>
+                        <segue destination="UAK-Ch-xjm" kind="relationship" relationship="viewControllers" id="KzA-T2-AAW"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SiZ-WQ-rmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1983" y="98"/>
         </scene>
+        <!--Add AutoVC-->
+        <scene sceneID="JJ6-iU-gsx">
+            <objects>
+                <viewController storyboardIdentifier="AddAutoVC" id="g0z-A9-yct" customClass="AddAutoVC" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g34-kK-nZw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Wlk-G1-9EW">
+                                <rect key="frame" x="25" y="25" width="364" height="575"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9OF-GR-bmC">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="504"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Марка" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cWp-lf-djW">
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="oPy-XD-Opc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Модель" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xdy-tj-ZIG">
+                                                <rect key="frame" x="0.0" y="64" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="tBd-fc-Bqy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пробег" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fUZ-gu-KHq">
+                                                <rect key="frame" x="0.0" y="128" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="6V4-Mg-GgN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Госномер" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HwI-j4-ZXV">
+                                                <rect key="frame" x="0.0" y="192" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="eYQ-B1-Krk"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="VIN" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WxP-qt-BfB">
+                                                <rect key="frame" x="0.0" y="256" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="ehK-Uh-1c2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Тип двигателя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ohS-Su-w6y">
+                                                <rect key="frame" x="0.0" y="320" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="4Wc-fE-rPS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Объем двигателя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hV6-zO-hB3">
+                                                <rect key="frame" x="0.0" y="384" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="AXq-60-JyC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Год выпуска" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MNe-Ph-JTe">
+                                                <rect key="frame" x="0.0" y="448" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="esQ-vc-RQC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3NE-ch-ISR">
+                                        <rect key="frame" x="0.0" y="519" width="364" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="IJ5-5K-z1F"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Сохранить"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3NE-ch-ISR" firstAttribute="width" secondItem="Wlk-G1-9EW" secondAttribute="width" id="hw9-yl-KLm"/>
+                                    <constraint firstItem="cWp-lf-djW" firstAttribute="width" secondItem="Wlk-G1-9EW" secondAttribute="width" id="ooe-7A-HhN"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CeO-nv-oFz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wlk-G1-9EW" firstAttribute="top" secondItem="CeO-nv-oFz" secondAttribute="top" constant="25" id="RlW-PX-MXt"/>
+                            <constraint firstItem="CeO-nv-oFz" firstAttribute="trailing" secondItem="Wlk-G1-9EW" secondAttribute="trailing" constant="25" id="Rzc-il-U8U"/>
+                            <constraint firstItem="Wlk-G1-9EW" firstAttribute="leading" secondItem="g34-kK-nZw" secondAttribute="leading" constant="25" id="zpr-In-11j"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mileageЕА" destination="fUZ-gu-KHq" id="iom-74-qwg"/>
+                        <outlet property="modelTF" destination="xdy-tj-ZIG" id="ujo-tH-JiE"/>
+                        <outlet property="motorTypeTF" destination="ohS-Su-w6y" id="vyD-nP-1xT"/>
+                        <outlet property="motorVolumeTF" destination="hV6-zO-hB3" id="NId-y5-saj"/>
+                        <outlet property="nameTF" destination="cWp-lf-djW" id="nTz-SA-CqL"/>
+                        <outlet property="numberTF" destination="HwI-j4-ZXV" id="DrA-B4-a1E"/>
+                        <outlet property="saveBtn" destination="3NE-ch-ISR" id="ntq-J4-hey"/>
+                        <outlet property="vinTF" destination="WxP-qt-BfB" id="UCX-KK-SWI"/>
+                        <outlet property="yearOfProductionTF" destination="MNe-Ph-JTe" id="99x-65-dS4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FMB-dA-fkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1619" y="1566"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="R29-OO-ntL">
+            <objects>
+                <viewController id="Ogg-F2-OAL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Yv-XH-EG9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Vu3-Op-cHT">
+                                <rect key="frame" x="25" y="73" width="364" height="383"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-6b-r5Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="312"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Тип двигателя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SdA-7l-4Gb">
+                                                <rect key="frame" x="0.0" y="0.0" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="Ldk-fy-ycI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Объем" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vnm-qH-Oif">
+                                                <rect key="frame" x="0.0" y="64" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="bhI-Bg-2fj"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Тип КПП" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iat-Qk-WVT">
+                                                <rect key="frame" x="0.0" y="128" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="0wC-pH-VBe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пробег" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQL-ae-7V3">
+                                                <rect key="frame" x="0.0" y="192" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="4rz-pA-fcj"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Год выпуска" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZCP-fx-Oa4">
+                                                <rect key="frame" x="0.0" y="256" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="qXH-Ja-8Ix"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkK-xT-Mnj">
+                                        <rect key="frame" x="0.0" y="327" width="364" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="YNm-AF-HpN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Сохранить"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gaO-6b-r5Z" firstAttribute="width" secondItem="Vu3-Op-cHT" secondAttribute="width" id="DsT-Cx-yQr"/>
+                                    <constraint firstItem="tkK-xT-Mnj" firstAttribute="width" secondItem="Vu3-Op-cHT" secondAttribute="width" id="r9Z-vI-yAh"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cyd-sh-Ibb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Vu3-Op-cHT" firstAttribute="leading" secondItem="cyd-sh-Ibb" secondAttribute="leading" constant="25" id="DLa-oF-Xrf"/>
+                            <constraint firstItem="Vu3-Op-cHT" firstAttribute="top" secondItem="cyd-sh-Ibb" secondAttribute="top" constant="25" id="HxT-Cx-gou"/>
+                            <constraint firstItem="cyd-sh-Ibb" firstAttribute="trailing" secondItem="Vu3-Op-cHT" secondAttribute="trailing" constant="25" id="Yqa-P9-IJk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mut-iq-vG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3917" y="106"/>
+        </scene>
+        <!--Add Service-->
+        <scene sceneID="i5b-3Z-Mij">
+            <objects>
+                <viewController storyboardIdentifier="AddService" id="9ZP-yN-RtN" customClass="AddService" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xRd-jz-VUr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4Ka-9e-MSr">
+                                <rect key="frame" x="25" y="73" width="364" height="354.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tNF-ss-UAe">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="84.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCd-22-Oy7">
+                                                <rect key="frame" x="0.0" y="0.0" width="73" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="THt-9Y-iuI">
+                                                <rect key="frame" x="0.0" y="28.5" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="NOo-dR-iU3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KZF-er-iwb">
+                                        <rect key="frame" x="0.0" y="99.5" width="364" height="84.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата выполнения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqE-dn-9rE">
+                                                <rect key="frame" x="0.0" y="0.0" width="129.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TvV-W9-1FQ">
+                                                <rect key="frame" x="0.0" y="28.5" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="71f-J9-7RV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uXB-dK-IHW">
+                                        <rect key="frame" x="0.0" y="199" width="364" height="84.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обслуживание на пробеге (км/мили)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffe-VW-8PR">
+                                                <rect key="frame" x="0.0" y="0.0" width="273" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cbm-0E-Dtw">
+                                                <rect key="frame" x="0.0" y="28.5" width="364" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="l2O-Qs-Kn4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSO-TA-zeV">
+                                        <rect key="frame" x="0.0" y="298.5" width="364" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="Ko5-EE-SyE"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cbm-0E-Dtw" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="C1A-8X-JhB"/>
+                                    <constraint firstItem="TvV-W9-1FQ" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="PbB-xR-O7Q"/>
+                                    <constraint firstItem="wSO-TA-zeV" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="YV2-2x-l4X"/>
+                                    <constraint firstItem="THt-9Y-iuI" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="igG-4R-Asr"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3dN-cF-job"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Ka-9e-MSr" firstAttribute="top" secondItem="3dN-cF-job" secondAttribute="top" constant="25" id="idU-y8-zJu"/>
+                            <constraint firstItem="3dN-cF-job" firstAttribute="trailing" secondItem="4Ka-9e-MSr" secondAttribute="trailing" constant="25" id="jPu-cc-rTf"/>
+                            <constraint firstItem="4Ka-9e-MSr" firstAttribute="leading" secondItem="3dN-cF-job" secondAttribute="leading" constant="25" id="muw-zW-bLE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTF" destination="THt-9Y-iuI" id="LaW-7a-Ide"/>
+                        <outlet property="save" destination="wSO-TA-zeV" id="DSO-wR-eTf"/>
+                        <outlet property="serviceDedlineLbl" destination="jqE-dn-9rE" id="JjT-rZ-Ytr"/>
+                        <outlet property="serviceDedlineTF" destination="TvV-W9-1FQ" id="6ce-wf-drH"/>
+                        <outlet property="serviceMileageTF" destination="cbm-0E-Dtw" id="mGH-sh-SD1"/>
+                        <outlet property="serviseMileageLbl" destination="Ffe-VW-8PR" id="Tbe-T7-XxX"/>
+                        <outlet property="workDescriptionLbl" destination="ZCd-22-Oy7" id="5BV-D7-mX0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dIG-MI-Go0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2467" y="1566"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="circle.grid.2x2" catalog="system" width="128" height="111"/>
         <image name="garageLbl" width="229" height="226"/>
+        <image name="gearshape" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
