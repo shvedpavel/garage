@@ -5,29 +5,34 @@
 //  Created by Apple on 30.01.24.
 //
 
-import UIKit
+import Foundation
+import Firebase
+import FirebaseDatabase
 
 class AddService: UIViewController {
     
-    @IBOutlet weak var workDescriptionLbl: UILabel!
+    // MARK: - Properties
+    private var user: User!
+    private var  autos: AutosSingltonClass? = AutosSingltonClass.shared
+    var ref: DatabaseReference!
     
+    @IBOutlet weak var workDescriptionLbl: UILabel!
     @IBOutlet weak var descriptionTF: UITextField!
     @IBOutlet weak var serviceDedlineLbl: UILabel!
-    
     @IBOutlet weak var serviseMileageLbl: UILabel!
-    
     @IBOutlet weak var serviceDedlineTF: UITextField!
-    
-    
     @IBOutlet weak var serviceMileageTF: UITextField!
-    
     @IBOutlet weak var save: UIButton!
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
         title = "Добавить напоминание"
     }
+    
+    
+    
     
     // MARK: - Private functions
     private func applyTheme() {
@@ -39,6 +44,8 @@ class AddService: UIViewController {
     }
     
     
+    @IBAction func saveBtn(_ sender: UIButton) {
+    }
     
     /*
     // MARK: - Navigation

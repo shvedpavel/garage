@@ -646,6 +646,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Сохранить"/>
+                                        <connections>
+                                            <action selector="saveAutoBtn:" destination="g0z-A9-yct" eventType="touchUpInside" id="alp-Mn-cTd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -663,7 +666,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mileageЕА" destination="fUZ-gu-KHq" id="iom-74-qwg"/>
+                        <outlet property="mileageTF" destination="fUZ-gu-KHq" id="iom-74-qwg"/>
                         <outlet property="modelTF" destination="xdy-tj-ZIG" id="ujo-tH-JiE"/>
                         <outlet property="motorTypeTF" destination="ohS-Su-w6y" id="vyD-nP-1xT"/>
                         <outlet property="motorVolumeTF" destination="hV6-zO-hB3" id="NId-y5-saj"/>
@@ -677,90 +680,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMB-dA-fkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1619" y="1566"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="R29-OO-ntL">
-            <objects>
-                <viewController id="Ogg-F2-OAL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0Yv-XH-EG9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Vu3-Op-cHT">
-                                <rect key="frame" x="25" y="73" width="364" height="383"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-6b-r5Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="312"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Тип двигателя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SdA-7l-4Gb">
-                                                <rect key="frame" x="0.0" y="0.0" width="364" height="56"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="Ldk-fy-ycI"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Объем" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vnm-qH-Oif">
-                                                <rect key="frame" x="0.0" y="64" width="364" height="56"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="bhI-Bg-2fj"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Тип КПП" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iat-Qk-WVT">
-                                                <rect key="frame" x="0.0" y="128" width="364" height="56"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="0wC-pH-VBe"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пробег" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yQL-ae-7V3">
-                                                <rect key="frame" x="0.0" y="192" width="364" height="56"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="4rz-pA-fcj"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Год выпуска" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZCP-fx-Oa4">
-                                                <rect key="frame" x="0.0" y="256" width="364" height="56"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="qXH-Ja-8Ix"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkK-xT-Mnj">
-                                        <rect key="frame" x="0.0" y="327" width="364" height="56"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="YNm-AF-HpN"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Сохранить"/>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="gaO-6b-r5Z" firstAttribute="width" secondItem="Vu3-Op-cHT" secondAttribute="width" id="DsT-Cx-yQr"/>
-                                    <constraint firstItem="tkK-xT-Mnj" firstAttribute="width" secondItem="Vu3-Op-cHT" secondAttribute="width" id="r9Z-vI-yAh"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="cyd-sh-Ibb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Vu3-Op-cHT" firstAttribute="leading" secondItem="cyd-sh-Ibb" secondAttribute="leading" constant="25" id="DLa-oF-Xrf"/>
-                            <constraint firstItem="Vu3-Op-cHT" firstAttribute="top" secondItem="cyd-sh-Ibb" secondAttribute="top" constant="25" id="HxT-Cx-gou"/>
-                            <constraint firstItem="cyd-sh-Ibb" firstAttribute="trailing" secondItem="Vu3-Op-cHT" secondAttribute="trailing" constant="25" id="Yqa-P9-IJk"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mut-iq-vG8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3917" y="106"/>
         </scene>
         <!--Add Service-->
         <scene sceneID="i5b-3Z-Mij">
@@ -836,7 +755,10 @@
                                             <constraint firstAttribute="height" constant="56" id="Ko5-EE-SyE"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Сохранить"/>
+                                        <connections>
+                                            <action selector="saveBtn:" destination="9ZP-yN-RtN" eventType="touchUpInside" id="fXJ-0H-va6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

@@ -27,8 +27,9 @@ class SignInVC: UIViewController {
     /// для связи с SignInPresenter создаем переменную
     var presenter: SignInPresenterProtocol!
     
-//    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
-    
+    //создаем переменную для абзервера
+    var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
+
     private let eyeButton = EyeButton()
     
     private var isPrivate = true
@@ -63,6 +64,8 @@ class SignInVC: UIViewController {
         setupPasswordTF()
         addActions()
         
+        stateDidChangeListenerHandle()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +79,6 @@ class SignInVC: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self)
-        
     }
     
     // MARK: - Actions
@@ -101,7 +103,16 @@ class SignInVC: UIViewController {
         button.tintColor = Theme.currentTheme.buttonColor
     }
     
-//   
+    //    функция для отслежтиывания схода в учетку
+        private func stateDidChangeListenerHandle() {
+               authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
+                   guard let _ = user else { return }
+                   self?.performSegue(withIdentifier: "goToNewHomePage", sender: nil)
+        
+               })
+           }
+    
+    
     
     private func errorNotification(object: UITextField!) {
         guard let object = object else { return }

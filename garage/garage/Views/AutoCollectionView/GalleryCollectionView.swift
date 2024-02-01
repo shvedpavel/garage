@@ -53,10 +53,10 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         let cell = dequeueReusableCell(withReuseIdentifier: GalleryCollectionViewCell.reuseID, for: indexPath) as! GalleryCollectionViewCell
         cell.nameLable.text = cells[indexPath.row].name
         cell.modelLable.text = cells[indexPath.row].model
-        cell.engineLable.text = cells[indexPath.row].modification.engine
+        cell.engineLable.text = String(cells[indexPath.row].motorVolume)
         ///переделать
         ///подтянуть  км или мили
-        cell.mileageLable.text = "\(cells[indexPath.row].modification.mileage) км"
+        cell.mileageLable.text = "\(cells[indexPath.row].mileage) км"
         return cell
     }
     
