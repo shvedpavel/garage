@@ -52,9 +52,9 @@ class ServiceCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = dequeueReusableCell(withReuseIdentifier: ServiceCollectionViewCell.reuseID, for: indexPath) as! ServiceCollectionViewCell
-        cell.taskNameLable.text = cells[indexPath.row].taskName
+        cell.taskNameLable.text = cells[indexPath.row].taskDescription
         //сделать вариабельным
-        cell.deadlineLable.text = "\(cells[indexPath.row].date)"
+        cell.deadlineLable.text = "\(cells[indexPath.row].dedline)"
   
         return cell
     }

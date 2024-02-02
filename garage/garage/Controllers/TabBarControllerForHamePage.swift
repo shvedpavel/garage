@@ -11,14 +11,12 @@ import Firebase
 import FirebaseAuth
 
 class TabBarControllerForHamePage: UITabBarController {
-
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "GARAGE"
         self.navigationItem.setHidesBackButton(true, animated: false)
-
-        // Do any additional setup after loading the view.
     }
     
     func addButton() -> UIBarButtonItem  {
@@ -44,5 +42,4 @@ extension TabBarControllerForHamePage: UITabBarControllerDelegate {
         self.title = item.tag == 0 ? "GARAGE": "Настройки"
         self.navigationItem.rightBarButtonItem = item.tag == 0 ? nil : addButton()
     }
-    
 }

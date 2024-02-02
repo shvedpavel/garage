@@ -31,18 +31,14 @@ class SignInVC: UIViewController {
     var authStateDidChangeListenerHandle: AuthStateDidChangeListenerHandle!
 
     private let eyeButton = EyeButton()
-    
     private var isPrivate = true
     
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
     @IBOutlet weak var noAccountLbL: UILabel!
-    
     @IBOutlet weak var forgetPassword: UIButton!
-    
     @IBOutlet weak var register: UIButton!
     @IBOutlet weak var button: UIButton!
-    
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet  var passwordTF: UITextField!
     
@@ -104,15 +100,12 @@ class SignInVC: UIViewController {
     }
     
     //    функция для отслежтиывания схода в учетку
-        private func stateDidChangeListenerHandle() {
-               authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
-                   guard let _ = user else { return }
-                   self?.performSegue(withIdentifier: "goToNewHomePage", sender: nil)
-        
-               })
-           }
-    
-    
+    private func stateDidChangeListenerHandle() {
+        authStateDidChangeListenerHandle = Auth.auth().addStateDidChangeListener({ [ weak self ] _, user in
+            guard let user = user else { return }
+            //self?.goToHome() 
+        })
+    }
     
     private func errorNotification(object: UITextField!) {
         guard let object = object else { return }
@@ -186,12 +179,19 @@ private extension SignInVC {
         guard let object = object else { return }
          object.backgroundColor = .white
     }
+    
+    func goToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyboard.instantiateViewController(identifier:  "NewHomePage") as? TabBarControllerForHamePage {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension SignInVC: SignInVCProtocol {
     
     func goToHomePage() {
-        performSegue(withIdentifier: "goToNewHomePage", sender: nil)
+        goToHome()
     }
     
     func updateUI(type: TextFieldState) {

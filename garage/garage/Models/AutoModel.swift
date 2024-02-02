@@ -7,10 +7,11 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 struct AutoModel {
-    private let id: UUID = UUID()
-    var name: String //сделать из перечисления
+    var id: String
+    var name: String = "" //сделать из перечисления
     var model: String
     var number: String
     var vin: String
@@ -19,21 +20,33 @@ struct AutoModel {
     var mileage: Int
     var yearOfProduction: Int //сделать из перечисления
     var services: [ServiceModel] = []
-    let ref: DatabaseReference!
+//  let ref: DatabaseReference!
     
-   static func fetchAuto() -> [AutoModel] {
-      
-       var firstItem = AutoModel(name: "BMW", model: "X5", number: "A5564", vin: "A52344454545345", motorVolume: 3.0, motorType: "дизель", mileage: 234000, yearOfProduction: 2019)
-       
-       let to = ServiceModel.fetchService()
-       firstItem.services = to
-       
-       let secondItem = AutoModel(name: "Audi", model: "A5", number: "A545ff4", vin: "A52344454545345", motorVolume: 3.0, motorType: "дизель", mileage: 200000, yearOfProduction: 2020)
-       
-       return [firstItem, secondItem]
-    }
+//   static func fetchAuto() -> [AutoModel] {
+//      
+//       var firstItem = AutoModel(name: "BMW", model: "X5", number: "A5564", vin: "A52344454545345", motorVolume: 3.0, motorType: "дизель", mileage: 234000, yearOfProduction: 2019)
+//       
+//       let to = ServiceModel.fetchService()
+//       firstItem.services = to
+//       
+//       let secondItem = AutoModel(name: "Audi", model: "A5", number: "A545ff4", vin: "A52344454545345", motorVolume: 3.0, motorType: "дизель", mileage: 200000, yearOfProduction: 2020)
+//       
+//       return [firstItem, secondItem]
+//    }
     
-    init(name: String, model: String, number: String, vin: String, motorVolume: Double, motorType: String, mileage: Int, yearOfProduction: Int) {
+    init(
+        id: String = UUID().uuidString,
+        name: String,
+        model: String,
+        number: String,
+        vin: String,
+        motorVolume: Double,
+        motorType: String,
+        mileage: Int,
+        yearOfProduction: Int,
+        services: [ServiceModel]
+    ) {
+        self.id = id
         self.name = name
         self.model = model
         self.number = number
@@ -42,13 +55,12 @@ struct AutoModel {
         self.motorType = motorType
         self.mileage = mileage
         self.yearOfProduction = yearOfProduction
-        self.ref = nil
+        self.services = services
     }
-    
-
     
     /// для получения данных из FB и дальнейшего создания из  низ объекта
     init?(snapshot: DataSnapshot) {
+        
         guard let snapshotValue = snapshot.value as? [String: Any],
               let name = snapshotValue[Constants.nameKey] as? String,
               let model = snapshotValue[Constants.modelKey] as? String,
@@ -58,7 +70,13 @@ struct AutoModel {
               let motorType = snapshotValue[Constants.motorTypeKey] as? String,
               let mileage = snapshotValue[Constants.mileageKey] as? Int,
               let yearOfProduction = snapshotValue[Constants.yearOfProductionKey] as? Int
-            else { return nil }
+              //let services = snapshotValue[Constants.servicesKey] as? [String: Any?]
+            else {
+            return nil }
+        
+        
+        
+        self.id = snapshot.key
         self.name = name
         self.model = model
         self.number = number
@@ -67,18 +85,44 @@ struct AutoModel {
         self.motorType = motorType
         self.mileage = mileage
         self.yearOfProduction = yearOfProduction
-        self.ref = snapshot.ref
+        
+        if let services = snapshotValue[Constants.servicesKey] as? [String: Any?] {
+            var serv: [ServiceModel] = []
+            
+            services.forEach { (key, value) in
+                guard let value = value as? [String: Any] else { return }
+                    guard let taskDescription = value[ServiceModel.Constants.taskDescriptionKey] as? String
+                        else { return }
+                
+                serv.append(ServiceModel(
+                    id: key,
+                    taskDescription: taskDescription,
+                    mileage: value[ServiceModel.Constants.mileageKey] as? Int,
+                    dedline: value[ServiceModel.Constants.dedlineKey] as? Date
+                ))
+            }
+            
+            self.services = serv
+        }
     }
     
     func convertToDictionary() -> [String: Any] {
-        [Constants.nameKey: name,
+        
+        var servicesDic: [String: Any?] = [:]
+        
+        services.forEach({ value in
+            servicesDic[value.id] = value.convertToDictionary()
+        })
+        
+        return [Constants.nameKey: name,
          Constants.modelKey: model,
          Constants.numberKey: number,
          Constants.vinKey: vin,
          Constants.motorVolumeKey: motorVolume,
          Constants.motorTypeKey: motorType,
          Constants.mileageKey: mileage,
-         Constants.yearOfProductionKey: yearOfProduction]
+         Constants.yearOfProductionKey: yearOfProduction,
+         Constants.servicesKey: servicesDic] as [String : Any]
     }
     
     private enum Constants {
@@ -90,6 +134,7 @@ struct AutoModel {
         static let motorTypeKey = "motorType"
         static let mileageKey = "mileage"
         static let yearOfProductionKey = "yearOfProduction"
+        static let servicesKey = "services"
     }
 }
 
@@ -104,21 +149,13 @@ struct Constans {
     // дополнить размером BarButtonItem
     //заменить на данные величины размеры отступов на главном экране
     static let heightServiceCollectionView = {UIScreen.main.bounds.height - Constans.shadowRadius * 2 - Constans.topAnchorForView * 2 - 360}
-    
-    
 }
 
-class AutosSingltonClass {
-   
-    static var shared = AutosSingltonClass()
-    
-    private init() {}
-    
-     var autos: [AutoModel] = []
-    
-    
-}
-    
-    
-//
-
+//class AutosSingltonClass {
+//   
+//    static var shared = AutosSingltonClass()
+//    
+//    private init() {}
+//    
+//     var autos: [AutoModel] = []
+//}

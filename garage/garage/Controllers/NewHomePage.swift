@@ -9,16 +9,9 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-
 class NewHomePage: UIViewController {
    
     // MARK: - Properties
-//    private var autos: [AutoModel] = []
-    private var  autos: AutosSingltonClass? = AutosSingltonClass.shared
-    private var user: User!
-   
-    var ref: DatabaseReference!
-    
     enum Sections: Int, CaseIterable {
         case one
         case second
@@ -33,6 +26,15 @@ class NewHomePage: UIViewController {
         }
     }
     
+    private var autos: [AutoModel] = []
+    //private var  autos: AutosSingltonClass? = AutosSingltonClass.shared
+    //private var  services: ServiceSingltonClass? = ServiceSingltonClass.shared
+    
+//    var refForAutos: DatabaseReference!
+//    var refForService: DatabaseReference!
+    
+    private let service: AutoService = AutoServiceImpl.shader
+    
     private lazy var collectionView = makeCollectionView()
     private var selectedIndex: IndexPath = IndexPath(item: 0, section: 0)
     
@@ -41,37 +43,44 @@ class NewHomePage: UIViewController {
         super.viewDidLoad()
         self.view.addSubview(collectionView)
         sutupConstraintForCollection()
-//        autos = AutoModel.fetchAuto()
         collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
         title = "GARAGE"
         
+        service.fetchAutos() { [weak self] result in
+            switch result {
+            case .success(let autos):
+                self?.autos = autos
+                self?.collectionView.reloadData()
+            case .failure(let failure):
+                print(failure)
+            }
+        }
         
-        ///вытягиваем пользователя
-        guard let currentUser = Auth.auth().currentUser else { return }
-        user = User(user: currentUser)
-        ref = Database.database().reference(withPath: "users").child(user.uid).child("autos")
+        //вытягиваем нужное авто
+        
+//        guard let currentAuto = Auth.auth().ca
+        //oneAuto = AutoModel(auto: )
+//        refForService = Database.database().reference(withPath: "users").child(user.uid).child("autos").child(autos?.autos.).child("services")
+        
+//        refForService = Database.database().reference(withPath: "users").child(user.uid).child("users").child(oneAuto.name).child("services")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
         
-        ///реализация наблюдения за новыми авто (за категорией autos)
-        ref.observe(.value) { [weak self] snapshot in
-           
-            var autos = AutosSingltonClass.shared
-//                var autos = [AutoModel]()
-            for item in snapshot.children {
-                guard let snapshot = item as? DataSnapshot,
-                      let newAuto = AutoModel(snapshot: snapshot) else { return }
-                
-                autos.autos.append(newAuto)
-            }
-        ///добавляем в массив новые даные и обновляем коллекцию
-            self?.autos = autos
-            self?.collectionView.reloadData()
-            
-        }
+
+        ///реализация наблюдения за новыми service (за категорией service)
+//        refForService.observe(.value) { [weak self] snapshot in
+//            var services = ServiceSingltonClass.shared
+//            for item in  snapshot.children {
+//                guard let snapshot = item as? DataSnapshot,
+//                      let newService = ServiceModel(snapshot: snapshot) else { return }
+//                services.services.append(newService)
+//            }
+//            self?.services = services
+//            self?.collectionView.reloadData()
+//        }
     }
 }
 
@@ -84,23 +93,22 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
     ///устанавливаем количество элементов в секции
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
-        case 0: return (autos?.autos.count ?? 0)+1
+        case 0: return autos.count+1
 //            autos.count+1
         default:
-            guard selectedIndex.row < autos?.autos.count ?? 0 else { return 0 }
-            return (autos?.autos[selectedIndex.row].services.count ?? 0) + 1
+            guard selectedIndex.row < autos.count else { return 0 }
+            return autos[selectedIndex.row].services.count + 1
             
 //            guard selectedIndex.row < autos.count else { return 0 }
 //            return autos[selectedIndex.row].services.count + 1
         }
     }
-    /// наполняем коллекцию даннми
+    /// наполняем коллекцию данными
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch indexPath.section {
         case 0:
-//            if  indexPath.row == autos.count {
-            if  indexPath.row == autos?.autos.count {
+            if  indexPath.row == autos.count {
                 
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellForAdd.reusableIdentifire, for: indexPath) as! CellForAdd
                 cell.backgroundColor = Theme.currentTheme.backgroundColor
@@ -108,18 +116,13 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 return cell
                 
             } else  {
-//                let auto = autos[indexPath.row]
-                let auto = autos?.autos[indexPath.row]
-                
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellForAuto.reusableIdentifire, for: indexPath) as! CellForAuto
+                let auto = autos[indexPath.row]
                 cell.backgroundColor = cell.isSelected ? Theme.currentTheme.buttonColor : Theme.currentTheme.backgroundColor
                 cell.roundedWithShadow()
-//                cell.autosName.text = auto.name
-//                cell.autosModel.text = auto.model
-//                cell.mileage.text = String(auto.mileage)
-                cell.autosName.text = auto?.name
-                cell.autosModel.text = auto?.model
-                cell.mileage.text = auto?.mileage as? String
+                cell.autosName.text = auto.name
+                cell.autosModel.text = auto.model
+                cell.mileage.text = auto.mileage.description
 
                 return cell
             }
@@ -135,15 +138,12 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 return cell
                 
             } else {
-//                let to = autos[selectedIndex.row].services[indexPath.row-1]
-                let to = autos?.autos[selectedIndex.row].services[indexPath.row-1]
+                let to = autos[selectedIndex.row].services[indexPath.row-1]
             
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellForCollectionView.reusableIdentifire, for: indexPath) as! CellForCollectionView
                 cell.backgroundColor = Theme.currentTheme.backgroundColor
                 cell.roundedWithShadow()
-                
-//                cell.tasksName.text = to.taskName
-                cell.tasksName.text = to?.taskName
+                cell.tasksName.text = to.taskDescription
                     
                 return cell
             }
@@ -152,12 +152,11 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
     ///деалем переходы от ячеек
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-//            if indexPath.row == autos.count {
-            if indexPath.row == autos?.autos.count {
+            if indexPath.row == autos.count {
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let vc = storyboard.instantiateViewController(withIdentifier: "AddAutoVC") as? AddAutoVC else { return }
-                
+                vc.delegate = self
                 navigationController?.pushViewController(vc, animated: true)
             } else {
                 selectedIndex = indexPath
@@ -168,7 +167,8 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
             if indexPath.row == 0 {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let vc = storyboard.instantiateViewController(withIdentifier: "AddService") as? AddService else { return }
-                
+                vc.delegate = self
+                vc.currentAuto = autos[selectedIndex.row]
                 navigationController?.pushViewController(vc, animated: true)
             } else {
                 
@@ -260,6 +260,22 @@ extension NewHomePage {
             collectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+}
+
+extension NewHomePage: AddAutoVCDelegate {
+    
+    func addAuto(_ model: AutoModel) {
+        self.autos.append(model)
+        self.selectedIndex = IndexPath(item: self.autos.firstIndex(where: { $0.id == model.id }) ?? 0, section: 0) 
+        self.collectionView.reloadData()
+    }
+}
+
+extension NewHomePage: AddServiceDelagate {
+    func addTO(_ model: ServiceModel) {
+        self.autos[selectedIndex.row].services.append(model)
+        self.collectionView.reloadData()
     }
 }
 

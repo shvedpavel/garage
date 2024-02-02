@@ -147,7 +147,6 @@
                         <outlet property="passwordLbl" destination="tik-Bi-kgq" id="u9q-qB-ZO5"/>
                         <outlet property="passwordTF" destination="oBE-ob-GIm" id="ySX-3d-DgY"/>
                         <outlet property="register" destination="mc7-uV-qZG" id="StR-rN-Mqt"/>
-                        <segue destination="wjS-jI-3Cy" kind="show" identifier="goToNewHomePage" id="KRM-hA-g3Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -403,7 +402,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1P4-tU-eur">
-                                <rect key="frame" x="25" y="117" width="364" height="82"/>
+                                <rect key="frame" x="25" y="73" width="364" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Система измерения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3m-9u-ccq">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="18"/>
@@ -540,7 +539,7 @@
         <!--Tab Bar Controller For Hame Page-->
         <scene sceneID="YOm-7d-vE8">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wjS-jI-3Cy" customClass="TabBarControllerForHamePage" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NewHomePage" automaticallyAdjustsScrollViewInsets="NO" id="wjS-jI-3Cy" customClass="TabBarControllerForHamePage" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Kqn-wM-9k1"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xx9-2Y-Dpb">
@@ -557,7 +556,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiZ-WQ-rmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="98"/>
+            <point key="canvasLocation" x="1922" y="98"/>
         </scene>
         <!--Add AutoVC-->
         <scene sceneID="JJ6-iU-gsx">

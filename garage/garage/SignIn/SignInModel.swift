@@ -18,6 +18,3 @@ struct User {
         self.email = user.email ?? "нет данных"
     }
 }
-
-
-
