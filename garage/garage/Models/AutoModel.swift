@@ -20,19 +20,6 @@ struct AutoModel {
     var mileage: Int
     var yearOfProduction: Int //сделать из перечисления
     var services: [ServiceModel] = []
-//  let ref: DatabaseReference!
-    
-//   static func fetchAuto() -> [AutoModel] {
-//      
-//       var firstItem = AutoModel(name: "BMW", model: "X5", number: "A5564", vin: "A52344454545345", motorVolume: 3.0, motorType: "дизель", mileage: 234000, yearOfProduction: 2019)
-//       
-//       let to = ServiceModel.fetchService()
-//       firstItem.services = to
-//       
-//       let secondItem = AutoModel(name: "Audi", model: "A5", number: "A545ff4", vin: "A52344454545345", motorVolume: 3.0, motorType: "дизель", mileage: 200000, yearOfProduction: 2020)
-//       
-//       return [firstItem, secondItem]
-//    }
     
     init(
         id: String = UUID().uuidString,
@@ -70,11 +57,8 @@ struct AutoModel {
               let motorType = snapshotValue[Constants.motorTypeKey] as? String,
               let mileage = snapshotValue[Constants.mileageKey] as? Int,
               let yearOfProduction = snapshotValue[Constants.yearOfProductionKey] as? Int
-              //let services = snapshotValue[Constants.servicesKey] as? [String: Any?]
             else {
             return nil }
-        
-        
         
         self.id = snapshot.key
         self.name = name
@@ -93,15 +77,19 @@ struct AutoModel {
                 guard let value = value as? [String: Any] else { return }
                     guard let taskDescription = value[ServiceModel.Constants.taskDescriptionKey] as? String
                         else { return }
+                var date: Date?
+                
+                if let value = value[ServiceModel.Constants.dedlineKey] as? String {
+                    date = value.toDate()
+                }
                 
                 serv.append(ServiceModel(
                     id: key,
                     taskDescription: taskDescription,
                     mileage: value[ServiceModel.Constants.mileageKey] as? Int,
-                    dedline: value[ServiceModel.Constants.dedlineKey] as? Date
+                    dedline: date
                 ))
             }
-            
             self.services = serv
         }
     }
@@ -151,11 +139,3 @@ struct Constans {
     static let heightServiceCollectionView = {UIScreen.main.bounds.height - Constans.shadowRadius * 2 - Constans.topAnchorForView * 2 - 360}
 }
 
-//class AutosSingltonClass {
-//   
-//    static var shared = AutosSingltonClass()
-//    
-//    private init() {}
-//    
-//     var autos: [AutoModel] = []
-//}

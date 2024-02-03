@@ -18,7 +18,7 @@ class GalleryCollectionView: UICollectionView, UICollectionViewDelegate, UIColle
         
         backgroundColor = Theme.currentTheme.backgroundColor
       
-        //??????
+
         delegate = self
         dataSource = self
         

@@ -13,6 +13,7 @@ protocol AutoService: AnyObject {
     func fetchAutos(callback: @escaping (Result<[AutoModel], AutoServiceError>) -> Void)
     func registerAuto(_ model: AutoModel, callback: @escaping (Result<AutoModel, AutoServiceError>) -> Void)
     func registerTO(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<ServiceModel, AutoServiceError>) -> Void)
+    func chengeTO(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
 }
 
 class AutoServiceImpl: AutoService {
@@ -43,7 +44,6 @@ class AutoServiceImpl: AutoService {
                         return  }
                     autos.append(newAuto)
                 }
-                
                 callback(.success(autos))
             }
         }
@@ -53,7 +53,7 @@ class AutoServiceImpl: AutoService {
         
         guard let user = Auth.auth().currentUser else { return }
         let autosReference = Database.database().reference(withPath: "users").child(user.uid).child("autos")
-        //создаем ссылку на авто(pfvtybnm yf id auto)
+        //создаем ссылку на авто
         let autoRef = autosReference.child(model.id)
         //отправляем на сервер
         autoRef.setValue(model.convertToDictionary()) { (error, ref) in
@@ -76,6 +76,30 @@ class AutoServiceImpl: AutoService {
                 callback(.failure(.errorAddAuto))
             } else {
                 callback(.success(model))
+            }
+        }
+    }
+    
+    func chengeTO(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void) {
+        guard let user = Auth.auth().currentUser else { return }
+        let autosReference = Database.database().reference(withPath: "users").child(user.uid).child("autos").child(autoId).child("services")
+        
+        let serviceRef = autosReference.child(model.id)
+        
+        var dic: [AnyHashable: Any] = ["taskDescription" : model.taskDescription,
+                   "mileage" : model.mileage]
+        
+        if let date = model.dedline?.toString() {
+            dic["dedline"] = date
+        }
+        
+        //отправляем на сервер
+        //расписать обновдление других параметров, просто добавить в массив по аналогии
+        serviceRef.updateChildValues(dic) { (error, ref) in
+            if let _ = error {
+                callback(.failure(.errorAddAuto))
+            } else {
+                callback(.success(()))
             }
         }
     }

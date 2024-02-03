@@ -27,12 +27,7 @@ class NewHomePage: UIViewController {
     }
     
     private var autos: [AutoModel] = []
-    //private var  autos: AutosSingltonClass? = AutosSingltonClass.shared
-    //private var  services: ServiceSingltonClass? = ServiceSingltonClass.shared
-    
-//    var refForAutos: DatabaseReference!
-//    var refForService: DatabaseReference!
-    
+   
     private let service: AutoService = AutoServiceImpl.shader
     
     private lazy var collectionView = makeCollectionView()
@@ -55,32 +50,11 @@ class NewHomePage: UIViewController {
                 print(failure)
             }
         }
-        
-        //вытягиваем нужное авто
-        
-//        guard let currentAuto = Auth.auth().ca
-        //oneAuto = AutoModel(auto: )
-//        refForService = Database.database().reference(withPath: "users").child(user.uid).child("autos").child(autos?.autos.).child("services")
-        
-//        refForService = Database.database().reference(withPath: "users").child(user.uid).child("users").child(oneAuto.name).child("services")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
-        
-
-        ///реализация наблюдения за новыми service (за категорией service)
-//        refForService.observe(.value) { [weak self] snapshot in
-//            var services = ServiceSingltonClass.shared
-//            for item in  snapshot.children {
-//                guard let snapshot = item as? DataSnapshot,
-//                      let newService = ServiceModel(snapshot: snapshot) else { return }
-//                services.services.append(newService)
-//            }
-//            self?.services = services
-//            self?.collectionView.reloadData()
-//        }
     }
 }
 
@@ -164,15 +138,15 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
             }
         } else {
             ///заменить сонтрроллер
-            if indexPath.row == 0 {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                guard let vc = storyboard.instantiateViewController(withIdentifier: "AddService") as? AddService else { return }
-                vc.delegate = self
-                vc.currentAuto = autos[selectedIndex.row]
-                navigationController?.pushViewController(vc, animated: true)
-            } else {
-                
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let addServiceVC = storyboard.instantiateViewController(withIdentifier: "AddService") as? AddService else { return }
+            
+            addServiceVC.currentAuto = autos[selectedIndex.row]
+            addServiceVC.delegate = self
+            if indexPath.row != 0 {
+                addServiceVC.selectedIndex = indexPath.row - 1
             }
+            navigationController?.pushViewController(addServiceVC, animated: true)
         }
     }
 }
@@ -273,8 +247,14 @@ extension NewHomePage: AddAutoVCDelegate {
 }
 
 extension NewHomePage: AddServiceDelagate {
+    
     func addTO(_ model: ServiceModel) {
         self.autos[selectedIndex.row].services.append(model)
+        self.collectionView.reloadData()
+    }
+    
+    func update(_ model: ServiceModel, for index: Int) {
+        self.autos[selectedIndex.row].services[index] = model
         self.collectionView.reloadData()
     }
 }

@@ -756,7 +756,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Сохранить"/>
                                         <connections>
-                                            <action selector="saveBtn:" destination="9ZP-yN-RtN" eventType="touchUpInside" id="fXJ-0H-va6"/>
+                                            <action selector="button:" destination="9ZP-yN-RtN" eventType="touchUpInside" id="fXJ-0H-va6"/>
                                         </connections>
                                     </button>
                                 </subviews>

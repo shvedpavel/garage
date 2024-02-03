@@ -37,13 +37,13 @@ struct ServiceModel {
     }
     
     func convertToDictionary() -> [String: Any?] {
-        [Constants.dedlineKey: dedline ?? nil,
+        [Constants.dedlineKey: dedline?.toString() ?? nil,
          Constants.mileageKey: mileage ?? nil,
          Constants.taskDescriptionKey: taskDescription
         ]
     }
     
-    enum Constants {
+     enum Constants {
         static let taskDescriptionKey = "taskDescription"
         static let mileageKey = "mileage"
         static let dedlineKey = "dedline"
