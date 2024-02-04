@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 protocol AddAutoVCDelegate: AnyObject {
     func addAuto(_ model: AutoModel)
+    func deleteAuto(_ autoId: String)
 }
 
 class AddAutoVC: UIViewController {
@@ -19,6 +20,8 @@ class AddAutoVC: UIViewController {
     private let service: AutoService = AutoServiceImpl.shader
     private var user: User!
     weak var delegate: AddAutoVCDelegate?
+
+    var currentAuto: AutoModel?
 
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var modelTF: UITextField!
@@ -30,14 +33,20 @@ class AddAutoVC: UIViewController {
     @IBOutlet weak var yearOfProductionTF: UITextField!
     @IBOutlet weak var saveBtn: UIButton!
     
+    @IBOutlet weak var deleteBtn: UIButton!
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         applyTheme()
         title = "Добавить авто"
+        checkAuto()
+        setModel()
     }
     
-    @IBAction func saveAutoBtn(_ sender: UIButton) {
+    // MARK: - Actionы
+    
+    @IBAction func button(_ sender: UIButton) {
         guard let autoName = nameTF.text,
               let autoModel = modelTF.text,
               let mileage = Int(mileageTF.text ?? "33"),
@@ -72,9 +81,64 @@ class AddAutoVC: UIViewController {
         }
     }
     
+    @IBAction func deleteButton(_ sender: UIButton) {
+        let alertController = UIAlertController(title: nil, message: "Удалить авто?", preferredStyle: .alert)
+        ///action 1
+        let delete = UIAlertAction(title: "Удалить", style: .default) { [weak self] _ in
+            
+            if let currentAuto = self?.currentAuto {
+                self?.deleteAuto(autoId: currentAuto.id)
+            } else { return }
+            
+            self?.navigationController?.popViewController(animated: true)
+        }
+        ///action 2
+        let cancel = UIAlertAction(title: "Отмена", style: .default) { [weak self] _ in
+        }
+        alertController.addAction(delete)
+        alertController.addAction(cancel)
+        present(alertController, animated: true)
+    }
+    
+    
      // MARK: - Private functions
     private func applyTheme() {
         self.view.backgroundColor = Theme.currentTheme.backgroundColor
         saveBtn.tintColor = Theme.currentTheme.buttonColor
+        deleteBtn.tintColor = Theme.currentTheme.buttonColor
+        
+    }
+    
+    ///изменение вида экрана в замисимости от наличия данных
+    func checkAuto() {
+        if let currentAuto = currentAuto {
+            saveBtn.setTitle("Изменить", for: .normal)
+            deleteBtn.isHidden = false
+        }
+    }
+    
+    func setModel() {
+        guard let currentAuto = currentAuto else { return }
+        nameTF.text = currentAuto.name
+        modelTF.text = currentAuto.model
+        mileageTF.text = String(currentAuto.mileage ?? 0)
+        numberTF.text = currentAuto.number
+        vinTF.text = currentAuto.vin
+        motorTypeTF.text = currentAuto.motorType
+        motorVolumeTF.text = String(currentAuto.motorVolume ?? 0)
+        yearOfProductionTF.text = String(currentAuto.yearOfProduction ?? 0)
+    }
+    
+    func deleteAuto(autoId: String) {
+        
+        service.deleteAuto(currentAuto?.id ?? "", callback: { [weak self] result in
+            switch result {
+            case .success():
+                self?.delegate?.deleteAuto(autoId)
+                self?.navigationController?.popViewController(animated: true)
+            case .failure:
+                print("service not deleted")
+            }
+        })
     }
 }

@@ -12,6 +12,11 @@ import FirebaseAuth
 protocol AutoService: AnyObject {
     func fetchAutos(callback: @escaping (Result<[AutoModel], AutoServiceError>) -> Void)
     func registerAuto(_ model: AutoModel, callback: @escaping (Result<AutoModel, AutoServiceError>) -> Void)
+    
+    func deleteAuto(_ autoId: String, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
+    
+    
+    
     func registerTO(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<ServiceModel, AutoServiceError>) -> Void)
     func chengeService(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
     func deleteService(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
@@ -66,6 +71,20 @@ class AutoServiceImpl: AutoService {
         }
     }
     
+    func deleteAuto(_ autoId: String, callback: @escaping (Result<Void, AutoServiceError>) -> Void) {
+        guard let user = Auth.auth().currentUser else { return }
+        let autosReference = Database.database().reference(withPath: "users").child(user.uid).child("autos")
+    
+        autosReference.updateChildValues([autoId: nil], withCompletionBlock: {(error, ref) in
+            if let _ = error {
+                callback(.failure(.errorAddAuto))
+            } else {
+                callback(.success(()))
+            }
+        })
+    }
+    
+    
     func registerTO(_ autoId: String, _ model: ServiceModel,  callback: @escaping (Result<ServiceModel, AutoServiceError>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
         let autosReference = Database.database().reference(withPath: "users").child(user.uid).child("autos").child(autoId).child("services")
@@ -87,11 +106,12 @@ class AutoServiceImpl: AutoService {
         
         let serviceRef = autosReference.child(model.id)
         
-        var dic: [AnyHashable: Any] = ["taskDescription" : model.taskDescription, "mileage": model.mileage]
+        var dic: [AnyHashable: Any] = ["taskDescription" : model.taskDescription]
         
-//        if let mileage = model.mileage {
-//            dic["mileage"] = mileage
-//        }
+//            "mileage": model.mileage]
+        if let mileage = model.mileage {
+            dic["mileage"] = mileage
+        }
         
         if let date = model.dedline?.toString() {
             dic["dedline"] = date
@@ -113,7 +133,7 @@ class AutoServiceImpl: AutoService {
         //отправляем на сервер
         serviceRef.removeValue { ( error, ref ) in
             if let _ = error {
-                callback(.failure(.errorAddAuto))
+                callback(.failure(.serverError))
             } else {
                 callback(.success(()))
             }

@@ -38,7 +38,7 @@ class NewHomePage: UIViewController {
         super.viewDidLoad()
         self.view.addSubview(collectionView)
         sutupConstraintForCollection()
-        collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
+        
         title = "GARAGE"
         
         service.fetchAutos() { [weak self] result in
@@ -46,6 +46,7 @@ class NewHomePage: UIViewController {
             case .success(let autos):
                 self?.autos = autos
                 self?.collectionView.reloadData()
+                self?.collectionView.selectItem(at: self?.selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
             case .failure(let failure):
                 print(failure)
             }
@@ -94,6 +95,8 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 let auto = autos[indexPath.row]
                 cell.backgroundColor = cell.isSelected ? Theme.currentTheme.buttonColor : Theme.currentTheme.backgroundColor
                 cell.roundedWithShadow()
+                cell.delegate = self
+                
                 cell.autosName.text = auto.name
                 cell.autosModel.text = auto.model
                 cell.mileage.text = auto.mileage.description
@@ -134,6 +137,7 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 navigationController?.pushViewController(vc, animated: true)
             } else {
                 selectedIndex = indexPath
+                collectionView.selectItem(at: selectedIndex, animated: true, scrollPosition: .centeredHorizontally)
                 collectionView.reloadSections(IndexSet(integer: 1))
             }
         } else {
@@ -238,6 +242,14 @@ extension NewHomePage {
 }
 
 extension NewHomePage: AddAutoVCDelegate {
+    func deleteAuto(_ autoId: String) {
+        guard let index = self.autos.firstIndex(where: { $0.id == autoId }) else { return }
+        self.autos.remove(at: index)
+        self.selectedIndex = IndexPath(item: 0, section: 0)
+        self.collectionView.reloadData()
+        self.collectionView.selectItem(at: self.selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
+    }
+    
     
     func addAuto(_ model: AutoModel) {
         self.autos.append(model)
@@ -271,5 +283,18 @@ extension UICollectionViewCell {
         self.layer.shadowOpacity = 0.3
         self.layer.shadowOffset = CGSize(width: 5, height: 5)
         self.clipsToBounds = false
+    }
+}
+
+extension NewHomePage: CellAutoDelegate {
+    
+    func openAutoDetail() {
+        print("page open")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "AddAutoVC") as? AddAutoVC else { return }
+
+        vc.delegate = self
+        vc.currentAuto = autos[selectedIndex.row]
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -646,11 +646,23 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Сохранить"/>
                                         <connections>
-                                            <action selector="saveAutoBtn:" destination="g0z-A9-yct" eventType="touchUpInside" id="alp-Mn-cTd"/>
+                                            <action selector="button:" destination="g0z-A9-yct" eventType="touchUpInside" id="alp-Mn-cTd"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tF3-xg-n7V">
+                                        <rect key="frame" x="0.0" y="575" width="364" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="Otg-BB-OsR"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Удалить"/>
+                                        <connections>
+                                            <action selector="deleteButton:" destination="g0z-A9-yct" eventType="touchUpInside" id="Vkl-cx-7bw"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="tF3-xg-n7V" firstAttribute="width" secondItem="Wlk-G1-9EW" secondAttribute="width" id="fj5-FZ-1nW"/>
                                     <constraint firstItem="3NE-ch-ISR" firstAttribute="width" secondItem="Wlk-G1-9EW" secondAttribute="width" id="hw9-yl-KLm"/>
                                     <constraint firstItem="cWp-lf-djW" firstAttribute="width" secondItem="Wlk-G1-9EW" secondAttribute="width" id="ooe-7A-HhN"/>
                                 </constraints>
@@ -665,6 +677,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteBtn" destination="tF3-xg-n7V" id="u9L-aY-wBs"/>
                         <outlet property="mileageTF" destination="fUZ-gu-KHq" id="iom-74-qwg"/>
                         <outlet property="modelTF" destination="xdy-tj-ZIG" id="ujo-tH-JiE"/>
                         <outlet property="motorTypeTF" destination="ohS-Su-w6y" id="vyD-nP-1xT"/>

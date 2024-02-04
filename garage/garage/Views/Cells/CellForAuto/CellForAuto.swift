@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol CellAutoDelegate: AnyObject {
+    func openAutoDetail()
+}
+
 class CellForAuto: UICollectionViewCell {
+    
+    weak var delegate: CellAutoDelegate?
 
     override var isSelected: Bool {
         didSet {
@@ -30,7 +36,12 @@ class CellForAuto: UICollectionViewCell {
         super.awakeFromNib()
         settingButton()
     }
-
+    @IBAction func openDetails(_ sender: Any) {
+        if isSelected {
+            delegate?.openAutoDetail()
+        }
+    }
+    
     private func settingButton() {
         button.layer.cornerRadius = button.frame.width/2
         button.layer.masksToBounds = false

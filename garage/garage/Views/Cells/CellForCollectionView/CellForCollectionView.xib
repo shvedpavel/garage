@@ -21,32 +21,17 @@
                     <stackView opaque="NO" contentMode="top" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ekV-7a-qra">
                         <rect key="frame" x="8" y="8" width="184" height="84"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Tav-9A-w6I">
-                                <rect key="frame" x="0.0" y="0.0" width="184" height="24"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl8-xi-nr2">
-                                        <rect key="frame" x="0.0" y="0.0" width="156" height="24"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
-                                        <color key="textColor" name="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gug-IG-v5v">
-                                        <rect key="frame" x="160" y="0.0" width="24" height="24"/>
-                                        <color key="backgroundColor" name="buttonColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="24" id="DFN-aC-ldD"/>
-                                            <constraint firstAttribute="height" constant="24" id="LA5-Se-GCY"/>
-                                        </constraints>
-                                        <color key="tintColor" name="backgroundColor"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Button" image="ellipsis" catalog="system">
-                                            <color key="titleColor" name="backgroundColor"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl8-xi-nr2">
+                                <rect key="frame" x="0.0" y="0.0" width="184" height="52.666666666666664"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52.666666666666664" id="fia-XH-ps5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWb-pa-HSg">
-                                <rect key="frame" x="0.0" y="28" width="184" height="48"/>
+                                <rect key="frame" x="0.0" y="56.666666666666679" width="184" height="19.333333333333336"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="textColor" name="textColorSecondary"/>
                                 <nil key="highlightedColor"/>
@@ -58,7 +43,6 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="Esb-Zb-kRf" firstAttribute="width" secondItem="ekV-7a-qra" secondAttribute="width" id="6wZ-gE-SfU"/>
-                            <constraint firstItem="Tav-9A-w6I" firstAttribute="width" secondItem="ekV-7a-qra" secondAttribute="width" id="xdF-zE-U2v"/>
                         </constraints>
                     </stackView>
                 </subviews>
@@ -72,7 +56,6 @@
             </constraints>
             <size key="customSize" width="126" height="82"/>
             <connections>
-                <outlet property="button" destination="gug-IG-v5v" id="oVW-IN-xfU"/>
                 <outlet property="deadline" destination="MWb-pa-HSg" id="9A5-1R-InL"/>
                 <outlet property="progressView" destination="Esb-Zb-kRf" id="yco-Ag-Nb4"/>
                 <outlet property="tasksName" destination="fl8-xi-nr2" id="vzJ-Ot-oRZ"/>
@@ -81,10 +64,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ellipsis" catalog="system" width="128" height="37"/>
-        <namedColor name="backgroundColor">
-            <color red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="buttonColor">
             <color red="0.75686274509803919" green="0.23137254901960785" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

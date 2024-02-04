@@ -24,6 +24,7 @@ class AddService: UIViewController {
     var currentAuto: AutoModel!
     var selectedIndex: Int?
     
+    
     private var currentService: ServiceModel? {
         didSet {
             descriptionTF.text = currentService?.taskDescription
@@ -34,7 +35,6 @@ class AddService: UIViewController {
     
     private let service: AutoService = AutoServiceImpl.shader
     
-   
     @IBOutlet weak var workDescriptionLbl: UILabel!
     @IBOutlet weak var serviceDedlineLbl: UILabel!
     @IBOutlet weak var serviseMileageLbl: UILabel!
@@ -60,20 +60,20 @@ class AddService: UIViewController {
     
     // MARK: - Actions
     @IBAction func button(_ sender: UIButton) {
-        guard let description = descriptionTF.text,
-              let serviceDedline = serviceDedlineTF.text,
-              let serviceMileage = serviceMileageTF.text
+        guard let description = descriptionTF.text
         else { return }
         
         if var currentService = currentService {
             currentService.taskDescription = descriptionTF?.text ?? ""
-            guard let date = serviceDedlineTF.text?.toDate() else { return }
-            currentService.dedline = date
+            
+            currentService.dedline = serviceDedlineTF.text?.toDate()
             currentService.mileage = Int(serviceMileageTF.text ?? "")
             
             updateService(model: currentService)
+            
         } else {
-            let model = ServiceModel(taskDescription: description, mileage: Int(serviceMileage)) // TODO: add date
+            
+            let model = ServiceModel(taskDescription: description, mileage: Int(serviceMileageTF.text ?? ""), dedline: serviceDedlineTF.text?.toDate())
             addService(model: model)
         }
     }
@@ -140,20 +140,9 @@ class AddService: UIViewController {
                 print("service not deleted")
             }
         })
-        
-//        service.deleteService(currentAuto.id, model, callback: { [weak self] result in
-//            switch result {
-//            case .success():
-//                self?.delegate?.update(model, for: self?.selectedIndex ?? 0)
-//                self?.navigationController?.popViewController(animated: true)
-//            case .failure:
-//                print("service not deleted")
-//            }
-//        })
-    
     }
     
-    
+    ///изменение вида экрана в замисимости от наличия данных
     func checkService() {
         if let selectedIndex = selectedIndex {
             currentService = currentAuto.services[selectedIndex]
