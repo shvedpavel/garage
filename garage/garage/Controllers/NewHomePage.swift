@@ -257,6 +257,11 @@ extension NewHomePage: AddServiceDelagate {
         self.autos[selectedIndex.row].services[index] = model
         self.collectionView.reloadData()
     }
+    
+    func deleteTO(index: Int) {
+        self.autos[selectedIndex.row].services.remove(at: index)
+        self.collectionView.reloadData()
+    }
 }
 
 extension UICollectionViewCell {

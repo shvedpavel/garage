@@ -759,12 +759,25 @@
                                             <action selector="button:" destination="9ZP-yN-RtN" eventType="touchUpInside" id="fXJ-0H-va6"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMv-LW-50d">
+                                        <rect key="frame" x="0.0" y="354.5" width="364" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="gyl-0m-1CQ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Удалить"/>
+                                        <connections>
+                                            <action selector="button:" destination="9ZP-yN-RtN" eventType="touchUpInside" id="udR-NW-T1N"/>
+                                            <action selector="deleteBtn:" destination="9ZP-yN-RtN" eventType="touchUpInside" id="L5D-d5-MVP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="cbm-0E-Dtw" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="C1A-8X-JhB"/>
                                     <constraint firstItem="TvV-W9-1FQ" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="PbB-xR-O7Q"/>
                                     <constraint firstItem="wSO-TA-zeV" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="YV2-2x-l4X"/>
                                     <constraint firstItem="THt-9Y-iuI" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="igG-4R-Asr"/>
+                                    <constraint firstItem="ZMv-LW-50d" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="xCn-oM-NVg"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -777,6 +790,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteBtn" destination="ZMv-LW-50d" id="G1T-uA-HHl"/>
                         <outlet property="descriptionTF" destination="THt-9Y-iuI" id="LaW-7a-Ide"/>
                         <outlet property="save" destination="wSO-TA-zeV" id="DSO-wR-eTf"/>
                         <outlet property="serviceDedlineLbl" destination="jqE-dn-9rE" id="JjT-rZ-Ytr"/>

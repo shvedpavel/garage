@@ -13,11 +13,13 @@ protocol AutoService: AnyObject {
     func fetchAutos(callback: @escaping (Result<[AutoModel], AutoServiceError>) -> Void)
     func registerAuto(_ model: AutoModel, callback: @escaping (Result<AutoModel, AutoServiceError>) -> Void)
     func registerTO(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<ServiceModel, AutoServiceError>) -> Void)
-    func chengeTO(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
+    func chengeService(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
+    func deleteService(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
+    
 }
 
 class AutoServiceImpl: AutoService {
-    
+  
     static let shader: AutoServiceImpl = AutoServiceImpl()
     
     private init() {}
@@ -50,7 +52,6 @@ class AutoServiceImpl: AutoService {
     }
     
     func registerAuto(_ model: AutoModel, callback: @escaping (Result<AutoModel, AutoServiceError>) -> Void) {
-        
         guard let user = Auth.auth().currentUser else { return }
         let autosReference = Database.database().reference(withPath: "users").child(user.uid).child("autos")
         //создаем ссылку на авто
@@ -80,21 +81,21 @@ class AutoServiceImpl: AutoService {
         }
     }
     
-    func chengeTO(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void) {
+    func chengeService(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
         let autosReference = Database.database().reference(withPath: "users").child(user.uid).child("autos").child(autoId).child("services")
         
         let serviceRef = autosReference.child(model.id)
         
-        var dic: [AnyHashable: Any] = ["taskDescription" : model.taskDescription,
-                   "mileage" : model.mileage]
+        var dic: [AnyHashable: Any] = ["taskDescription" : model.taskDescription, "mileage": model.mileage]
+        
+//        if let mileage = model.mileage {
+//            dic["mileage"] = mileage
+//        }
         
         if let date = model.dedline?.toString() {
             dic["dedline"] = date
         }
-        
-        //отправляем на сервер
-        //расписать обновдление других параметров, просто добавить в массив по аналогии
         serviceRef.updateChildValues(dic) { (error, ref) in
             if let _ = error {
                 callback(.failure(.errorAddAuto))
@@ -103,6 +104,23 @@ class AutoServiceImpl: AutoService {
             }
         }
     }
+    
+    func deleteService(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void) {
+        guard let user = Auth.auth().currentUser else { return }
+        let autosReference = Database.database().reference(withPath: "users").child(user.uid).child("autos").child(autoId).child("services")
+        
+        let serviceRef = autosReference.child(model.id)
+        //отправляем на сервер
+        serviceRef.removeValue { ( error, ref ) in
+            if let _ = error {
+                callback(.failure(.errorAddAuto))
+            } else {
+                callback(.success(()))
+            }
+        }
+    }
+    
+    
 }
 
 enum AutoServiceError: Error {
