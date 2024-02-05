@@ -24,6 +24,9 @@ class AddService: UIViewController {
     var currentAuto: AutoModel!
     var selectedIndex: Int?
     
+    let notifications = Notifications()
+    
+    let datePicker = UIDatePicker()
     
     private var currentService: ServiceModel? {
         didSet {
@@ -51,9 +54,8 @@ class AddService: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkService()
-        
-        
-        
+        setUpDatePicker()
+    
         applyTheme()
         title = "Добавить напоминание"
     }
@@ -75,6 +77,7 @@ class AddService: UIViewController {
             
             let model = ServiceModel(taskDescription: description, mileage: Int(serviceMileageTF.text ?? ""), dedline: serviceDedlineTF.text?.toDate())
             addService(model: model)
+            
         }
     }
     
@@ -88,8 +91,6 @@ class AddService: UIViewController {
                 self?.deleteService(model: currentService)
             } else { return }
             
-            
-    
             self?.navigationController?.popViewController(animated: true)
         }
         ///action 2
@@ -108,6 +109,8 @@ class AddService: UIViewController {
             switch result {
             case .success(let to):
                 self?.delegate?.addTO(to)
+                ///добаляем уведомление
+                self?.notifications.scheduleNotification(notificationType: "Внимание!!!!")
                 self?.navigationController?.popViewController(animated: true)
             case .failure:
                 print("auto not added")
@@ -141,6 +144,14 @@ class AddService: UIViewController {
         })
     }
     
+    private func applyTheme() {
+        self.view.backgroundColor = Theme.currentTheme.backgroundColor
+        workDescriptionLbl.textColor = Theme.currentTheme.textColor
+        serviseMileageLbl.textColor = Theme.currentTheme.textColor
+        serviceDedlineLbl.textColor = Theme.currentTheme.textColor
+        save.tintColor = Theme.currentTheme.buttonColor
+        deleteBtn.tintColor = Theme.currentTheme.buttonColor
+    }
     ///изменение вида экрана в замисимости от наличия данных
     func checkService() {
         if let selectedIndex = selectedIndex {
@@ -149,13 +160,36 @@ class AddService: UIViewController {
             deleteBtn.isHidden = false
         }
     }
-   
-    private func applyTheme() {
-        self.view.backgroundColor = Theme.currentTheme.backgroundColor
-        workDescriptionLbl.textColor = Theme.currentTheme.textColor
-        serviseMileageLbl.textColor = Theme.currentTheme.textColor
-        serviceDedlineLbl.textColor = Theme.currentTheme.textColor
-        save.tintColor = Theme.currentTheme.buttonColor
-        deleteBtn.tintColor = Theme.currentTheme.buttonColor
+}
+// MARK: - создание и настройка DatePicker
+extension AddService {
+    
+    func setUpDatePicker() {
+            serviceDedlineTF.inputView = datePicker
+            datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+       
+            
+            let localeID = Locale.preferredLanguages.first
+            datePicker.locale = Locale(identifier: localeID!)
+        
+        datePicker.addTarget(self, action: #selector(dateChanget), for: .valueChanged)
+        //создаем жест
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureDone))
+        self.view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dateChanget() {
+        getDateFromPicker()
+    }
+    
+    @objc func tapGestureDone() {
+        view.endEditing(true)
+    }
+    // формируем дату из DataPocker в нужный нам формат и кладем TF
+    func getDateFromPicker() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        serviceDedlineTF.text = formatter.string(from: datePicker.date)
     }
 }

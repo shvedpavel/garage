@@ -9,9 +9,12 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class NewHomePage: UIViewController {
-   
-    // MARK: - Properties
+protocol NewHomePageDelegate: AnyObject {
+    func update(text: String)
+}
+
+class NewHomePage: UIViewController, NewHomePageDelegate {
+    
     enum Sections: Int, CaseIterable {
         case one
         case second
@@ -25,13 +28,18 @@ class NewHomePage: UIViewController {
             }
         }
     }
+    // MARK: - Properties
     
+    let notifications = Notifications()
+
     private var autos: [AutoModel] = []
    
     private let service: AutoService = AutoServiceImpl.shader
     
     private lazy var collectionView = makeCollectionView()
     private var selectedIndex: IndexPath = IndexPath(item: 0, section: 0)
+    
+    var kmOrMile: String = " "
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -49,6 +57,7 @@ class NewHomePage: UIViewController {
                 self?.collectionView.selectItem(at: self?.selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
             case .failure(let failure):
                 print(failure)
+    
             }
         }
     }
@@ -56,6 +65,10 @@ class NewHomePage: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
+    }
+    //метод для записи дынных из  настроек
+    func update(text: String) {
+        kmOrMile = text
     }
 }
 
@@ -96,7 +109,8 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 
                 cell.autosName.text = auto.name
                 cell.autosModel.text = auto.model
-                cell.mileage.text = auto.mileage.description
+ // ????подписаться на делегат?????
+                cell.mileage.text = "\(auto.mileage.description) \(kmOrMile) "
 
                 return cell
             }
@@ -118,6 +132,9 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.backgroundColor = Theme.currentTheme.backgroundColor
                 cell.roundedWithShadow()
                 cell.tasksName.text = to.taskDescription
+                
+//дописать локигику по  пробегу или дате
+                cell.deadline.text = "Осталось ..."
                     
                 return cell
             }
@@ -138,7 +155,6 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 collectionView.reloadSections(IndexSet(integer: 1))
             }
         } else {
-            ///заменить сонтрроллер
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let addServiceVC = storyboard.instantiateViewController(withIdentifier: "AddService") as? AddService else { return }
             
@@ -148,6 +164,7 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 addServiceVC.selectedIndex = indexPath.row - 1
             }
             navigationController?.pushViewController(addServiceVC, animated: true)
+//            print(kmOrMile)
         }
     }
 }

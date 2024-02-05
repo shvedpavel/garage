@@ -124,7 +124,13 @@ struct AutoModel {
         static let yearOfProductionKey = "yearOfProduction"
         static let servicesKey = "services"
     }
+    
+    enum Variation {
+       static let km = "км"
+       static let miles = "мили"
+   }
 }
+
 
 //настроиваем растояние по краям collectionView
 struct Constans {

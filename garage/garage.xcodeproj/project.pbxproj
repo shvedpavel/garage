@@ -12,6 +12,7 @@
 		FA0CCBB22B67A2D9005765EB /* TabBarControllerForHamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */; };
 		FA0CCBB52B67A4F4005765EB /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = FA0CCBB42B67A4F4005765EB /* Localize_Swift */; };
 		FA0CCBB72B67CEF8005765EB /* SectionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CCBB62B67CEF8005765EB /* SectionsHeader.swift */; };
+		FA47C49D2B70CB2D00BD8CDD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47C49C2B70CB2D00BD8CDD /* Notifications.swift */; };
 		FA4A179C2B1E7DEA005C5D2F /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179B2B1E7DEA005C5D2F /* SignInModel.swift */; };
 		FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */; };
 		FA4A17A12B1E82EE005C5D2F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A17A02B1E82EE005C5D2F /* AuthService.swift */; };
@@ -54,6 +55,7 @@
 		FA0CCBAF2B6790A1005765EB /* AddAutoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAutoVC.swift; sourceTree = "<group>"; };
 		FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerForHamePage.swift; sourceTree = "<group>"; };
 		FA0CCBB62B67CEF8005765EB /* SectionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsHeader.swift; sourceTree = "<group>"; };
+		FA47C49C2B70CB2D00BD8CDD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FA4A179B2B1E7DEA005C5D2F /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
 		FA4A17A02B1E82EE005C5D2F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */,
 				FA0CCBAF2B6790A1005765EB /* AddAutoVC.swift */,
 				FA5425392B685BD2004B9095 /* AddService.swift */,
+				FA47C49C2B70CB2D00BD8CDD /* Notifications.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				FAEC52E82B61518400404169 /* CellForAuto.swift in Sources */,
 				FAF61F8D2B60385500953381 /* CellForCollectionView.swift in Sources */,
 				FA71C5712B48794E009E7007 /* ServiceCollectionViewCell.swift in Sources */,
+				FA47C49D2B70CB2D00BD8CDD /* Notifications.swift in Sources */,
 				FA873D332B6C50790029EDB9 /* AutoService.swift in Sources */,
 				FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */,
 				FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */,

@@ -34,8 +34,6 @@ class SectionsHeader: UICollectionReusableView {
                                      title.leftAnchor.constraint(equalTo: leftAnchor),
                                      title.trailingAnchor.constraint(equalTo: trailingAnchor)
                                     ])
-        
-        
     }
     
     required init?(coder: NSCoder) {
