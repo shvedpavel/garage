@@ -13,7 +13,6 @@ protocol AutoService: AnyObject {
     func fetchAutos(callback: @escaping (Result<[AutoModel], AutoServiceError>) -> Void)
     func registerAuto(_ model: AutoModel, callback: @escaping (Result<AutoModel, AutoServiceError>) -> Void)
     func deleteAuto(_ autoId: String, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
-    
     func chengeAuto(_ autoId: String, _ model: AutoModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
     
     
@@ -73,12 +72,7 @@ class AutoServiceImpl: AutoService {
     
     func chengeAuto(_ autoId: String, _ model: AutoModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
-        let autoReference = Database
-            .database()
-            .reference(withPath: "users")
-            .child(user.uid)
-            .child("autos")
-            .child(autoId)
+        let autoReference = Database.database().reference(withPath: "users").child(user.uid).child("autos")
         
         let dic: [AnyHashable: Any] = ["name" : model.name,
                                        "model" : model.model,
