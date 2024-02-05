@@ -74,10 +74,8 @@ class AddService: UIViewController {
             updateService(model: currentService)
             
         } else {
-            
             let model = ServiceModel(taskDescription: description, mileage: Int(serviceMileageTF.text ?? ""), dedline: serviceDedlineTF.text?.toDate())
             addService(model: model)
-            
         }
     }
     
@@ -110,7 +108,8 @@ class AddService: UIViewController {
             case .success(let to):
                 self?.delegate?.addTO(to)
                 ///добаляем уведомление
-                self?.notifications.scheduleNotification(notificationType: "Внимание!!!!")
+                self?.notifications.scheduleNotification(serviceId: model.id, title: "Attention", message: model.taskDescription, triggerType: .time(15))
+//                model.dedline ?? Date())
                 self?.navigationController?.popViewController(animated: true)
             case .failure:
                 print("auto not added")
@@ -124,6 +123,9 @@ class AddService: UIViewController {
             switch result {
             case .success():
                 self?.delegate?.update(model, for: self?.selectedIndex ?? 0)
+                self?.notifications.scheduleNotification(serviceId: model.id, title: "Attention", message: model.taskDescription, triggerType: .time(15))
+//                model.dedline ?? Date())
+                
                 self?.navigationController?.popViewController(animated: true)
             case .failure:
                 print("service not update")
@@ -173,13 +175,13 @@ extension AddService {
             let localeID = Locale.preferredLanguages.first
             datePicker.locale = Locale(identifier: localeID!)
         
-        datePicker.addTarget(self, action: #selector(dateChanget), for: .valueChanged)
+        datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         //создаем жест
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureDone))
         self.view.addGestureRecognizer(tapGesture)
     }
     
-    @objc func dateChanget() {
+    @objc func dateChanged() {
         getDateFromPicker()
     }
     

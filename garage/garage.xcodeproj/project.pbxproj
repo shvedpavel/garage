@@ -125,13 +125,14 @@
 			path = SignIn;
 			sourceTree = "<group>";
 		};
-		FA4A179F2B1E7E9D005C5D2F /* Seervices */ = {
+		FA4A179F2B1E7E9D005C5D2F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FA47C49C2B70CB2D00BD8CDD /* Notifications.swift */,
 				FA4A17A02B1E82EE005C5D2F /* AuthService.swift */,
 				FA873D322B6C50790029EDB9 /* AutoService.swift */,
 			);
-			path = Seervices;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		FA57D9C92B21AFB600240D2F /* AutoCollectionView */ = {
@@ -171,7 +172,7 @@
 		FA9DEA262B0B8E4100F65796 /* garage */ = {
 			isa = PBXGroup;
 			children = (
-				FA4A179F2B1E7E9D005C5D2F /* Seervices */,
+				FA4A179F2B1E7E9D005C5D2F /* Services */,
 				FA9DEA3E2B0B900500F65796 /* Models */,
 				FA9DEA3C2B0B8EC800F65796 /* Views */,
 				FA4A179A2B1E7B57005C5D2F /* SignIn */,
@@ -218,7 +219,6 @@
 				FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */,
 				FA0CCBAF2B6790A1005765EB /* AddAutoVC.swift */,
 				FA5425392B685BD2004B9095 /* AddService.swift */,
-				FA47C49C2B70CB2D00BD8CDD /* Notifications.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

@@ -9,11 +9,9 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-protocol NewHomePageDelegate: AnyObject {
-    func update(text: String)
-}
 
-class NewHomePage: UIViewController, NewHomePageDelegate {
+
+class NewHomePage: UIViewController {
     
     enum Sections: Int, CaseIterable {
         case one
@@ -38,8 +36,6 @@ class NewHomePage: UIViewController, NewHomePageDelegate {
     
     private lazy var collectionView = makeCollectionView()
     private var selectedIndex: IndexPath = IndexPath(item: 0, section: 0)
-    
-    var kmOrMile: String = " "
     
     // MARK: - Life cycle
     override func viewDidLoad() {
@@ -66,10 +62,7 @@ class NewHomePage: UIViewController, NewHomePageDelegate {
         super.viewWillAppear(animated)
         collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
     }
-    //метод для записи дынных из  настроек
-    func update(text: String) {
-        kmOrMile = text
-    }
+
 }
 
 //MARK: - UICollectionViewDataSource, UICollectionViewDelegate
@@ -110,7 +103,7 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.autosName.text = auto.name
                 cell.autosModel.text = auto.model
  // ????подписаться на делегат?????
-                cell.mileage.text = "\(auto.mileage.description) \(kmOrMile) "
+                cell.mileage.text = "Пробег: \(auto.mileage.description) км/мили "
 
                 return cell
             }
@@ -164,7 +157,6 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 addServiceVC.selectedIndex = indexPath.row - 1
             }
             navigationController?.pushViewController(addServiceVC, animated: true)
-//            print(kmOrMile)
         }
     }
 }

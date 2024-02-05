@@ -10,11 +10,7 @@ import Firebase
 import FirebaseAuth
 
 class SettingsVC: UIViewController {
-    //создаем слабую ссылку на протокол
-    weak var delegate: NewHomePageDelegate?
-
-    var mileageVariation: String = ""
-    
+   
     @IBOutlet weak var measuringSystemLbl: UILabel!
    
     @IBOutlet weak var segmentController: UISegmentedControl!
@@ -28,8 +24,7 @@ class SettingsVC: UIViewController {
     @IBAction func segmentedController(_ sender: UISegmentedControl) {
         guard let  mileageV = sender.titleForSegment(at: sender.selectedSegmentIndex)
         else {return}
-        delegate?.update(text: mileageV)
-        print(mileageV)
+
     }
     
     // MARK: - Private functions
