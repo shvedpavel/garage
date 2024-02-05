@@ -10,7 +10,7 @@ import Firebase
 import FirebaseDatabase
 
 protocol AddServiceDelagate: AnyObject {
-    
+    //ссыдки на методы обновления инфы а массиве и коллекции
     func addTO(_ model: ServiceModel)
     func update(_ model: ServiceModel, for index: Int)
     func deleteTO(index: Int)
@@ -128,9 +128,8 @@ class AddService: UIViewController {
         })
     }
     
-    
+
     func deleteService(model: ServiceModel) {
-        
         service.deleteService(currentAuto.id, model, callback: { [ weak self] result in
             switch result {
             case .success():

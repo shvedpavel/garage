@@ -12,9 +12,9 @@ import FirebaseAuth
 protocol AutoService: AnyObject {
     func fetchAutos(callback: @escaping (Result<[AutoModel], AutoServiceError>) -> Void)
     func registerAuto(_ model: AutoModel, callback: @escaping (Result<AutoModel, AutoServiceError>) -> Void)
-    
     func deleteAuto(_ autoId: String, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
     
+    func chengeAuto(_ autoId: String, _ model: AutoModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void)
     
     
     func registerTO(_ autoId: String, _ model: ServiceModel, callback: @escaping (Result<ServiceModel, AutoServiceError>) -> Void)
@@ -71,6 +71,33 @@ class AutoServiceImpl: AutoService {
         }
     }
     
+    func chengeAuto(_ autoId: String, _ model: AutoModel, callback: @escaping (Result<Void, AutoServiceError>) -> Void) {
+        guard let user = Auth.auth().currentUser else { return }
+        let autoReference = Database
+            .database()
+            .reference(withPath: "users")
+            .child(user.uid)
+            .child("autos")
+            .child(autoId)
+        
+        let dic: [AnyHashable: Any] = ["name" : model.name,
+                                       "model" : model.model,
+                                       "number" : model.number,
+                                       "vin" : model.vin,
+                                       "motorVolume" : model.motorVolume,
+                                       "motorType" : model.motorType,
+                                       "mileage" : model.mileage,
+                                       "yearOfProduction" : model.yearOfProduction]
+    
+        autoReference.updateChildValues([autoId: dic], withCompletionBlock: {(error, ref) in
+            if let _ = error {
+                callback(.failure(.errorAddAuto))
+            } else {
+                callback(.success(()))
+            }
+        })
+    }
+    
     func deleteAuto(_ autoId: String, callback: @escaping (Result<Void, AutoServiceError>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
         let autosReference = Database.database().reference(withPath: "users").child(user.uid).child("autos")
@@ -83,7 +110,6 @@ class AutoServiceImpl: AutoService {
             }
         })
     }
-    
     
     func registerTO(_ autoId: String, _ model: ServiceModel,  callback: @escaping (Result<ServiceModel, AutoServiceError>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
@@ -108,7 +134,6 @@ class AutoServiceImpl: AutoService {
         
         var dic: [AnyHashable: Any] = ["taskDescription" : model.taskDescription]
         
-//            "mileage": model.mileage]
         if let mileage = model.mileage {
             dic["mileage"] = mileage
         }

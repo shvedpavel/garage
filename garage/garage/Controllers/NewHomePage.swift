@@ -69,13 +69,10 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0: return autos.count+1
-//            autos.count+1
+            
         default:
             guard selectedIndex.row < autos.count else { return 0 }
             return autos[selectedIndex.row].services.count + 1
-            
-//            guard selectedIndex.row < autos.count else { return 0 }
-//            return autos[selectedIndex.row].services.count + 1
         }
     }
     /// наполняем коллекцию данными
@@ -240,8 +237,13 @@ extension NewHomePage {
         ])
     }
 }
-
+//MARK: - обновление массива и данных в collectionView после изменения авто
 extension NewHomePage: AddAutoVCDelegate {
+    func updateAuto(_ model: AutoModel) {
+        self.autos[selectedIndex.row] = model
+        self.collectionView.reloadData()
+    }
+    
     func deleteAuto(_ autoId: String) {
         guard let index = self.autos.firstIndex(where: { $0.id == autoId }) else { return }
         self.autos.remove(at: index)
@@ -250,7 +252,6 @@ extension NewHomePage: AddAutoVCDelegate {
         self.collectionView.selectItem(at: self.selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
     }
     
-    
     func addAuto(_ model: AutoModel) {
         self.autos.append(model)
         self.selectedIndex = IndexPath(item: self.autos.firstIndex(where: { $0.id == model.id }) ?? 0, section: 0) 
@@ -258,8 +259,8 @@ extension NewHomePage: AddAutoVCDelegate {
     }
 }
 
+//MARK: - обновление массива и данных в collectionView после изменения сервисов
 extension NewHomePage: AddServiceDelagate {
-    
     func addTO(_ model: ServiceModel) {
         self.autos[selectedIndex.row].services.append(model)
         self.collectionView.reloadData()
