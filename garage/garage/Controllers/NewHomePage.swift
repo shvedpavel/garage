@@ -48,7 +48,12 @@ class NewHomePage: UIViewController {
         service.fetchAutos() { [weak self] result in
             switch result {
             case .success(let autos):
-                self?.autos = autos
+                autos.forEach({ auto in
+                    var newAuto = auto
+                    let service = auto.services.filter({ !$0.isCompleted })
+                    newAuto.services = service
+                    self?.autos.append(newAuto)
+                })
                 self?.collectionView.reloadData()
                 self?.collectionView.selectItem(at: self?.selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
             case .failure(let failure):
@@ -103,7 +108,7 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.autosName.text = auto.name
                 cell.autosModel.text = auto.model
  // ????подписаться на делегат?????
-                cell.mileage.text = "Пробег: \(auto.mileage.description) км/мили "
+                cell.mileage.text = "Пробег: \(auto.mileage.description) км(мили)"
 
                 return cell
             }
@@ -271,12 +276,19 @@ extension NewHomePage: AddAutoVCDelegate {
 //MARK: - обновление массива и данных в collectionView после изменения сервисов
 extension NewHomePage: AddServiceDelagate {
     func addTO(_ model: ServiceModel) {
-        self.autos[selectedIndex.row].services.append(model)
-        self.collectionView.reloadData()
+        if !model.isCompleted {
+            self.autos[selectedIndex.row].services.append(model)
+            self.collectionView.reloadData()
+        }
     }
     
     func update(_ model: ServiceModel, for index: Int) {
-        self.autos[selectedIndex.row].services[index] = model
+        if !model.isCompleted {
+            self.autos[selectedIndex.row].services[index] = model
+        } else {
+            self.autos.remove(at: index)
+        }
+        
         self.collectionView.reloadData()
     }
     

@@ -153,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="97.767857142857139"/>
         </scene>
-        <!--Forgot PasswodVC-->
+        <!-- -->
         <scene sceneID="cDK-VB-UNE">
             <objects>
                 <viewController storyboardIdentifier="ForgetPasswodVC" id="AOG-qa-uxw" customClass="ForgotPasswodVC" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,7 +231,7 @@
                             <constraint firstItem="sGp-LT-EZf" firstAttribute="trailing" secondItem="KpF-Bv-uV2" secondAttribute="trailing" constant="25" id="cG9-OM-6aW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="beN-Kw-HRB"/>
+                    <navigationItem key="navigationItem" title=" " id="beN-Kw-HRB"/>
                     <connections>
                         <outlet property="emailTF" destination="brt-Zc-JgT" id="2Ay-6U-I12"/>
                         <outlet property="label1" destination="aAe-fM-FLJ" id="ics-NH-4v0"/>
@@ -393,54 +393,18 @@
             </objects>
             <point key="canvasLocation" x="1619" y="827"/>
         </scene>
-        <!--Настройки-->
+        <!--История ТО-->
         <scene sceneID="PEE-NG-3mP">
             <objects>
-                <viewController id="UAK-Ch-xjm" customClass="SettingsVC" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UAK-Ch-xjm" customClass="ServiceHistory" customModule="garage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wdj-pf-hd1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1P4-tU-eur">
-                                <rect key="frame" x="25" y="73" width="364" height="82"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Система измерения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3m-9u-ccq">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="18"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HQC-9N-rsy">
-                                        <rect key="frame" x="0.0" y="26" width="364" height="57"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="8ph-uy-cep"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="Километры"/>
-                                            <segment title="Мили"/>
-                                        </segments>
-                                        <color key="selectedSegmentTintColor" name="buttonColor"/>
-                                        <connections>
-                                            <action selector="segmentedController:" destination="UAK-Ch-xjm" eventType="valueChanged" id="q0H-op-owF"/>
-                                        </connections>
-                                    </segmentedControl>
-                                </subviews>
-                            </stackView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2qL-9a-aHl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="1P4-tU-eur" firstAttribute="leading" secondItem="2qL-9a-aHl" secondAttribute="leading" constant="25" id="TSa-ag-VYj"/>
-                            <constraint firstItem="1P4-tU-eur" firstAttribute="top" secondItem="2qL-9a-aHl" secondAttribute="top" constant="25" id="eIS-Qr-UgV"/>
-                            <constraint firstItem="2qL-9a-aHl" firstAttribute="trailing" secondItem="1P4-tU-eur" secondAttribute="trailing" constant="25" id="y0G-ol-IYD"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Настройки" image="gearshape" catalog="system" id="ahz-lD-EZs"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="История ТО" image="tray.full.fill" catalog="system" id="ahz-lD-EZs"/>
                     <navigationItem key="navigationItem" id="TBF-Sv-7jg"/>
-                    <connections>
-                        <outlet property="measuringSystemLbl" destination="I3m-9u-ccq" id="8Le-Oc-q4B"/>
-                        <outlet property="segmentController" destination="HQC-9N-rsy" id="Cc7-nt-1Xe"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2SB-zG-4rX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -745,8 +709,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uXB-dK-IHW">
                                         <rect key="frame" x="0.0" y="199" width="364" height="84.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обслуживание на пробеге (км/мили)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffe-VW-8PR">
-                                                <rect key="frame" x="0.0" y="0.0" width="273" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Обслуживание на пробеге, км(мили)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffe-VW-8PR">
+                                                <rect key="frame" x="0.0" y="0.0" width="271" height="20.5"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -759,6 +723,23 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfN-4L-DVn">
+                                        <rect key="frame" x="0.0" y="291" width="364" height="0.0"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выполнено" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpd-Nw-I2t">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xTn-t6-vC6">
+                                                <rect key="frame" x="315" y="0.0" width="51" height="0.0"/>
+                                                <connections>
+                                                    <action selector="switcherAction:" destination="9ZP-yN-RtN" eventType="valueChanged" id="Zi0-hc-Msu"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSO-TA-zeV">
@@ -790,6 +771,7 @@
                                     <constraint firstItem="TvV-W9-1FQ" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="PbB-xR-O7Q"/>
                                     <constraint firstItem="wSO-TA-zeV" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="YV2-2x-l4X"/>
                                     <constraint firstItem="THt-9Y-iuI" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="igG-4R-Asr"/>
+                                    <constraint firstItem="bfN-4L-DVn" firstAttribute="width" secondItem="uXB-dK-IHW" secondAttribute="width" id="tca-Rt-fts"/>
                                     <constraint firstItem="ZMv-LW-50d" firstAttribute="width" secondItem="4Ka-9e-MSr" secondAttribute="width" id="xCn-oM-NVg"/>
                                 </constraints>
                             </stackView>
@@ -810,6 +792,8 @@
                         <outlet property="serviceDedlineTF" destination="TvV-W9-1FQ" id="6ce-wf-drH"/>
                         <outlet property="serviceMileageTF" destination="cbm-0E-Dtw" id="mGH-sh-SD1"/>
                         <outlet property="serviseMileageLbl" destination="Ffe-VW-8PR" id="Tbe-T7-XxX"/>
+                        <outlet property="switcher" destination="xTn-t6-vC6" id="sXH-cq-kMh"/>
+                        <outlet property="switcherStack" destination="bfN-4L-DVn" id="nKe-c2-JVg"/>
                         <outlet property="workDescriptionLbl" destination="ZCd-22-Oy7" id="5BV-D7-mX0"/>
                     </connections>
                 </viewController>
@@ -821,7 +805,7 @@
     <resources>
         <image name="circle.grid.2x2" catalog="system" width="128" height="111"/>
         <image name="garageLbl" width="229" height="226"/>
-        <image name="gearshape" catalog="system" width="128" height="123"/>
+        <image name="tray.full.fill" catalog="system" width="128" height="88"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.79199999570846558" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

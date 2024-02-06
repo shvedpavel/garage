@@ -75,8 +75,8 @@ struct AutoModel {
             
             services.forEach { (key, value) in
                 guard let value = value as? [String: Any] else { return }
-                    guard let taskDescription = value[ServiceModel.Constants.taskDescriptionKey] as? String
-                        else { return }
+                guard let taskDescription = value[ServiceModel.Constants.taskDescriptionKey] as? String else { return }
+                guard let isCompleted = value[ServiceModel.Constants.isCompleted] as? Bool else { return }
                 var date: Date?
                 
                 if let value = value[ServiceModel.Constants.dedlineKey] as? String {
@@ -87,7 +87,8 @@ struct AutoModel {
                     id: key,
                     taskDescription: taskDescription,
                     mileage: value[ServiceModel.Constants.mileageKey] as? Int,
-                    dedline: date
+                    dedline: date,
+                    isCompleted: isCompleted
                 ))
             }
             self.services = serv

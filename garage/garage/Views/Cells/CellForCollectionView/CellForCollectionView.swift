@@ -13,8 +13,6 @@ class CellForCollectionView: UICollectionViewCell {
     @IBOutlet weak var deadline: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
-    
-    
     static let reusableIdentifire: String = "CellForCollectionView"
     
     override func awakeFromNib() {

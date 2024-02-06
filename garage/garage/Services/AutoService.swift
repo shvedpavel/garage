@@ -126,7 +126,7 @@ class AutoServiceImpl: AutoService {
         
         let serviceRef = autosReference.child(model.id)
         
-        var dic: [AnyHashable: Any] = ["taskDescription" : model.taskDescription]
+        var dic: [AnyHashable: Any] = ["taskDescription" : model.taskDescription, "isCompleted" : model.isCompleted]
         
         if let mileage = model.mileage {
             dic["mileage"] = mileage

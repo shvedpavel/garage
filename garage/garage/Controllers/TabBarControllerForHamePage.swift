@@ -39,7 +39,7 @@ class TabBarControllerForHamePage: UITabBarController {
 extension TabBarControllerForHamePage: UITabBarControllerDelegate {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        self.title = item.tag == 0 ? "GARAGE": "Настройки"
+        self.title = item.tag == 0 ? "GARAGE": "История обслуживания"
         self.navigationItem.rightBarButtonItem = item.tag == 0 ? nil : addButton()
     }
 }

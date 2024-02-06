@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02565A2B17D3B2007B18B7 /* SettingsVC.swift */; };
+		FA02565B2B17D3B3007B18B7 /* ServiceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02565A2B17D3B2007B18B7 /* ServiceHistory.swift */; };
 		FA0CCBB02B6790A1005765EB /* AddAutoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CCBAF2B6790A1005765EB /* AddAutoVC.swift */; };
 		FA0CCBB22B67A2D9005765EB /* TabBarControllerForHamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */; };
 		FA0CCBB52B67A4F4005765EB /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = FA0CCBB42B67A4F4005765EB /* Localize_Swift */; };
@@ -19,8 +19,6 @@
 		FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E1AE12B1D32C40079202A /* EyeButton.swift */; };
 		FA50BD922B60280C00BF8D0A /* NewHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA50BD912B60280C00BF8D0A /* NewHomePage.swift */; };
 		FA54253A2B685BD2004B9095 /* AddService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5425392B685BD2004B9095 /* AddService.swift */; };
-		FA71C5712B48794E009E7007 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */; };
-		FA71C5742B487992009E7007 /* ServiceCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5732B487992009E7007 /* ServiceCollectionView.swift */; };
 		FA71C5762B487AB8009E7007 /* ServiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA71C5752B487AB8009E7007 /* ServiceModel.swift */; };
 		FA7A02F32B0C1C55003BE2D6 /* ForgotPasswodVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */; };
 		FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */; };
@@ -28,9 +26,7 @@
 		FA7A02FD2B0C2BA9003BE2D6 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FC2B0C2BA9003BE2D6 /* FirebaseAuth */; };
 		FA7A02FF2B0C2BA9003BE2D6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A02FE2B0C2BA9003BE2D6 /* FirebaseDatabase */; };
 		FA7A03012B0C2BA9003BE2D6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FA7A03002B0C2BA9003BE2D6 /* FirebaseStorage */; };
-		FA85A60A2B458B9C000CBAC4 /* GalleryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */; };
 		FA85A60C2B458D2E000CBAC4 /* AutoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85A60B2B458D2E000CBAC4 /* AutoModel.swift */; };
-		FA85A60E2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA85A60D2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift */; };
 		FA873D332B6C50790029EDB9 /* AutoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA873D322B6C50790029EDB9 /* AutoService.swift */; };
 		FA873D352B6EBB910029EDB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA873D342B6EBB910029EDB9 /* Extensions.swift */; };
 		FA9DEA282B0B8E4100F65796 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9DEA272B0B8E4100F65796 /* AppDelegate.swift */; };
@@ -51,7 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA02565A2B17D3B2007B18B7 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		FA02565A2B17D3B2007B18B7 /* ServiceHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHistory.swift; sourceTree = "<group>"; };
 		FA0CCBAF2B6790A1005765EB /* AddAutoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAutoVC.swift; sourceTree = "<group>"; };
 		FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerForHamePage.swift; sourceTree = "<group>"; };
 		FA0CCBB62B67CEF8005765EB /* SectionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsHeader.swift; sourceTree = "<group>"; };
@@ -62,14 +58,10 @@
 		FA4E1AE12B1D32C40079202A /* EyeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeButton.swift; sourceTree = "<group>"; };
 		FA50BD912B60280C00BF8D0A /* NewHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomePage.swift; sourceTree = "<group>"; };
 		FA5425392B685BD2004B9095 /* AddService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddService.swift; sourceTree = "<group>"; };
-		FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
-		FA71C5732B487992009E7007 /* ServiceCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionView.swift; sourceTree = "<group>"; };
 		FA71C5752B487AB8009E7007 /* ServiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceModel.swift; sourceTree = "<group>"; };
 		FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswodVC.swift; sourceTree = "<group>"; };
 		FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
-		FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionView.swift; sourceTree = "<group>"; };
 		FA85A60B2B458D2E000CBAC4 /* AutoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoModel.swift; sourceTree = "<group>"; };
-		FA85A60D2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA873D322B6C50790029EDB9 /* AutoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoService.swift; sourceTree = "<group>"; };
 		FA873D342B6EBB910029EDB9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FA9DEA242B0B8E4100F65796 /* garage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = garage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,24 +127,6 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		FA57D9C92B21AFB600240D2F /* AutoCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				FA85A6092B458B9C000CBAC4 /* GalleryCollectionView.swift */,
-				FA85A60D2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift */,
-			);
-			path = AutoCollectionView;
-			sourceTree = "<group>";
-		};
-		FA71C5722B487957009E7007 /* ServiceCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				FA71C5732B487992009E7007 /* ServiceCollectionView.swift */,
-				FA71C5702B48794E009E7007 /* ServiceCollectionViewCell.swift */,
-			);
-			path = ServiceCollectionView;
-			sourceTree = "<group>";
-		};
 		FA9DEA1B2B0B8E4100F65796 = {
 			isa = PBXGroup;
 			children = (
@@ -199,8 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				FAF61F8F2B60385A00953381 /* Cells */,
-				FA57D9C92B21AFB600240D2F /* AutoCollectionView */,
-				FA71C5722B487957009E7007 /* ServiceCollectionView */,
 				FA4A17992B1E6C95005C5D2F /* Components */,
 				FA9DEA322B0B8E4400F65796 /* LaunchScreen.storyboard */,
 				FA9DEA2D2B0B8E4100F65796 /* Main.storyboard */,
@@ -213,7 +185,7 @@
 			children = (
 				FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */,
 				FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */,
-				FA02565A2B17D3B2007B18B7 /* SettingsVC.swift */,
+				FA02565A2B17D3B2007B18B7 /* ServiceHistory.swift */,
 				FA50BD912B60280C00BF8D0A /* NewHomePage.swift */,
 				FA0CCBB62B67CEF8005765EB /* SectionsHeader.swift */,
 				FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */,
@@ -359,13 +331,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA0CCBB72B67CEF8005765EB /* SectionsHeader.swift in Sources */,
-				FA85A60A2B458B9C000CBAC4 /* GalleryCollectionView.swift in Sources */,
 				FA54253A2B685BD2004B9095 /* AddService.swift in Sources */,
-				FA85A60E2B4591A4000CBAC4 /* GalleryCollectionViewCell.swift in Sources */,
 				FA9DEA282B0B8E4100F65796 /* AppDelegate.swift in Sources */,
 				FAEC52E82B61518400404169 /* CellForAuto.swift in Sources */,
 				FAF61F8D2B60385500953381 /* CellForCollectionView.swift in Sources */,
-				FA71C5712B48794E009E7007 /* ServiceCollectionViewCell.swift in Sources */,
 				FA47C49D2B70CB2D00BD8CDD /* Notifications.swift in Sources */,
 				FA873D332B6C50790029EDB9 /* AutoService.swift in Sources */,
 				FA7A02F52B0C1C88003BE2D6 /* RegistrationVC.swift in Sources */,
@@ -375,8 +344,7 @@
 				FA9DEA402B0BB7FD00F65796 /* SignInVC.swift in Sources */,
 				FA0CCBB22B67A2D9005765EB /* TabBarControllerForHamePage.swift in Sources */,
 				FA0CCBB02B6790A1005765EB /* AddAutoVC.swift in Sources */,
-				FA02565B2B17D3B3007B18B7 /* SettingsVC.swift in Sources */,
-				FA71C5742B487992009E7007 /* ServiceCollectionView.swift in Sources */,
+				FA02565B2B17D3B3007B18B7 /* ServiceHistory.swift in Sources */,
 				FA85A60C2B458D2E000CBAC4 /* AutoModel.swift in Sources */,
 				FA71C5762B487AB8009E7007 /* ServiceModel.swift in Sources */,
 				FA50BD922B60280C00BF8D0A /* NewHomePage.swift in Sources */,
@@ -461,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -515,7 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -540,7 +508,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -569,7 +537,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

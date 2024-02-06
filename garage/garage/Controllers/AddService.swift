@@ -33,6 +33,7 @@ class AddService: UIViewController {
             descriptionTF.text = currentService?.taskDescription
             serviceDedlineTF.text = currentService?.dedline?.toString()
             serviceMileageTF.text = String(currentService?.mileage ?? 0)
+            switcher.isOn = currentService?.isCompleted ?? false
         }
     }
     
@@ -46,6 +47,9 @@ class AddService: UIViewController {
     @IBOutlet weak var serviceDedlineTF: UITextField!
     @IBOutlet weak var serviceMileageTF: UITextField!
     @IBOutlet weak var save: UIButton!
+    
+    @IBOutlet weak var switcherStack: UIStackView!
+    @IBOutlet weak var switcher: UISwitch!
     
     @IBOutlet weak var deleteBtn: UIButton!
     
@@ -74,7 +78,7 @@ class AddService: UIViewController {
             updateService(model: currentService)
             
         } else {
-            let model = ServiceModel(taskDescription: description, mileage: Int(serviceMileageTF.text ?? ""), dedline: serviceDedlineTF.text?.toDate())
+            let model = ServiceModel(taskDescription: description, mileage: Int(serviceMileageTF.text ?? ""), dedline: serviceDedlineTF.text?.toDate(), isCompleted: false)
             addService(model: model)
         }
     }
@@ -92,11 +96,14 @@ class AddService: UIViewController {
             self?.navigationController?.popViewController(animated: true)
         }
         ///action 2
-        let cancel = UIAlertAction(title: "Отмена", style: .default) { [weak self] _ in
-        }
+        let cancel = UIAlertAction(title: "Отмена", style: .default) { _ in }
         alertController.addAction(delete)
         alertController.addAction(cancel)
         present(alertController, animated: true)
+    }
+    
+    @IBAction func switcherAction(_ sender: Any) {
+        currentService?.isCompleted.toggle()
     }
     
     // MARK: - Private functions
@@ -160,6 +167,7 @@ class AddService: UIViewController {
             currentService = currentAuto.services[selectedIndex]
             save.setTitle("Изменить", for: .normal)
             deleteBtn.isHidden = false
+            switcherStack.isHidden = false
         }
     }
 }
@@ -167,13 +175,13 @@ class AddService: UIViewController {
 extension AddService {
     
     func setUpDatePicker() {
-            serviceDedlineTF.inputView = datePicker
-            datePicker.datePickerMode = .date
+        serviceDedlineTF.text = Date().toString()
+        serviceDedlineTF.inputView = datePicker
+        datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
        
-            
-            let localeID = Locale.preferredLanguages.first
-            datePicker.locale = Locale(identifier: localeID!)
+        let localeID = Locale.preferredLanguages.first
+        datePicker.locale = Locale(identifier: localeID!)
         
         datePicker.addTarget(self, action: #selector(dateChanged), for: .valueChanged)
         //создаем жест
