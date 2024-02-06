@@ -12,6 +12,8 @@
 		FA0CCBB22B67A2D9005765EB /* TabBarControllerForHamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */; };
 		FA0CCBB52B67A4F4005765EB /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = FA0CCBB42B67A4F4005765EB /* Localize_Swift */; };
 		FA0CCBB72B67CEF8005765EB /* SectionsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CCBB62B67CEF8005765EB /* SectionsHeader.swift */; };
+		FA125DF82B7269CC00D9F515 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA125DF72B7269CC00D9F515 /* Onboarding.swift */; };
+		FA125DFE2B72D40E00D9F515 /* UpdateAutoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA125DFD2B72D40E00D9F515 /* UpdateAutoViewController.swift */; };
 		FA47C49D2B70CB2D00BD8CDD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA47C49C2B70CB2D00BD8CDD /* Notifications.swift */; };
 		FA4A179C2B1E7DEA005C5D2F /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179B2B1E7DEA005C5D2F /* SignInModel.swift */; };
 		FA4A179E2B1E7E1F005C5D2F /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */; };
@@ -51,6 +53,8 @@
 		FA0CCBAF2B6790A1005765EB /* AddAutoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAutoVC.swift; sourceTree = "<group>"; };
 		FA0CCBB12B67A2D9005765EB /* TabBarControllerForHamePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerForHamePage.swift; sourceTree = "<group>"; };
 		FA0CCBB62B67CEF8005765EB /* SectionsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsHeader.swift; sourceTree = "<group>"; };
+		FA125DF72B7269CC00D9F515 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		FA125DFD2B72D40E00D9F515 /* UpdateAutoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAutoViewController.swift; sourceTree = "<group>"; };
 		FA47C49C2B70CB2D00BD8CDD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FA4A179B2B1E7DEA005C5D2F /* SignInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
 		FA4A179D2B1E7E1F005C5D2F /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
@@ -99,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA125DF62B7269A600D9F515 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FA125DF72B7269CC00D9F515 /* Onboarding.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		FA4A17992B1E6C95005C5D2F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +158,7 @@
 		FA9DEA262B0B8E4100F65796 /* garage */ = {
 			isa = PBXGroup;
 			children = (
+				FA125DF62B7269A600D9F515 /* Onboarding */,
 				FA4A179F2B1E7E9D005C5D2F /* Services */,
 				FA9DEA3E2B0B900500F65796 /* Models */,
 				FA9DEA3C2B0B8EC800F65796 /* Views */,
@@ -183,6 +196,7 @@
 		FA9DEA3D2B0B8ED200F65796 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA125DFD2B72D40E00D9F515 /* UpdateAutoViewController.swift */,
 				FA7A02F42B0C1C88003BE2D6 /* RegistrationVC.swift */,
 				FA7A02F22B0C1C55003BE2D6 /* ForgotPasswodVC.swift */,
 				FA02565A2B17D3B2007B18B7 /* ServiceHistory.swift */,
@@ -352,6 +366,8 @@
 				FA9DEA2A2B0B8E4100F65796 /* SceneDelegate.swift in Sources */,
 				FA9DEA442B0BBF3C00F65796 /* ColorModel.swift in Sources */,
 				FA4E1AE22B1D32C40079202A /* EyeButton.swift in Sources */,
+				FA125DFE2B72D40E00D9F515 /* UpdateAutoViewController.swift in Sources */,
+				FA125DF82B7269CC00D9F515 /* Onboarding.swift in Sources */,
 				FA4A179C2B1E7DEA005C5D2F /* SignInModel.swift in Sources */,
 				FA873D352B6EBB910029EDB9 /* Extensions.swift in Sources */,
 			);

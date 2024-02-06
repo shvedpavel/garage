@@ -17,6 +17,8 @@ class TabBarControllerForHamePage: UITabBarController {
         
         self.title = "GARAGE"
         self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        self.showUpdateView()
     }
     
     func addButton() -> UIBarButtonItem  {
@@ -33,6 +35,13 @@ class TabBarControllerForHamePage: UITabBarController {
             print(error.localizedDescription)
         }
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func showUpdateView() {
+        let vc = UpdateAutoViewController()
+        vc.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.present(vc, animated: true)
     }
 }
 

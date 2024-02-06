@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import SwiftUI
 
 enum TextFieldState {
     case normal
@@ -22,6 +23,8 @@ protocol SignInVCProtocol: AnyObject {
 }
 
 class SignInVC: UIViewController {
+    
+    @AppStorage(wrappedValue: 1, "currentPage") var currentPage
     
     // MARK: - Properties
     /// для связи с SignInPresenter создаем переменную
@@ -61,6 +64,8 @@ class SignInVC: UIViewController {
         addActions()
         
         stateDidChangeListenerHandle()
+        
+        startOnbording()
         
     }
     
@@ -184,6 +189,16 @@ private extension SignInVC {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let vc = storyboard.instantiateViewController(identifier:  "NewHomePage") as? TabBarControllerForHamePage {
             self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func startOnbording() {
+        if currentPage <= 3 {
+            currentPage = 1
+            let vc = OnbordingHost()
+            vc.modalPresentationStyle = .fullScreen
+            
+            self.navigationController?.present(vc, animated: false)
         }
     }
 }

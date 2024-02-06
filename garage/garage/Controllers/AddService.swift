@@ -78,7 +78,8 @@ class AddService: UIViewController {
             updateService(model: currentService)
             
         } else {
-            let model = ServiceModel(taskDescription: description, mileage: Int(serviceMileageTF.text ?? ""), dedline: serviceDedlineTF.text?.toDate(), isCompleted: false)
+            
+            let model = ServiceModel(taskDescription: description, mileage: Int(serviceMileageTF.text ?? ""), dedline: serviceDedlineTF.text?.toDate(), isCompleted: false, dateCreatedService: Date(), mileageCreatedService: currentAuto.mileage)
             addService(model: model)
         }
     }
@@ -175,7 +176,7 @@ class AddService: UIViewController {
 extension AddService {
     
     func setUpDatePicker() {
-        serviceDedlineTF.text = Date().toString()
+//        serviceDedlineTF.text = Date().toString()
         serviceDedlineTF.inputView = datePicker
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .wheels
@@ -202,4 +203,5 @@ extension AddService {
         formatter.dateFormat = "dd.MM.yyyy"
         serviceDedlineTF.text = formatter.string(from: datePicker.date)
     }
+    
 }

@@ -47,6 +47,7 @@ class AutoServiceImpl: AutoService {
                     guard let snapshot = item as? DataSnapshot,
                           let newAuto = AutoModel(snapshot: snapshot) else {
                         callback(.failure(.serverError))
+                        callback(.failure(.serverError))
                         return  }
                     autos.append(newAuto)
                 }
@@ -74,6 +75,13 @@ class AutoServiceImpl: AutoService {
         guard let user = Auth.auth().currentUser else { return }
         let autoReference = Database.database().reference(withPath: "users").child(user.uid).child("autos")
         
+        var servicesDic: [String : Any] = [:]
+        
+        model.services.forEach({ item in
+            servicesDic[item.id] = item.convertToDictionary()
+        })
+        
+        
         let dic: [AnyHashable: Any] = ["name" : model.name,
                                        "model" : model.model,
                                        "number" : model.number,
@@ -81,7 +89,9 @@ class AutoServiceImpl: AutoService {
                                        "motorVolume" : model.motorVolume,
                                        "motorType" : model.motorType,
                                        "mileage" : model.mileage,
-                                       "yearOfProduction" : model.yearOfProduction]
+                                       "yearOfProduction" : model.yearOfProduction,
+                                       "services": servicesDic
+        ]
     
         autoReference.updateChildValues([autoId: dic], withCompletionBlock: {(error, ref) in
             if let _ = error {

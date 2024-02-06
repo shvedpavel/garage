@@ -89,11 +89,9 @@ extension ServiceHistory: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         if autos[indexPath.section].services.isEmpty {
             cell.contentConfiguration = UIHostingConfiguration(content: {
-                HStack {
-                    Text("Отсутствует история обслуживания")
-                        .font(.system(size: 14.0))
-                        .foregroundStyle(Color(uiColor: Theme.currentTheme.textColorSecondary))
-                }
+                Text("Отсутствует история обслуживания")
+                    .font(.system(size: 14.0))
+                    .foregroundStyle(Color(uiColor: Theme.currentTheme.textColorSecondary))
             })
         } else {
             let service = autos[indexPath.section].services[indexPath.row]
@@ -102,7 +100,7 @@ extension ServiceHistory: UITableViewDelegate, UITableViewDataSource {
                 HStack {
                     Text(service.taskDescription)
                         .font(.system(size: 14.0))
-                        .foregroundStyle(Color(uiColor: Theme.currentTheme.textColor) )
+                        .foregroundStyle(Color(uiColor: Theme.currentTheme.textColorSecondary) )
                     Spacer()
                     Text(service.dedline?.toString() ?? "")
                         .font(.system(size: 14.0))

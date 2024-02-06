@@ -45,6 +45,11 @@ class NewHomePage: UIViewController {
         
         title = "GARAGE"
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         service.fetchAutos() { [weak self] result in
             switch result {
             case .success(let autos):
@@ -58,16 +63,10 @@ class NewHomePage: UIViewController {
                 self?.collectionView.selectItem(at: self?.selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
             case .failure(let failure):
                 print(failure)
-    
+                
             }
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        collectionView.selectItem(at: selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
-    }
-
 }
 
 //MARK: - UICollectionViewDataSource, UICollectionViewDelegate
@@ -131,8 +130,22 @@ extension NewHomePage: UICollectionViewDataSource, UICollectionViewDelegate {
                 cell.roundedWithShadow()
                 cell.tasksName.text = to.taskDescription
                 
+         //расчитываем progressViewValue
+                
+                
+                if let km = to.mileage  {
+                    var progressViewValue = Float(autos[selectedIndex.row].mileage - to.mileageCreatedService) / Float(km - to.mileageCreatedService)
+                    cell.progressView.progress = Float(progressViewValue)
+                } else {
+                    cell.progressView.progress = 0
+                }
+                    
+                
+            
+                
+                
 //дописать локигику по  пробегу или дате
-                cell.deadline.text = "Осталось ..."
+                cell.deadline.text = "Через 45 дней"
                     
                 return cell
             }
@@ -286,7 +299,7 @@ extension NewHomePage: AddServiceDelagate {
         if !model.isCompleted {
             self.autos[selectedIndex.row].services[index] = model
         } else {
-            self.autos.remove(at: index)
+            self.autos[selectedIndex.row].services.remove(at: index)
         }
         
         self.collectionView.reloadData()
@@ -295,6 +308,7 @@ extension NewHomePage: AddServiceDelagate {
     func deleteTO(index: Int) {
         self.autos[selectedIndex.row].services.remove(at: index)
         self.collectionView.reloadData()
+        self.collectionView.selectItem(at: self.selectedIndex, animated: false, scrollPosition: .centeredHorizontally)
     }
 }
 
