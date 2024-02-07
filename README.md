@@ -1,4 +1,6 @@
 # GARAGE 
+
+![GARAGE]([https://www.example.com/image.jpg](https://github.com/AnastasiyaShved/garage/assets/141756297/4ac4225d-0295-4cd7-8d29-81a400f46b88))
 ![image](https://github.com/AnastasiyaShved/garage/assets/141756297/4ac4225d-0295-4cd7-8d29-81a400f46b88)
 
 
@@ -6,14 +8,14 @@ GARAGE will save you from having to keep your cars' service dates in your head, 
 
 Features
 =====================
-- user authorisation
-- password recovery 
-- car information storage
-- service scheduling
-- reminder receipt
-- service history storage
-- data deletion and modification
-- deadline visualisation
+- [x] User authorisation
+- [x] Password recovery 
+- [x] Car information storage
+- [x] Service scheduling
+- [x] Reminder receipt
+- [x] Service history storage
+- [x] Data deletion and modification
+- [x] Deadline visualisation
 ---
 Installation 
 =====================
