@@ -13,8 +13,12 @@ Features
 - [x] Data deletion and modification
 - [x] Deadline visualisation
 ---
-Installation 
+Usage Guide
 =====================
+<img width="907" alt="Снимок экрана 2024-02-07 в 17 30 51" src="https://github.com/AnastasiyaShved/garage/assets/141756297/97e89936-8ed8-4cc7-8f7c-ad66a690e33e">
+
+Installation 
+-----------------------------------
 Download the source code and compile it yourself using Xcode. If you want to run it on your device, you will also need an Apple developer account.
 
 Registration
