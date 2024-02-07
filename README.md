@@ -1,4 +1,6 @@
-# GARAGE
+# GARAGE 
+![image](https://github.com/AnastasiyaShved/garage/assets/141756297/4ac4225d-0295-4cd7-8d29-81a400f46b88)
+
 
 GARAGE will save you from having to keep your cars' service dates in your head, remind you about insurance, and keep your cars' service history.
 
@@ -33,7 +35,7 @@ To create a maintenance notification, use the "Add" button after selecting a spe
 
 Notifications
 -----------------------------------
-When creating a maintenance service, you need to specify the due date or mileage at which you want to notify about the service.
+While creating a maintenance service, you need to specify the due date or mileage at which you want to notify about the service.
 The application will request to update the car mileage at each login (necessary for correct operation of the notification service, if the scheduled maintenance depends on the actual car mileage).
 
 History
