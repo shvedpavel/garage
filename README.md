@@ -1,7 +1,4 @@
-# GARAGE 
-
-![GARAGE]([https://www.example.com/image.jpg](https://github.com/AnastasiyaShved/garage/assets/141756297/4ac4225d-0295-4cd7-8d29-81a400f46b88))
-![image](https://github.com/AnastasiyaShved/garage/assets/141756297/4ac4225d-0295-4cd7-8d29-81a400f46b88)
+# ![ ]([https://www.example.com/image.jpg](https://github.com/AnastasiyaShved/garage/assets/141756297/4ac4225d-0295-4cd7-8d29-81a400f46b88))
 
 
 GARAGE will save you from having to keep your cars' service dates in your head, remind you about insurance, and keep your cars' service history.
