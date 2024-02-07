@@ -43,8 +43,14 @@ Mark a scheduled service as completed to move it to History. The page stores all
 Instruments
 =====================
 Firebase: Authentication, Realtime Database
+
+---
 UIKit
+
+---
 SwiftUI
+
+---
 Localize_swift
 
 
